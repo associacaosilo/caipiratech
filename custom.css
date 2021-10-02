@@ -108,6 +108,15 @@ p.nav-link.separador {
 	background-color: #782A03;
 }
 
+a.footer-item {
+    color: #f4d6a2;
+}
+
+a.footer-item:hover {
+    text-decoration: none;
+}
+
+
 .container-fluid p,h5,h4,h3,h2,h1 {
 	color: #F4D6A2;
 	font-family: BreeSerifSemiBold;
