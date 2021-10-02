@@ -8,6 +8,15 @@
      src: url('fonts/BreeSerif-SemiBold.otf');
 }
 
+a.menu-item {
+    color: #f4d6a2;
+}
+
+a.menu-item:hover {
+    text-decoration: none;
+	color: #2A4D3C;
+}
+
 .navbar {
     background-color: #608573;
 }
