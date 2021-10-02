@@ -17,6 +17,13 @@ a.menu-item:hover {
 	color: #2A4D3C;
 }
 
+img.logomenu {
+    max-height: 20px;
+}
+img.logomenu:hover {
+    background-color: #2a4d3c;
+}
+
 .navbar {
     background-color: #608573;
 }
