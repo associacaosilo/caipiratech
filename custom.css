@@ -1,8 +1,19 @@
+@font-face {
+     font-family: BreeSerifLight;
+     src: url('fonts/BreeSerif-Light.otf');
+}
+
+@font-face {
+     font-family: BreeSerifSemiBold;
+     src: url('fonts/BreeSerif-SemiBold.otf');
+}
+
 .navbar {
     background-color: #608573;
 }
 
 a.nav-link {
+	font-family: BreeSerifSemiBold;
     color: #2A4D3C;
 	font-weight: bold;
 }
@@ -10,6 +21,27 @@ a.nav-link {
 a:hover.nav-link {
     color: #F4D6A2;
 	font-weight: bold;
+}
+
+a.dropdown-item {
+    font-family: BreeSerifSemiBold;
+    color: #2a4d3c;
+	background-color: #88A396;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+    color: #F4D6A2;
+    background-color: #2A4D3C;
+}
+
+.dropdown-divider {
+    margin: 0;
+	border-top: 1px solid #2a4d3c;
+}
+
+.dropdown-menu {
+    padding: 0;
+	border: 0;
 }
 
 a.navbar-brand {
@@ -62,6 +94,12 @@ p.nav-link.separador {
 
 .container-fluid p,h5,h4,h3,h2,h1 {
 	color: #F4D6A2;
+	font-family: BreeSerifSemiBold;
+}
+
+.container-fluid p {
+	color: #F4D6A2;
+	font-family: BreeSerifLight;
 }
 
 #section1 img {
