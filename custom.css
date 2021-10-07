@@ -147,7 +147,7 @@ a.footer-item:hover {
 	margin-top: -25%;
 }
 
-#section5 img {
+.img-100 {
     max-width: 100%;
 }
 
@@ -155,11 +155,11 @@ a.footer-item:hover {
     max-width: 35%;
 }
 
-#img-mapa {
-    width: 80%;
-}
+/* #img-mapa { */
+    /* width: 80%; */
+/* } */
 
-#img-vegetal {
+.img-vegetal {
 	max-width: 80%;
 	margin-top: -25%;
 	margin-bottom: -10%;
