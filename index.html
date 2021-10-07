@@ -65,10 +65,11 @@
 	  <img alt="logo caipiratechlab" src="img/logo_principal.png" height="70px">
 	  </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <!-- <span class="navbar-toggler-icon"></span> -->
+		<i title="" class="fa fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav flex-row mx-auto">
+		<ul class="navbar-nav flex-row mx-auto">
 		  <li class="nav-item dropdown">
 			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown">Mapeamento</a>
 			<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -106,28 +107,26 @@
 
 
 	<div class="container-fluid">
-		<div class="row align-items-center" id="section1">
-			<div class="col-md-6 mx-auto text-right">
-				<img alt="Frutos" src="img/Ilustracao_1.png">
+		<div class="row align-items-center section1 py-3 py-md-5">
+			<div class="col-md-6 mx-auto text-center text-md-right">
+				<img alt="Frutos" src="img/Ilustracao_1.png" class="img-capa">
 			</div>
-			<div class="col-md-6">
-				<br /><br /><br />
-				<h1 class="text-left">
+			<div class="col-md-6 mx-auto text-center text-md-left">
+				<h1>
 					de onde vem
 				</h1>
-				<h1 class="text-left">
+				<h1>
 					o alimento
 				</h1>
-				<h1 class="text-left">
+				<h1>
 					que você
 				</h1>
-				<h1 class="text-left">
+				<h1>
 					consome?
 				</h1>
-				<br /><br /><br />
 			</div>
 		</div>
-		<div class="row align-items-center py-3" id="section2">
+		<div class="row align-items-center py-3 py-md-4 section2">
 			<div class="col-md-6">
 				<h3 class="text-center">
 					conheça o programa
@@ -136,18 +135,18 @@
 			</div>
 			<div class="col-md-6">
 				<div class="row align-items-center">
-					<div class="col-md-8">
-						<p class="text-left">
+					<div class="col-md-8 text-center text-md-left">
+						<p>
 							<small>Caipiratech é um programa da Silo que tem por objetivo colaborar com o fortalecimento dos sistemas alimentares garantindo assim a perenidade da produção a da distribuição de alimentos saudáveis, justos e sustentáveis.</small>
 						</p>
 					</div>
-					<div class="col-md-4">
-						<img alt="Logotipo Silo" src="img/logo_barra_4.png">
+					<div class="col-md-4 text-center text-md-left"">
+						<img alt="Logotipo Silo" src="img/logo_barra_4.png" class="img-logosilo">
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="row align-items-center" id="section3">
+		<div class="row align-items-center section3 pt-3 pb-4 py-md-0">
 			<div class="col-md-6">
 				<!-- <div class="mx-auto"> -->
 					<!-- <h1 class="text-left"> -->
@@ -163,19 +162,17 @@
 						<!-- local -->
 					<!-- </h1> -->
 				<!-- </div> -->
-				<div class="mx-auto titulo250">
-					<h1 class="text-left">
+				<div class="mx-auto titulo250 text-center text-md-left">
+					<h1>
 						ajude a	viabilizar a produção local
 					</h1>
 				</div>
 			</div>
 			<div class="col-md-6">
 				<div class="row align-items-center">
-					<div class="col-md-8">
-						<p class="text-left">
+					<div class="col-md-8 text-center text-md-left">
+						<p>
 							busque conhecer produtoras e produtores de sua região
-						</p>
-						<p class="text-left">
 							experimente comida de verdade!
 						</p>
 						<button type="button" class="btn btn-sm btn-caipira">
@@ -183,12 +180,12 @@
 						</button>
 					</div>
 					<div class="col-md-4">
-						<img alt="Cenoura" src="img/Ilustracao_2.png">
+						<img alt="Cenoura" src="img/Ilustracao_2.png" class="d-none d-md-block img-cenoura">
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="row align-items-center" id="section4">
+		<div class="row align-items-center section4">
 			<div class="col-md-12">
 				<div class="row align-items-center">
 					<div class="col-md-9 mx-auto text-center">
@@ -201,9 +198,9 @@
 						</div>
 					</div>
 				</div>
-				<div class="row align-items-center" id="section41">
+				<div class="row align-items-center">
 					<div class="col-md-2">
-						<img alt="fruta" src="img/Ilustracao_3.png">
+						<img alt="fruta" src="img/Ilustracao_3.png" class="d-none d-md-block img-fruta-section4">
 					</div>
 					<div class="col-md-8 text-center">
 						<p class="text-center">
@@ -218,24 +215,25 @@
 				</div>
 			</div>
 		</div>
-		<div class="row align-items-center pb-3" id="section5">
+		<div class="row align-items-center py-4 pb-md-3 pt-md-0 section5">
 			<div class="col-md-12">
 				<div class="row">
 					<div class="col-md-6">
 					</div>
-					<div class="col-md-6 text-center">
-						<img alt="fruta" src="img/Ilustracao_4.png" class="img-vegetal">
+					<div class="col-md-6 text-right py-5 py-md-0">
+						<!-- <img alt="vegetal" src="img/Ilustracao_4.png" class="img-vegetal d-none d-md-block"> -->
+						<img alt="vegetal" src="img/Ilustracao_4.png" class="img-vegetal">
 					</div>
 				</div>
 				<div class="row align-items-center">
 					<div class="col-md-3">
-						<img alt="cumbuca" src="img/Ilustracao_5.png" class="img-100">
+						<img alt="cumbuca" src="img/Ilustracao_5.png" class="img-100 d-none d-md-block">
 					</div>
-					<div class="col-md-6 text-center">
-						<h3 class="text-left">
+					<div class="col-md-6 text-center text-md-left">
+						<h3>
 							em breve
 						</h3>
-						<h3 class="text-left">
+						<h3>
 							cursos caipiratechlab
 						</h3>
 						<br /><br /><br />
@@ -243,7 +241,7 @@
 							inscreva-se!
 						</button>
 					</div>
-					<div class="col-md-3">
+					<div class="col-6 col-md-3 mx-auto text-center pt-3">
 						<img alt="cogumelos" src="img/Ilustracao_6.png" class="img-100">
 					</div>
 				</div>

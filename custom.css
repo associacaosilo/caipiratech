@@ -78,29 +78,33 @@ p.nav-link.separador {
 	font-weight: bold;
 }
 
+button.navbar-toggler {
+    color: #f4d6a2;
+}
+
 #section-header {
 	background-color: #88A396;
 }
 
-#section1 {
+.section1 {
 	background-color: #386650;
 }
 
-#section2 {
+.section2 {
 	background-color: #2A4D3C;
 }
 
-#section3 {
+.section3 {
 	background-color: #F24F15;
 }
 
-#section4 {
+.section4 {
 	background-color: #F57244;
 	padding-top: 5%;
 	padding-bottom: 5%;
 }
 
-#section5 {
+.section5 {
 	background-color: #A03804;
 }
 
@@ -127,22 +131,22 @@ a.footer-item:hover {
 	font-family: BreeSerifLight;
 }
 
-#section1 img {
+.img-capa {
     width: 60%;
 }
 
-#section2 img {
+.img-logosilo {
     width: 40%;
 }
 
-#section3 img {
+.img-cenoura {
     max-width: 180%;
 	margin-left: -80%;
 	margin-top: -20%;
     margin-bottom: -20%;
 }
 
-#section41 img {
+.img-fruta-section4 {
     max-width: 100%;
 	margin-top: -25%;
 }
@@ -169,7 +173,7 @@ a.footer-item:hover {
 	max-width: 20%;
 }
 
-#section2 p {
+.section2 p {
     margin-top: 1rem;
 }
 
