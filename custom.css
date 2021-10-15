@@ -28,6 +28,10 @@ img.logomenu:hover {
     background-color: #608573;
 }
 
+.nav-link {
+    padding: 0rem 1rem;
+}
+
 a.nav-link {
 	font-family: BreeSerifSemiBold;
     color: #2A4D3C;
@@ -58,13 +62,14 @@ a:hover.nav-link {
 .dropdown-menu {
     padding: 0;
 	border: 0;
+	min-width: 0;
 }
 
-a.navbar-brand {
-	color: #F4D6A2;
-	font-weight: bold;
-	padding-left: 250px;
-}
+/* a.navbar-brand { */
+	/* color: #F4D6A2; */
+	/* font-weight: bold; */
+	/* padding-left: 250px; */
+/* } */
 
 /* .container-fluid { */
 	/* padding-top: 72px; */
@@ -86,7 +91,7 @@ button.navbar-toggler {
     color: #f4d6a2;
 }
 
-#section-header {
+.section-header {
 	background-color: #88A396;
 }
 
@@ -212,4 +217,8 @@ a.footer-item:hover {
 .fundo-mapa {
 	border-radius: 10px;
 	background-color: #edbe7a;
+}
+
+.navbar-collapse {
+    flex-grow: 0;
 }
