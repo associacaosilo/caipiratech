@@ -108,7 +108,7 @@ button.navbar-toggler {
 	background-color: #A03804;
 }
 
-#section-footer {
+.section-footer {
 	background-color: #782A03;
 }
 
@@ -155,9 +155,10 @@ a.footer-item:hover {
     max-width: 100%;
 }
 
-#section-footer img {
-    max-width: 35%;
-}
+/* #section-footer img { */
+    /* max-width: 35%; */
+/* } */
+
 
 /* #img-mapa { */
     /* width: 80%; */
@@ -170,7 +171,11 @@ a.footer-item:hover {
 }
 
 .logo-pequeno {
-	max-width: 20%;
+	max-width: 40%;
+}
+
+.logo-pequeno2 {
+    max-width: 20%;
 }
 
 .section2 p {
