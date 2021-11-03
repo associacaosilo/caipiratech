@@ -1,0 +1,19 @@
+# Site
+title: Caipiratech LAB
+subtitle: 
+
+# URL
+url: https://caipiratech.silo.org.br
+baseurl: ''
+permalink: :title/
+#include: ['_pages']
+
+# Build settings
+#markdown: kramdown
+#port: 4666
+#future: false
+
+# Plugins
+repository: associacaosilo/caipiratech
+plugins:
+  - jekyll-feed

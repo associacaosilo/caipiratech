@@ -1,0 +1,109 @@
+body { background: #ffffff; color: #000000; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
+
+@font-face { font-family: BreeSerifLight; src: url("fonts/BreeSerif-Light.otf"); }
+@font-face { font-family: BreeSerifSemiBold; src: url("fonts/BreeSerif-SemiBold.otf"); }
+a.menu-item { color: #f4d6a2; }
+
+a.menu-item:hover { text-decoration: none; color: #2A4D3C; }
+
+img.logomenu { max-height: 20px; }
+
+img.logomenu:hover { background-color: #2a4d3c; }
+
+.navbar { background-color: #608573; }
+
+.nav-link { padding: 0rem 1rem; }
+
+a.nav-link { font-family: BreeSerifSemiBold; color: #2A4D3C; font-weight: bold; }
+
+a:hover.nav-link { color: #F4D6A2; font-weight: bold; }
+
+.dropdown-item { font-family: BreeSerifSemiBold; color: #2a4d3c; background-color: #88A396; }
+
+.dropdown-item:focus, .dropdown-item:hover { color: #F4D6A2; background-color: #2A4D3C; }
+
+.dropdown-divider { margin: 0; border-top: 1px solid #2a4d3c; }
+
+.dropdown-menu { padding: 0; border: 0; min-width: 0; }
+
+/* a.navbar-brand { */
+/* color: #F4D6A2; */
+/* font-weight: bold; */
+/* padding-left: 250px; */
+/* } */
+/* .container-fluid { */
+/* padding-top: 72px; */
+/* } */
+p.dropdown-item { margin-bottom: 0; }
+
+p.nav-link.separador { padding-right: 0 !important; padding-left: 0 !important; margin-bottom: 0; color: #2A4D3C; font-weight: bold; }
+
+button.navbar-toggler { color: #f4d6a2; }
+
+.section-header { background-color: #88A396; }
+
+.section1 { background-color: #386650; }
+
+.section2 { background-color: #2A4D3C; }
+
+.section3 { background-color: #F24F15; }
+
+.section4 { background-color: #F57244; padding-top: 5%; padding-bottom: 5%; }
+
+.section5 { background-color: #A03804; }
+
+.section-footer { background-color: #782A03; }
+
+a.footer-item { color: #f4d6a2; }
+
+a.footer-item:hover { text-decoration: none; }
+
+.container-fluid p, h5, h4, h3, h2, h1 { color: #F4D6A2; font-family: BreeSerifSemiBold; }
+
+.container-fluid p { color: #F4D6A2; font-family: BreeSerifLight; }
+
+.img-capa { width: 60%; }
+
+.img-logosilo { width: 40%; }
+
+.img-cenoura { max-width: 180%; margin-left: -80%; margin-top: -20%; margin-bottom: -20%; }
+
+.img-fruta-section4 { max-width: 100%; margin-top: -25%; }
+
+.img-100 { max-width: 100%; }
+
+/* #section-footer img { */
+/* max-width: 35%; */
+/* } */
+/* #img-mapa { */
+/* width: 80%; */
+/* } */
+.img-vegetal { max-width: 80%; margin-top: -25%; margin-bottom: -10%; }
+
+.logo-pequeno { max-width: 40%; }
+
+.logo-pequeno2 { max-width: 20%; }
+
+.section2 p { margin-top: 1rem; }
+
+.titulo250 { width: 250px; }
+
+.btn-caipira { color: #F4D6A2; background-color: #B63B10; border-color: #B63B10; font-weight: bold; border-radius: 40px; }
+
+.btn-caipira:hover { color: #F4D6A2; background-color: B63B10; border-color: B63B10; font-weight: bold; }
+
+.redestopo { height: 20px; }
+
+.fundo-mapa { border-radius: 10px; background-color: #edbe7a; }
+
+.navbar-collapse { flex-grow: 0; }
+
+a.swipebox img { width: 100%; }
+
+.iframe-layout { width: 100%; height: 100%; }
+
+.iframe-mapa { z-index: -5; top: 0; border: 0; height: 100%; position: absolute; width: 100%; }
+
+li a:hover { color: #f4d6a2; }
+
+li a { color: #f4d6a2; }
