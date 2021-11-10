@@ -1,6 +1,6 @@
 ---
 layout: gallery
-swipebox: c20covid
+swipebox: rede_caipiratechlab
 title: Rede Caipiratech
 ---
 
