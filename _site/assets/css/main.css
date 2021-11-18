@@ -2,6 +2,8 @@ body { background: #ffffff; color: #000000; font-family: -apple-system, BlinkMac
 
 @font-face { font-family: BreeSerifLight; src: url("fonts/BreeSerif-Light.otf"); }
 @font-face { font-family: BreeSerifSemiBold; src: url("fonts/BreeSerif-SemiBold.otf"); }
+body { font-weight: normal; }
+
 a.menu-item { color: #f4d6a2; }
 
 a.menu-item:hover { text-decoration: none; color: #2A4D3C; }
@@ -14,9 +16,9 @@ img.logomenu:hover { background-color: #2a4d3c; }
 
 .nav-link { padding: 0rem 1rem; }
 
-a.nav-link { font-family: BreeSerifSemiBold; color: #2A4D3C; font-weight: bold; }
+a.nav-link { font-family: BreeSerifSemiBold; color: #2A4D3C; /* font-weight: bold; */ }
 
-a:hover.nav-link { color: #F4D6A2; font-weight: bold; }
+a:hover.nav-link { color: #F4D6A2; /* font-weight: bold; */ }
 
 .dropdown-item { font-family: BreeSerifSemiBold; color: #2a4d3c; background-color: #88A396; }
 
@@ -36,7 +38,7 @@ a:hover.nav-link { color: #F4D6A2; font-weight: bold; }
 /* } */
 p.dropdown-item { margin-bottom: 0; }
 
-p.nav-link.separador { padding-right: 0 !important; padding-left: 0 !important; margin-bottom: 0; color: #2A4D3C; font-weight: bold; }
+p.nav-link.separador { padding-right: 0 !important; padding-left: 0 !important; margin-bottom: 0; color: #2A4D3C; /* font-weight: bold; */ }
 
 button.navbar-toggler { color: #f4d6a2; }
 
@@ -58,9 +60,11 @@ a.footer-item { color: #f4d6a2; }
 
 a.footer-item:hover { text-decoration: none; }
 
-.container-fluid p, h5, h4, h3, h2, h1 { color: #F4D6A2; font-family: BreeSerifSemiBold; }
+.container-fluid h5, h4, h3, h2, h1 { color: #F4D6A2; font-family: BreeSerifSemiBold; font-weight: normal; }
 
-.container-fluid p { color: #F4D6A2; font-family: BreeSerifLight; }
+.container-fluid p, h6 { color: #F4D6A2; font-family: BreeSerifLight; font-weight: normal; }
+
+.h6, h6 { font-size: 1.3rem; }
 
 .img-capa { width: 60%; }
 
@@ -88,9 +92,9 @@ a.footer-item:hover { text-decoration: none; }
 
 .titulo250 { width: 250px; }
 
-.btn-caipira { color: #F4D6A2; background-color: #B63B10; border-color: #B63B10; font-weight: bold; border-radius: 40px; }
+.btn-caipira { color: #F4D6A2; background-color: #B63B10; border-color: #B63B10; border-radius: 40px; font-family: BreeSerifSemiBold; padding: 0.5rem 1.2rem; }
 
-.btn-caipira:hover { color: #F4D6A2; background-color: B63B10; border-color: B63B10; font-weight: bold; }
+.btn-caipira:hover { color: #F4D6A2; background-color: B63B10; border-color: B63B10; }
 
 .redestopo { height: 20px; }
 
@@ -109,3 +113,9 @@ a.swipebox img:hover { transform: scale(1.025); }
 li a:hover { color: #f4d6a2; }
 
 li a { color: #f4d6a2; }
+
+summary { color: #F4D6A2; font-family: BreeSerifLight; font-weight: normal; font-size: 1.3rem; }
+
+.bg-claro { /* background-color: #E2845A; */ background-color: #FFF; }
+
+.filtro-estados p, a, a:hover { color: #2A4D3C; font-family: BreeSerifSemiBold; }

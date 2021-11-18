@@ -2,7 +2,7 @@
 layout: gallery
 swipebox: rede_caipiratechlab
 title: Rede Caipiratech
-estado: 
+estado: mg
 ---
 
 ## Está é a nossa rede
