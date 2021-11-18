@@ -22,10 +22,10 @@
 				<ul>
 				{% for item in page.modulo1 %}
 					<details open>
-						<summary>
+						<summary class="mt-2">
 							{{ item.aula }}
 						</summary>
-						<p>{{ item.prof }}</p>
+						<p class="m-0 mb-2">{{ item.prof }}</p>
 						
 						<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="{{ item.player }}"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"></div>
 						<ul>
