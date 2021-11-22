@@ -7,96 +7,47 @@
 
 	{% include menu.html %}
 
+  {% capture classpar %} section{{ page.bgpar }}{% endcapture %}
+  {% capture classimpar %} section{{ page.bgimpar }}{% endcapture %}
+  {% capture classheader %} section{{ page.bgheader }}{% endcapture %}
 
 	<div class="container-fluid">
-		<div class="row align-items-center section1 py-3">
+		<div class="row align-items-center {{ classheader }} py-3">
 			<div class="col-12 mx-auto text-center">
 				{{ content }}
 			</div>
 		</div>
-		
-		
-		<div class="row align-items-center section2 py-3 py-md-5 px-1 px-md-5">
-			<div class="col-12 col-md-9 mx-auto">
-				<h2>{{ page.titulo1 }}</h2>
-				<ul>
-				{% for item in page.modulo1 %}
-					<details open>
-						<summary class="mt-2">
-							{{ item.aula }}
-						</summary>
-						<p class="m-0 mb-2">{{ item.prof }}</p>
-						
-						<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="{{ item.player }}"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"></div>
-						<ul>
-						{% for pdf in item.link %}
-							<li><a href="{{ pdf }}">{{ pdf }}</a></li>	
-						{% endfor %}
-						</ul>		
-						<br />
-					</details>
-				{% endfor %}
-				</ul>
-			</div>
-		</div>
-		<div class="row align-items-center section3 py-3 py-md-5 px-1 px-md-5">
-			<div class="col-12 col-md-9 mx-auto">
-				<h2>{{ page.titulo2 }}</h2>
-				<ul>
-				{% for item in page.modulo2 %}
-					<h6>{{ item.aula }}</h6>
-					<p>{{ item.prof }}</p>
-					<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="{{ item.player }}"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"></div>
+
+		{% for curso in page.cursos %}
+      <!-- {% capture parouimpar %}{% cycle 'impar', 'par' %}{% endcapture %} -->
+      
+			<!-- <div class="row align-items-center section2 py-3 py-md-5 px-1 px-md-5"> -->
+			<div class="row align-items-center {% cycle 'parouimpar': classimpar, classpar %} py-3 py-md-5 px-1 px-md-5">     
+				<div class="col-12 col-md-9 mx-auto">
+					<h2>{{ curso.titulo }}</h2>
 					<ul>
-					{% for pdf in item.link %}
-						<li><a href="{{ pdf }}">{{ pdf }}</a></li>	
+					{% for modulo in curso.modulos %}
+						<!-- <details open> -->
+						<details>
+							<!-- <summary class="mt-2"> -->
+							<summary>						
+								{{ modulo.aula }}
+							</summary>
+							<p class="m-0 mb-2">{{ modulo.prof }}</p>
+							
+							<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="{{ modulo.player }}"></iframe>
+							<ul>
+							{% for pdf in modulo.link %}
+								<li><a href="{{ pdf }}">{{ pdf }}</a></li>	
+							{% endfor %}
+							</ul>		
+							<br />
+						</details>
 					{% endfor %}
-					</ul>		
-					<br />
-				{% endfor %}
-				</ul>
-			</div>	
-		</div>
-		<div class="row align-items-center section4 py-3 py-md-5 px-1 px-md-5">
-			<div class="col-12 col-md-9 mx-auto">
-				<h2>{{ page.titulo3 }}</h2>
-				<ul>
-				{% for item in page.modulo3 %}
-					<details>
-						<summary>
-							{{ item.aula }}
-						</summary>
-						<p>{{ item.prof }}</p>
-						<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="{{ item.player }}"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"></div>
-						<ul>
-						{% for pdf in item.link %}
-							<li><a href="{{ pdf }}">{{ pdf }}</a></li>	
-						{% endfor %}
-						</ul>		
-						<br />
-					</details>
-				{% endfor %}
-				</ul>
+					</ul>
+				</div>
 			</div>
-		</div>
-		<div class="row align-items-center section5 py-3 py-md-5 px-1 px-md-5">
-			<div class="col-12 col-md-9 mx-auto">
-				<h2>{{ page.titulo4 }}</h2>
-				<ul>
-				{% for item in page.modulo4 %}
-					<h3>{{ item.aula }}</h3>
-					<h5>{{ item.prof }}</h5>
-					<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="{{ item.player }}"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"></div>
-					<ul>
-					{% for pdf in item.link %}
-						<li><a href="{{ pdf }}">{{ pdf }}</a></li>	
-					{% endfor %}
-					</ul>		
-					<br />
-				{% endfor %}
-				</ul>
-			</div>
-		</div>
+		{% endfor %}
 		
 	</div>
 	{% include footer.html %}
