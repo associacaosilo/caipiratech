@@ -1,9 +1,9 @@
 ---
 layout: cursos
 title: Cursos Caipiratech LAB
-bgheader: 1
-bgimpar: 5
-bgpar: 6
+bgheader: 2
+bgimpar: 3
+bgpar: 4
 cursos:
   - titulo: MÓDULO 1 – Construção Social de Mercados
     modulos:
