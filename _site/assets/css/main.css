@@ -44,7 +44,7 @@ button.navbar-toggler { color: #f4d6a2; }
 
 .section-header { background-color: #88A396; }
 
-.section1 { background-color: #386650; }
+.section1 { background-color: #386650; min-height: 35vh; }
 
 .section2 { background-color: #2A4D3C; }
 
@@ -116,6 +116,6 @@ li a { color: #f4d6a2; }
 
 summary { color: #F4D6A2; font-family: BreeSerifLight; font-weight: normal; font-size: 1.3rem; }
 
-.bg-claro { /* background-color: #E2845A; */ background-color: #FFF; }
+.bg-claro { /* background-color: #E2845A; */ background-color: #fddbba; }
 
 .filtro-estados p, a, a:hover { color: #2A4D3C; font-family: BreeSerifSemiBold; }
