@@ -5,7 +5,7 @@ title: Rede Caipiratech
 estado: 
 ---
 
-## Está é a nossa rede
+## Esta é a nossa rede
 
 Clique nas imagens para ver em tela cheia
 
