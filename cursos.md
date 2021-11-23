@@ -1,7 +1,7 @@
 ---
 layout: cursos
 title: Cursos Caipiratech LAB
-bgheader: 2
+bgheader: 1
 bgimpar: 3
 bgpar: 4
 cursos:
@@ -11,20 +11,19 @@ cursos:
         prof: com Giselda Beserra (Pólo da Borborema, PB) e Ana Litardo (Assoc. Agroecológica de Teresópolis, RJ)
         player: caipiratechlab-modulo-1
         link:
-          - http://www.google.com
+          - ../media/docs/Apresentacao-ana-litardo.pdf 
+          - https://youtu.be/Cq1_faoa3Eo
       - aula: História e prática das políticas públicas para pequenas/os agricultoras/es no Brasil
         prof: com Emilia Jomalinis (Pesquisadora associada do Centro de Referência em Soberania e Segurança Alimentar e Nutricional/UFRRJ, RJ)
         player: caipiratechlab-modulo-1-aula-2
         link:
-          - http://www.google.com
-          - http://www.google.com
-          - http://www.google.com
+          - ../media/docs/apresentacao-emilia.pdf
       - aula: Novos mercados e compras coletivas
         prof: "com Paula Guimarães (Cooperativa Camponesa Central de MG) e Apolônia da Silva (Rede de Mulheres Produtoras do Pajeú, PE); mediação: Marcela Martins (Amerek/UFMG, MG)"
-        player: caipiratechlab-modulo-1-aula-3
+        player: br-caipiratechlab-modulo-1-aula-3
         link:
-          - http://www.google.com
-          - http://www.google.com
+          -  ../media/docs/pajeu.pdf
+          - ../media/docs/concentra.pdf
 
   - titulo: MÓDULO 2 – Agricultura e Mudanças Climáticas
     modulos:
