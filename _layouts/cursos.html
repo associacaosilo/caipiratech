@@ -22,31 +22,34 @@
       <!-- {% capture parouimpar %}{% cycle 'impar', 'par' %}{% endcapture %} -->
       
 			<!-- <div class="row align-items-center section2 py-3 py-md-5 px-1 px-md-5"> -->
-			<div class="row align-items-center {% cycle 'parouimpar': classimpar, classpar %} py-3 py-md-5 px-1 px-md-5">     
-				<div class="col-12 col-md-9 mx-auto">
-					<h2>{{ curso.titulo }}</h2>
-					<ul>
-					{% for modulo in curso.modulos %}
-						<!-- <details open> -->
-						<details>
-							<!-- <summary class="mt-2"> -->
-							<summary>						
-								{{ modulo.aula }}
-							</summary>
-							<p class="m-0 mb-2">{{ modulo.prof }}</p>
-							
-							<iframe src="https://archive.org/embed/{{ modulo.player }}" width="90%" height="40" frameborder="0" webkitallowfullscreen="false" mozallowfullscreen="false"></iframe>
-							<ul>
-                            <p> MATERIAL COMPLEMENTAR:</p>
-							{% for pdf in modulo.link %}
-								<li><a href="{{ pdf }}" target="_blank">{{ pdf }}</a></li>	
-							{% endfor %}
-							</ul>		
-							<br />
-						</details>
-					{% endfor %}
-					</ul>
-				</div>
+			<div class="row align-items-center {% cycle 'parouimpar': classimpar, classpar %} py-3 py-md-5 px-1 px-md-5">   
+        <div class="row align-items-center py-4 container mx-auto">
+          <!-- <div class="col-12 col-md-9 mx-auto"> -->
+          <div class="col-12">
+            <h2>{{ curso.titulo }}</h2>
+            <ul>
+            {% for modulo in curso.modulos %}
+              <!-- <details open> -->
+              <details>
+                <!-- <summary class="mt-2"> -->
+                <summary>						
+                  {{ modulo.aula }}
+                </summary>
+                <p class="m-0 mb-2">{{ modulo.prof }}</p>
+                
+                <iframe src="https://archive.org/embed/{{ modulo.player }}" width="90%" height="40" frameborder="0" webkitallowfullscreen="false" mozallowfullscreen="false"></iframe>
+                <ul>
+                  <p> MATERIAL COMPLEMENTAR:</p>
+                {% for pdf in modulo.link %}
+                  <li><a href="{{ pdf }}" target="_blank">{{ pdf }}</a></li>	
+                {% endfor %}
+                </ul>		
+                <br />
+              </details>
+            {% endfor %}
+            </ul>
+          </div>
+        </div>
 			</div>
 		{% endfor %}
 		

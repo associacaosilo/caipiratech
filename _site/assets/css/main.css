@@ -2,7 +2,7 @@ body { background: #ffffff; color: #000000; font-family: -apple-system, BlinkMac
 
 @font-face { font-family: BreeSerifLight; src: url("fonts/BreeSerif-Light.otf"); }
 @font-face { font-family: BreeSerifSemiBold; src: url("fonts/BreeSerif-SemiBold.otf"); }
-body { font-weight: normal; }
+body { font-weight: normal; color: #F4D6A2; min-height: 100vh; background: #782A03; }
 
 a.menu-item { color: #f4d6a2; }
 

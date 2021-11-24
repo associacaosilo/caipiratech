@@ -14,24 +14,26 @@
 				<h1 style="text-align: center;">{{ page.title }}</h1>
 			</div>
 		</div>		
-		<div class="row section2 py-3 py-md-5 px-5" style="height: 100vh">
-			<div class="col-9 mx-auto">
-				
-				<ul>
-				{% for item in page.forum %}
-					<h3>{{ item.titulo }}</h3>
-					{% if item.descricao %}
-					  <p>{{ item.descricao }}</p>
-					{% endif %}						
-					<ul>
-					{% for pdf in item.pdfs %}
-						<li><a href="{{ site.baseurl }}/media/docs/{{ pdf }}">{{ pdf }}</a></li>	
-					{% endfor %}
-					</ul>		
-					<br />
-				{% endfor %}
-				</ul>
-			</div>	
+		<div class="row section2 py-5 px-1 px-md-5">
+      <div class="py-0 py-md-5 container mx-auto">
+      <!-- py a mais para compensar que só tem 1 item no fórum -->
+        <div class="col-12">          
+          <!-- <ul> -->
+          {% for item in page.forum %}
+            <h3>{{ item.titulo }}</h3>
+            {% if item.descricao %}
+              <p>{{ item.descricao }}</p>
+            {% endif %}						
+            <ul>
+            {% for pdf in item.pdfs %}
+              <li><a href="{{ site.baseurl }}/media/docs/{{ pdf }}">{{ pdf }}</a></li>	
+            {% endfor %}
+            </ul>		
+            <br />
+          {% endfor %}
+          <!-- </ul> -->
+        </div>	
+      </div>
 		</div>
 		
 	</div>
