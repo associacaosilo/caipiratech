@@ -44,13 +44,15 @@ button.navbar-toggler { color: #f4d6a2; }
 
 .section-header { background-color: #88A396; }
 
-.section1 { background-color: #386650; min-height: 35vh; }
+.cabecalho { min-height: 35vh; }
+
+.section1 { background-color: #386650; }
 
 .section2 { background-color: #2A4D3C; }
 
 .section3 { background-color: #F24F15; }
 
-.section4 { background-color: #F57244; padding-top: 5%; padding-bottom: 5%; }
+.section4 { background-color: #F57244; }
 
 .section5 { background-color: #A03804; }
 
