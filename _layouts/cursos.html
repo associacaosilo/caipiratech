@@ -40,8 +40,13 @@
                 <iframe src="https://archive.org/embed/{{ modulo.player }}" width="90%" height="40" frameborder="0" webkitallowfullscreen="false" mozallowfullscreen="false"></iframe>
                 <ul>
                   <p> MATERIAL COMPLEMENTAR:</p>
-                {% for pdf in modulo.link %}
-                  <li><a href="{{ pdf }}" target="_blank">{{ pdf }}</a></li>	
+                {% for cadalink in modulo.links %}
+                  {% if cadalink.titulo %}
+                    {% assign link-titulo = cadalink.titulo %}
+                  {% else %}
+                    {% assign link-titulo = cadalink.link %}
+                  {% endif %}
+                  <li><a href="{{ cadalink.link }}" target="_blank">{{ link-titulo }}</a></li>	
                 {% endfor %}
                 </ul>		
                 <br />

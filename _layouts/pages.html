@@ -26,7 +26,12 @@
             {% endif %}						
             <ul>
             {% for pdf in item.pdfs %}
-              <li><a href="{{ site.baseurl }}/media/docs/{{ pdf }}">{{ pdf }}</a></li>	
+              {% if pdf.titulo %}
+                {% assign pdf-titulo = pdf.titulo %}
+              {% else %}
+                {% assign pdf-titulo = pdf.arquivo %}
+              {% endif %}
+              <li><a href="{{ site.baseurl }}/media/docs/{{ pdf.arquivo }}">{{ pdf-titulo }}</a></li>	
             {% endfor %}
             </ul>		
             <br />
