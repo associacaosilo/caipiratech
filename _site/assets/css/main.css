@@ -119,3 +119,5 @@ summary { color: #F4D6A2; font-family: BreeSerifLight; font-weight: normal; font
 .bg-claro { /* background-color: #E2845A; */ background-color: #fddbba; }
 
 .filtro-estados p, a, a:hover { color: #2A4D3C; font-family: BreeSerifSemiBold; }
+
+body.navia.jwaudio .jw-controls { background: #782a03; }
