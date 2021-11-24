@@ -292,7 +292,16 @@ summary {
 	
 }
 
-// archive player
-body.navia.jwaudio .jw-controls {
-    background: #782a03;
+
+// audio tag player
+
+audio::-webkit-media-controls-panel, video::-webkit-media-controls-panel {
+    background-color: #f4d6a2;
+}
+
+audio{
+    background-color: #f4d6a2;
+    opacity: 1;
+    width: 80% !important;
+    height: 50px !important;
 }
