@@ -13,9 +13,14 @@
 
 	<div class="container-fluid">
 		<div class="row align-items-center {{ classheader }} py-3 cabecalho">
-			<div class="col-12 mx-auto text-center">
-				{{ content }}
-			</div>
+      <div class="row align-items-center py-4 container mx-auto">
+        <div class="col-3 ml-auto text-center d-none d-md-block ">
+          <img alt="Frutos" src="/media/home/Ilustracao_{{ page.imgheader }}.png" class="w-100">
+        </div>
+        <div class="col-12 col-md-6 mr-auto text-center">
+          {{ content }}
+        </div>
+      </div>
 		</div>
 
 		{% for curso in page.cursos %}

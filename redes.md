@@ -2,6 +2,7 @@
 layout: gallery
 swipebox: rede_caipiratechlab
 title: Rede Caipiratech
+bgheader: 1
 estado: 
 ---
 

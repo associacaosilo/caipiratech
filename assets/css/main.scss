@@ -3,6 +3,20 @@
 
 @import "main";
 
+$fontColor: #f4d6a2;
+$fontColorMenu: #2A4D3C; /*mesma cor da Section2*/
+$bgSocialbar: #88A396; /*usada tb no bg do menu dropdown*/
+$bgMenu: #608573;
+$bgSection1: #386650;
+$bgSection2: #2A4D3C;
+$bgSection3: #F24F15;
+$bgSection4: #F57244;
+$bgSection5: #A03804;
+$bgFooter: #782A03;
+$bgButton: #B63B10;
+$bgMap: #edbe7a;
+$bgGallery: #fddbba;
+
 
 @font-face {
      font-family: BreeSerifLight;
@@ -16,29 +30,29 @@
 
 body {
 	font-weight: normal;
-  color: #F4D6A2;
+  color: $fontColor;
   min-height: 100vh;
-  background: #782A03;
+  background: $bgFooter;
 }
 
 a.menu-item {
-    color: #f4d6a2;
+    color: $fontColor;
 }
 
 a.menu-item:hover {
     text-decoration: none;
-	color: #2A4D3C;
+	color: $fontColorMenu;
 }
 
 img.logomenu {
     max-height: 20px;
 }
 img.logomenu:hover {
-    background-color: #2a4d3c;
+    background-color: $fontColorMenu;
 }
 
 .navbar {
-    background-color: #608573;
+    background-color: $bgMenu;
 }
 
 .nav-link {
@@ -47,35 +61,36 @@ img.logomenu:hover {
 
 a.nav-link {
 	font-family: BreeSerifSemiBold;
-    color: #2A4D3C;
+    color: $fontColorMenu;
 	/* font-weight: bold; */
 }
 
 a:hover.nav-link {
-    color: #F4D6A2;
+    color: $fontColor;
 	/* font-weight: bold; */
 }
 
 .dropdown-item {
     font-family: BreeSerifSemiBold;
-    color: #2a4d3c;
-	background-color: #88A396;
+    color: $fontColorMenu;
+	background-color: $bgSocialbar;
 }
 
 .dropdown-item:focus, .dropdown-item:hover {
-    color: #F4D6A2;
-    background-color: #2A4D3C;
+    color: $fontColor;
+    background-color: $fontColorMenu;
 }
 
 .dropdown-divider {
     margin: 0;
-	border-top: 1px solid #2a4d3c;
+	border-top: 1px solid $fontColorMenu;
 }
 
 .dropdown-menu {
     padding: 0;
 	border: 0;
 	min-width: 0;
+  border-radius: 0;
 }
 
 /* a.navbar-brand { */
@@ -96,16 +111,16 @@ p.nav-link.separador {
     padding-right: 0 !important;
     padding-left: 0 !important;
 	margin-bottom: 0;
-	color: #2A4D3C;
+	color: $fontColorMenu;
 	/* font-weight: bold; */
 }
 
 button.navbar-toggler {
-    color: #f4d6a2;
+    color: $fontColor;
 }
 
 .section-header {
-	background-color: #88A396;
+	background-color: $bgSocialbar;
 }
 
 .cabecalho {
@@ -113,31 +128,31 @@ button.navbar-toggler {
 }
 
 .section1 {
-	background-color: #386650;
+	background-color: $bgSection1;
 }
 
 .section2 {
-	background-color: #2A4D3C;
+	background-color: $bgSection2;
 }
 
 .section3 {
-	background-color: #F24F15;
+	background-color: $bgSection3;
 }
 
 .section4 {
-	background-color: #F57244;
+	background-color: $bgSection4;
 }
 
 .section5 {
-	background-color: #A03804;
+	background-color: $bgSection5;
 }
 
 .section-footer {
-	background-color: #782A03;
+	background-color: $bgFooter;
 }
 
 a.footer-item {
-    color: #f4d6a2;
+    color: $fontColor;
 }
 
 a.footer-item:hover {
@@ -146,13 +161,13 @@ a.footer-item:hover {
 
 
 .container-fluid h5,h4,h3,h2,h1 {
-	color: #F4D6A2;
+	color: $fontColor;
 	font-family: BreeSerifSemiBold;
 	font-weight: normal;
 }
 
 .container-fluid p,h6 {
-	color: #F4D6A2;
+	color: $fontColor;
 	font-family: BreeSerifLight;
 	font-weight: normal;
 }
@@ -217,18 +232,18 @@ a.footer-item:hover {
 }
 
 .btn-caipira {
-	color: #F4D6A2;
-    background-color: #B63B10;
-    border-color: #B63B10;
+	color: $fontColor;
+    background-color: $bgButton;
+    border-color: $bgButton;
 	border-radius: 40px;
 	font-family: BreeSerifSemiBold;
 	padding: 0.5rem 1.2rem
 }
 
 .btn-caipira:hover {
-    color: #F4D6A2;
-    background-color: B63B10;
-    border-color: B63B10;
+    color: $fontColor;
+    background-color: $bgButton;
+    border-color: $bgButton;
 }
 
 .redestopo {
@@ -237,7 +252,7 @@ a.footer-item:hover {
 
 .fundo-mapa {
 	border-radius: 10px;
-	background-color: #edbe7a;
+	background-color: $bgMap;
 }
 
 .navbar-collapse {
@@ -267,27 +282,27 @@ a.swipebox img:hover {
 }
 
 li a:hover {
-    color: #f4d6a2;
+    color: $fontColor;
 }
 
 li a {
-    color: #f4d6a2;
+    color: $fontColor;
 }
 
 summary {
-    color: #F4D6A2;
+    color: $fontColor;
     font-family: BreeSerifLight;
     font-weight: normal;
     font-size: 1.3rem;
 }
 
-.bg-claro{
+.bg-gallery{
 	/* background-color: #E2845A; */
-	background-color: #fddbba;
+	background-color: $bgGallery;
 }
 
 .filtro-estados p, a, a:hover{
-	color: #2A4D3C;
+	color: $fontColorMenu;
 	font-family: BreeSerifSemiBold;
 	
 }
@@ -296,11 +311,11 @@ summary {
 // audio tag player
 
 audio::-webkit-media-controls-panel, video::-webkit-media-controls-panel {
-    background-color: #f4d6a2;
+    background-color: $fontColor;
 }
 
 audio{
-    background-color: #f4d6a2;
+    background-color: $fontColor;
     opacity: 1;
     width: 80% !important;
     height: 50px !important;

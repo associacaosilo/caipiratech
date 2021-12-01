@@ -1,8 +1,10 @@
 body { background: #ffffff; color: #000000; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
 
+/*mesma cor da Section2*/
+/*usada tb no bg do menu dropdown*/
 @font-face { font-family: BreeSerifLight; src: url("fonts/BreeSerif-Light.otf"); }
 @font-face { font-family: BreeSerifSemiBold; src: url("fonts/BreeSerif-SemiBold.otf"); }
-body { font-weight: normal; color: #F4D6A2; min-height: 100vh; background: #782A03; }
+body { font-weight: normal; color: #f4d6a2; min-height: 100vh; background: #782A03; }
 
 a.menu-item { color: #f4d6a2; }
 
@@ -10,7 +12,7 @@ a.menu-item:hover { text-decoration: none; color: #2A4D3C; }
 
 img.logomenu { max-height: 20px; }
 
-img.logomenu:hover { background-color: #2a4d3c; }
+img.logomenu:hover { background-color: #2A4D3C; }
 
 .navbar { background-color: #608573; }
 
@@ -18,15 +20,15 @@ img.logomenu:hover { background-color: #2a4d3c; }
 
 a.nav-link { font-family: BreeSerifSemiBold; color: #2A4D3C; /* font-weight: bold; */ }
 
-a:hover.nav-link { color: #F4D6A2; /* font-weight: bold; */ }
+a:hover.nav-link { color: #f4d6a2; /* font-weight: bold; */ }
 
-.dropdown-item { font-family: BreeSerifSemiBold; color: #2a4d3c; background-color: #88A396; }
+.dropdown-item { font-family: BreeSerifSemiBold; color: #2A4D3C; background-color: #88A396; }
 
-.dropdown-item:focus, .dropdown-item:hover { color: #F4D6A2; background-color: #2A4D3C; }
+.dropdown-item:focus, .dropdown-item:hover { color: #f4d6a2; background-color: #2A4D3C; }
 
-.dropdown-divider { margin: 0; border-top: 1px solid #2a4d3c; }
+.dropdown-divider { margin: 0; border-top: 1px solid #2A4D3C; }
 
-.dropdown-menu { padding: 0; border: 0; min-width: 0; }
+.dropdown-menu { padding: 0; border: 0; min-width: 0; border-radius: 0; }
 
 /* a.navbar-brand { */
 /* color: #F4D6A2; */
@@ -62,9 +64,9 @@ a.footer-item { color: #f4d6a2; }
 
 a.footer-item:hover { text-decoration: none; }
 
-.container-fluid h5, h4, h3, h2, h1 { color: #F4D6A2; font-family: BreeSerifSemiBold; font-weight: normal; }
+.container-fluid h5, h4, h3, h2, h1 { color: #f4d6a2; font-family: BreeSerifSemiBold; font-weight: normal; }
 
-.container-fluid p, h6 { color: #F4D6A2; font-family: BreeSerifLight; font-weight: normal; }
+.container-fluid p, h6 { color: #f4d6a2; font-family: BreeSerifLight; font-weight: normal; }
 
 .h6, h6 { font-size: 1.3rem; }
 
@@ -94,9 +96,9 @@ a.footer-item:hover { text-decoration: none; }
 
 .titulo250 { width: 250px; }
 
-.btn-caipira { color: #F4D6A2; background-color: #B63B10; border-color: #B63B10; border-radius: 40px; font-family: BreeSerifSemiBold; padding: 0.5rem 1.2rem; }
+.btn-caipira { color: #f4d6a2; background-color: #B63B10; border-color: #B63B10; border-radius: 40px; font-family: BreeSerifSemiBold; padding: 0.5rem 1.2rem; }
 
-.btn-caipira:hover { color: #F4D6A2; background-color: B63B10; border-color: B63B10; }
+.btn-caipira:hover { color: #f4d6a2; background-color: #B63B10; border-color: #B63B10; }
 
 .redestopo { height: 20px; }
 
@@ -116,10 +118,12 @@ li a:hover { color: #f4d6a2; }
 
 li a { color: #f4d6a2; }
 
-summary { color: #F4D6A2; font-family: BreeSerifLight; font-weight: normal; font-size: 1.3rem; }
+summary { color: #f4d6a2; font-family: BreeSerifLight; font-weight: normal; font-size: 1.3rem; }
 
-.bg-claro { /* background-color: #E2845A; */ background-color: #fddbba; }
+.bg-gallery { /* background-color: #E2845A; */ background-color: #fddbba; }
 
 .filtro-estados p, a, a:hover { color: #2A4D3C; font-family: BreeSerifSemiBold; }
 
-body.navia.jwaudio .jw-controls { background: #782a03; }
+audio::-webkit-media-controls-panel, video::-webkit-media-controls-panel { background-color: #f4d6a2; }
+
+audio { background-color: #f4d6a2; opacity: 1; width: 80% !important; height: 50px !important; }
