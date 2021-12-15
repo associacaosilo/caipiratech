@@ -15,7 +15,7 @@ $bgSection5: #A03804;
 $bgFooter: #782A03;
 $bgButton: #B63B10;
 $bgMap: #edbe7a;
-$bgGallery: #fddbba;
+/*$bgGallery: #fddbba;*/
 
 
 @font-face {
@@ -298,11 +298,11 @@ summary {
 
 .bg-gallery{
 	/* background-color: #E2845A; */
-	background-color: $bgGallery;
+	background-color: $bgSection2;
 }
 
 .filtro-estados p, a, a:hover{
-	color: $fontColorMenu;
+	color: $fontColor;
 	font-family: BreeSerifSemiBold;
 	
 }
