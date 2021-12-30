@@ -17,8 +17,8 @@
 				{{ content }}
 			</div>
 		</div>
-		
-		{% for item in page.forum %}
+		{% assign foruns = site.foruns | sort: "ordem" %}
+		{% for item in foruns %}
 		<div class="row {% cycle 'parouimpar': classimpar, classpar %} py-5 px-1 px-md-5">
       <div class="py-0 py-md-5 container mx-auto">
       <!-- py a mais para compensar que só tem 1 item no fórum -->

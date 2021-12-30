@@ -17,3 +17,8 @@ include: ['_pages']
 repository: associacaosilo/caipiratech
 plugins:
   - jekyll-feed
+
+# Collections (Custom Posts)
+collections:
+  - foruns
+  - cursos

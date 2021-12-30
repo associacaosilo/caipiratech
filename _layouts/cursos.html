@@ -18,7 +18,8 @@
 			</div>
 		</div>
 
-		{% for curso in page.cursos %}
+		{% assign cursos = site.cursos | sort: "ordem" %}
+		{% for curso in cursos %}
       <!-- {% capture parouimpar %}{% cycle 'impar', 'par' %}{% endcapture %} -->
       
 			<!-- <div class="row align-items-center section2 py-3 py-md-5 px-1 px-md-5"> -->
@@ -28,23 +29,23 @@
           <div class="col-12">
             <h2>{{ curso.titulo }}</h2>
             <ul>
-            {% for modulo in curso.modulos %}
+            {% for aula in curso.aulas %}
               <!-- <details open> -->
               <details>
                 <!-- <summary class="mt-2"> -->
                 <summary>						
-                  {{ modulo.aula }}
+                  {{ aula.aula }}
                 </summary>
-                <p class="m-0 mb-2">{{ modulo.prof }}</p>
+                <p class="m-0 mb-2">{{ aula.prof }}</p>
                 
-                <!--<iframe src="https://archive.org/embed/{{ modulo.player }}" width="90%" height="40" frameborder="0" webkitallowfullscreen="false" mozallowfullscreen="false"></iframe>-->
+                <!--<iframe src="https://archive.org/embed/{{ aula.player }}" width="90%" height="40" frameborder="0" webkitallowfullscreen="false" mozallowfullscreen="false"></iframe>-->
                   
                 <audio controls>
-                <source src="https://ia801401.us.archive.org/8/items/{{ modulo.player }}.mp3" type="audio/mpeg">
+                <source src="https://ia801401.us.archive.org/8/items/{{ aula.player }}.mp3" type="audio/mpeg">
                 </audio>  
                 <ul>
                   <p> MATERIAL COMPLEMENTAR:</p>
-                {% for cadaarquivo in modulo.arquivos %}
+                {% for cadaarquivo in aula.arquivos %}
                   {% if cadaarquivo.titulo %}
                     {% assign arquivo-titulo = cadaarquivo.titulo %}
                   {% else %}
@@ -52,7 +53,7 @@
                   {% endif %}
                   <li><a href="{{ site.baseurl }}/media/docs/{{ cadaarquivo.arquivo }}" target="_blank">{{ arquivo-titulo }}</a></li>	
                 {% endfor %}
-                {% for cadalink in modulo.links %}
+                {% for cadalink in aula.links %}
                   {% if cadalink.titulo %}
                     {% assign link-titulo = cadalink.titulo %}
                   {% else %}
