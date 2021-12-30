@@ -1,12 +1,13 @@
 ---
 layout: gallery
+permalink: /redes/
 swipebox: rede_caipiratechlab
-title: Rede Caipiratech RJ
+title: Rede Caipiratech
 bgheader: 1
-estado: rj
+estado: 
 ---
 
-## Esta é a nossa rede do Rio de Janeiro
+## Esta é a nossa rede
 
 Clique nas imagens para ver em tela cheia
 

@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /redes_mg/
 swipebox: rede_caipiratechlab
 title: Rede Caipiratech MG
 bgheader: 1

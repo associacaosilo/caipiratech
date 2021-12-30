@@ -1,5 +1,6 @@
 ---
 layout: cursosantigo
+permalink: /cursos_antigo/
 title: Cursos Caipiratech LAB
 titulo1: MÓDULO 1 – Construção Social de Mercados
 modulo1:

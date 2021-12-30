@@ -1,5 +1,6 @@
 ---
 layout: cursosbanner
+permalink: /cursosbanner/
 title: Cursos Caipiratech LAB
 bgheader: 1
 bgimpar: 3

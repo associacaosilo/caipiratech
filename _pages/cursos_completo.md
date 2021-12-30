@@ -1,5 +1,6 @@
 ---
 layout: cursos
+permalink: /cursos_completo/
 title: Cursos Caipiratech LAB
 bgheader: 1
 bgimpar: 3

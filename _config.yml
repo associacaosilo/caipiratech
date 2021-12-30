@@ -3,10 +3,10 @@ title: Caipiratech LAB
 subtitle: 
 
 # URL
-url: https://caipiratech.silo.org.br
+url: https://caipiratechlab.silo.org.br
 baseurl: ''
 permalink: :title/
-#include: ['_pages']
+include: ['_pages']
 
 # Build settings
 #markdown: kramdown
