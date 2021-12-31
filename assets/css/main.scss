@@ -121,6 +121,7 @@ button.navbar-toggler {
 
 .section-header {
 	background-color: $bgSocialbar;
+  z-index: 1019;
 }
 
 .cabecalho {
@@ -273,10 +274,10 @@ a.swipebox img:hover {
 }
 
 .iframe-mapa{
-	z-index: -5;
-	top: 0;
+	z-index: 0;
+	top: 120px;
 	border: 0;
-	height: 100%;
+	height: calc(100% - 120px);
 	position: absolute;
 	width: 100%;
 }
