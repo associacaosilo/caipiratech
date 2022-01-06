@@ -7,7 +7,7 @@ bgheader: 1
 estado: sm
 ---
 
-## Esta é a nossa rede na Serra da Mantiqueira
+## Esta é a nossa rede na Serra do Mar
 
 Clique nas imagens para ver em tela cheia
 
