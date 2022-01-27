@@ -12,7 +12,7 @@ aulas:
       - titulo: Apresentação Ana Litardo
         arquivo: Apresentacao-ana-litardo.pdf
     links:
-      - titulo: Quitandas Agroecológicas da Borborema (video no Youtube)
+      - titulo: Quitandas Agroecológicas da Borborema (vídeo no Youtube)
         link: 'https://youtu.be/Cq1_faoa3Eo'
   - aula: >-
       História e prática das políticas públicas para pequenas/os agricultoras/es
