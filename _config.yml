@@ -39,8 +39,8 @@ prose:
       - name: "titulo"
         field:
           element: "text"
-          label: "Título do post"
-          placeholder: "Colocar Aqui o Nome do Post"
+          label: "Título do Fórum"
+          placeholder: "Colocar Aqui o Nome do Fórum"
       - name: "ordem"
         field:
           element: "number"
@@ -52,4 +52,19 @@ prose:
           element: "textarea"
           label: "Descrição do Fórum"
           placeholder: "Escreva aqui a descrição deste fórum"
-    
+    _cursos:
+      - name: "published"
+        field:
+          element: "hidden"
+          value: "true"
+      - name: "titulo"
+        field:
+          element: "text"
+          label: "Nome do Módulo"
+          placeholder: "MÓDULO X – Nome do Módulo"
+      - name: "ordem"
+        field:
+          element: "number"
+          label: "Ordem para aparecer"
+          placeholder: "Colocar Aqui um número para criar uma ordem dos fóruns"
+          help: "Quanto menor o número, mais acima ele aparece"     
