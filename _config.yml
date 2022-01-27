@@ -22,3 +22,34 @@ plugins:
 collections:
   - foruns
   - cursos
+  
+# prose.io
+prose:
+  media: 'media/images'
+  ignore:
+    - .gitignore
+    - _config.yml
+
+  metadata:
+    _foruns:
+      - name: "published"
+        field:
+          element: "hidden"
+          value: "true"
+      - name: "titulo"
+        field:
+          element: "text"
+          label: "Título do post"
+          placeholder: "Colocar Aqui o Nome do Post"
+      - name: "ordem"
+        field:
+          element: "number"
+          label: "Ordem para aparecer"
+          placeholder: "Colocar Aqui um número para criar uma ordem dos fóruns"
+          help: "Quanto menor o número, mais acima ele aparece"  
+      - name: "descricao"
+        field:
+          element: "textarea"
+          label: "Descrição do Fórum"
+          placeholder: "Escreva aqui a descrição deste fórum"
+    
