@@ -1,6 +1,6 @@
 ---
 layout: mapa
-permalink: /cartografia/
+permalink: /cartografia_full/
 embed: 0
 ---
 

@@ -12,13 +12,13 @@
   {% capture classheader %}section{{ page.bgheader }}{% endcapture %}
 
 	<div class="container-fluid">
-		<div class="row align-items-center {{ classheader }} py-3 cabecalho">
+		<div class="row align-items-center {{ classheader }} cabecalho py-2">
       <div class="row align-items-center py-4 container mx-auto">
-        <div class="col-3 ml-auto text-center d-none d-md-block ">
-          <img alt="Frutos" src="/media/home/Ilustracao_{{ page.imgheader }}.png" class="w-100">
-        </div>
-        <div class="col-12 col-md-6 mr-auto text-center">
+        <div class="col-12 col-md-6 ml-auto text-left">
           {{ content }}
+        </div>
+        <div class="col-6 mr-0 text-right d-none d-md-block ">
+          <img alt="Frutos" src="{{ site.baseurl }}/media/home/Ilustracao_{{ page.imgheader }}.png" class="w-75 img-forum">
         </div>
       </div>
 		</div>

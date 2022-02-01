@@ -29,6 +29,17 @@ prose:
   ignore:
     - .gitignore
     - _config.yml
+    - _data
+    - _includes
+    - _layouts
+    - _sass
+    - css
+    - js
+    - CNAME
+    - TODO.md
+    - publish.sh
+    - media/favicons
+    - media/swipebox
 
   metadata:
     _foruns:

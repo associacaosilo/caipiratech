@@ -3,8 +3,9 @@ layout: foruns
 permalink: /forum/
 title: Fórum
 bgheader: 1
-bgimpar: 2
-bgpar: 5
+bgimpar: 6
+bgpar: 3
+imgheader: 9
 ---
 ## Fóruns
 

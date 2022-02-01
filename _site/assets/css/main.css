@@ -59,6 +59,8 @@ button.navbar-toggler { color: #f4d6a2; }
 
 .section5 { background-color: #A03804; }
 
+.section6 { background-color: #ff4646; }
+
 .section-footer { background-color: #782A03; }
 
 a.footer-item { color: #f4d6a2; }
@@ -88,6 +90,10 @@ a.footer-item:hover { text-decoration: none; }
 /* width: 80%; */
 /* } */
 .img-vegetal { max-width: 80%; margin-top: -25%; margin-bottom: -10%; }
+
+.img-forum { max-width: 75%; margin-bottom: -55%; }
+
+.img-cursos { max-width: 75%; margin-bottom: -30%; }
 
 .logo-pequeno { max-width: 40%; }
 
@@ -123,8 +129,10 @@ summary { color: #f4d6a2; font-family: BreeSerifLight; font-weight: normal; font
 
 .bg-gallery { /* background-color: #E2845A; */ background-color: #2A4D3C; }
 
-.filtro-estados p, a, a:hover { color: #f4d6a2; font-family: BreeSerifSemiBold; }
+.filtro-estados p, .filtro-estados a, .filtro-estados a:hover { color: #f4d6a2; font-family: BreeSerifSemiBold; }
 
 audio::-webkit-media-controls-panel, video::-webkit-media-controls-panel { background-color: #f4d6a2; }
 
 audio { background-color: #f4d6a2; opacity: 1; width: 80% !important; height: 50px !important; }
+
+div.mapboxgl-popup-content a { cursor: -webkit-zoom-in; cursor: zoom-in; }

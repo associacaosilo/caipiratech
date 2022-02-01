@@ -12,6 +12,7 @@ $bgSection2: #2A4D3C;
 $bgSection3: #F24F15;
 $bgSection4: #F57244;
 $bgSection5: #A03804;
+$bgSection6: #ff4646;
 $bgFooter: #782A03;
 $bgButton: #B63B10;
 $bgMap: #edbe7a;
@@ -148,6 +149,10 @@ button.navbar-toggler {
 	background-color: $bgSection5;
 }
 
+.section6 {
+	background-color: $bgSection6;
+}
+
 .section-footer {
 	background-color: $bgFooter;
 }
@@ -214,6 +219,16 @@ a.footer-item:hover {
 	max-width: 80%;
 	margin-top: -25%;
 	margin-bottom: -10%;
+}
+
+.img-forum {
+  max-width: 75%;
+  margin-bottom: -55%;
+}
+
+.img-cursos {
+  max-width: 75%;
+  margin-bottom: -30%;
 }
 
 .logo-pequeno {
@@ -302,7 +317,7 @@ summary {
 	background-color: $bgSection2;
 }
 
-.filtro-estados p, a, a:hover{
+.filtro-estados p, .filtro-estados a, .filtro-estados a:hover{
 	color: $fontColor;
 	font-family: BreeSerifSemiBold;
 	
@@ -320,4 +335,9 @@ audio{
     opacity: 1;
     width: 80% !important;
     height: 50px !important;
+}
+
+div.mapboxgl-popup-content a{
+  cursor: -webkit-zoom-in;
+  cursor: zoom-in;
 }

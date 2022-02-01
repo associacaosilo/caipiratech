@@ -1,5 +1,5 @@
 ---
-layout: gallery
+layout: galleryget
 permalink: /redes/
 swipebox: rede_caipiratechlab
 title: Rede Caipiratech

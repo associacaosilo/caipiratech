@@ -3,9 +3,9 @@ layout: forunsbanner
 permalink: /forumbanner/
 title: Fórum
 bgheader: 1
-bgimpar: 2
-bgpar: 5
-imgheader: 5
+bgimpar: 6
+bgpar: 3
+imgheader: 9
 forum:
   - titulo: Embalagens Ecológicas
     descricao: 
