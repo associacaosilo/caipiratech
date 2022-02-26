@@ -151,10 +151,18 @@
                 description = '<img src="../media/images/embreve.jpg" style="width:100%">';
               }else{
                 description = '<a href="{{ site.baseurl }}/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a>';
+                //incluindo lista de produtos como texto
+                <!-- description = '<a href="{{ site.baseurl }}/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a> <br /> Produtos:<br />' + e.features[0].properties.Produtos; -->  
               }
+              
+              //incluindo telefone como link do whatsapp
+              <!-- var whatsapp = e.features[0].properties.Whatsapp; -->
+              <!-- if (whatsapp != ""){ -->
+                <!-- description += '<br /> <a style="cursor: pointer;" href="http://wa.me/55' + whatsapp + '?text=Te%20encontrei%20no%20CaipiratechLAB%20e%20eu%20tenho%20interesse%20em%20comprar%20de%20você" target="_blank"> (ícone do whats) Compre aqui </a>'; -->
+              <!-- } -->
+              
 
-              var description = '<a href="{{ site.baseurl }}/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a>'   ;
-
+             
               while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
               coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
               }

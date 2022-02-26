@@ -77,5 +77,5 @@ prose:
         field:
           element: "number"
           label: "Ordem para aparecer"
-          placeholder: "Colocar Aqui um número para criar uma ordem dos fóruns"
+          placeholder: "Colocar Aqui um número para criar uma ordem dos cursos"
           help: "Quanto menor o número, mais acima ele aparece"     
