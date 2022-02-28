@@ -141,8 +141,23 @@
             map.on('click', 'cinthia', function (e) {
               var coordinates = e.features[0].geometry.coordinates.slice();
               
-              var prefixo = "rede_caipiratechlab_ma_"
-                                        
+              //A região da Cinthia está fixa em "Serra da Mantiqueira" pois não tem esse campo na tabela (corrigido)
+              var regiao = e.features[0].properties.Região;
+              var prefixo = "rede_caipiratechlab_"
+              
+              if(regiao == "Serra da Mantiqueira"){
+                prefixo += "ma_";
+              }else if(regiao == "Vale do Rio Paraíba"){
+                prefixo += "vp_";
+              }else if(regiao == "Serra do Mar"){
+                prefixo += "sm_";
+              }else if(regiao == "Serra da Bocaina"){
+                prefixo += "bo_";
+              }else{
+                prefixo = "";
+              }
+              
+                                                     
               var imagem = prefixo +  e.features[0].properties.Imagem;
               
               var description = "";
@@ -151,8 +166,22 @@
                 description = '<img src="../media/images/embreve.jpg" style="width:100%">';
               }else{
                 description = '<a href="{{ site.baseurl }}/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a>';
-                //incluindo lista de produtos como texto
-                <!-- description = '<a href="{{ site.baseurl }}/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a> <br /> Produtos:<br />' + e.features[0].properties.Produtos; -->  
+                
+                //teste para exibir lista de produtos como texto abaixo da imagem
+                <!-- description = '<a href="{{ site.baseurl }}/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a> <br /> Produtos:<br />' + e.features[0].properties.Produtos; -->
+                
+                //teste para exibir Região como texto abaixo da imagem
+                <!-- description = '<a href="{{ site.baseurl }}/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a> <br /> Região:<br />' + regiao; -->
+                
+                //teste para exibir lista de produtos em formato de lista abaixo da imagem
+                <!-- description += '<br /> Produtos:<br /> <ul>'; -->
+                <!-- var produtos = e.features[0].properties.Produtos; -->
+                <!-- var arrayprodutos = produtos.split(','); -->
+                <!-- $.each(arrayprodutos, function(index, value) { -->
+                  <!-- description += "<li>" + value + "</li>"; -->
+                <!-- }); -->
+                <!-- description += '</ul>'; -->
+                
               }
               
               //incluindo telefone como link do whatsapp
@@ -237,7 +266,7 @@
             map.on('click', 'aline', function (e) {
               var coordinates = e.features[0].geometry.coordinates.slice();
               
-              var regiao = e.features[0].properties.REGIÃO;
+              var regiao = e.features[0].properties.Região;
               var prefixo = "rede_caipiratechlab_"
               
               if(regiao == "Serra da Mantiqueira"){
@@ -266,6 +295,9 @@
                 description = '<img src="../media/images/embreve.jpg" style="width:100%">';
               }else{              
                description = '<a href="{{ site.baseurl }}/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a>';
+               
+               //teste para exibir Região como texto abaixo da imagem
+                <!-- description = '<a href="{{ site.baseurl }}/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a> <br /> Região:<br />' + regiao; -->
               }
               
                /*
@@ -372,6 +404,9 @@
                 description = '<img src="../media/images/embreve.jpg" style="width:100%">';
               }else{              
                description = '<a href="{{ site.baseurl }}/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a>';
+               
+               //teste para exibir Região como texto abaixo da imagem
+               <!-- description = '<a href="{{ site.baseurl }}/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a> <br /> Região:<br />' + regiao; --> 
               }
               
               
@@ -482,7 +517,10 @@
                 description = '<img src="../media/images/embreve.jpg" style="width:100%">';
               }else{              
                description = '<a href="{{ site.baseurl }}/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a>';
-              }
+               
+               //teste para exibir Região como texto abaixo da imagem
+               <!-- description = '<a href="{{ site.baseurl }}/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a> <br /> Região:<br />' + regiao; -->
+              } 
               
               
               

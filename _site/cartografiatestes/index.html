@@ -77,7 +77,105 @@
 
 
   
-    <div id="map"></div>  
+		
+
+
+	<div class="header py-0 section-header">
+		<div class="container">
+			<div class="row">
+				<!-- <div class="col-6"> -->
+					
+				<!-- </div> -->
+				<div class="col-12 text-right">
+					<!-- <img alt="redes" src="img/redes_topo.png" class="redestopo"> -->
+					<div class="menu-section">  
+						<a class="menu-item" href="https://www.instagram.com/silo.arte.e.latitude.rural" target="_blank">
+						  <i class="fa fa-instagram fa-1_5x" aria-hidden="true"></i>
+						</a>	
+						<a class="menu-item" href="https://www.facebook.com/silo.arte.latitude.rural" target="_blank">
+						  <i class="fa fa-facebook fa-1_5x" aria-hidden="true"></i>
+						</a>
+						<a class="menu-item" href="https://twitter.com/SiloLatitude" target="_blank">
+						  <i class="fa fa-twitter fa-1_5x" aria-hidden="true"></i>
+						</a>
+						<a class="menu-item" href="https://www.youtube.com/channel/UCwB5vE50QX2eCVv-i795y6Q/" target="_blank">
+						  <i class="fa fa-youtube-play fa-1_5x" aria-hidden="true"></i>
+						</a>
+						<a class="menu-item" href="https://www.flickr.com/photos/silolatitude" target="_blank">
+						  <i class="fa fa-flickr fa-1_5x" aria-hidden="true"></i>
+						</a>
+						<a class="menu-item" href="https://github.com/associacaosilo" target="_blank">
+						  <i class="fa fa-github fa-1_5x" aria-hidden="true"></i>
+						</a>
+						<a class="menu-item" href="mailto:contato@silo.org.br" target="_blank">
+						  <i class="fa fa-envelope-o fa-1_5x" aria-hidden="true"></i>
+						</a>
+						<a class="menu-item" href="http://silo.org.br" target="_blank">
+						  <img alt="Logotipo Silo" src="/media/home/logo_barra_4.png" aria-hidden="true" class="logomenu">
+						</a>
+					
+
+					</div>
+				</div>
+			</div>
+			<!--/row-->
+		</div>
+		<!--container-->
+	</div>
+	<nav class="navbar navbar-expand-md sticky-top">
+		<div class="container">
+			<a class="navbar-brand mr-md-5" href="/">
+				<img alt="logo caipiratechlab" src="/media/home/logo_principal.png" height="70px">
+			</a>
+			<button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+				<!-- <span class="navbar-toggler-icon"></span> -->
+				<i title="" class="fa fa-bars"></i>
+			</button>
+			<div class="collapse navbar-collapse text-center" id="navbarCollapse">
+				<ul class="navbar-nav flex-md-row mx-auto flex-column ml-md-5">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown">Mapeamento</a>
+						<div class="dropdown-menu text-center" aria-labelledby="navbarDropdownMenuLink">
+							<a class="dropdown-item" href="/cartografia">Cartografia</a>
+              <div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="/redes">Redes</a>
+						</div>
+					</li>
+					<li class="nav-item d-none d-md-block">
+						<p class="nav-link separador">|</p>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/cursos">Cursos</a>
+					</li>
+					<li class="nav-item d-none d-md-block">
+						<p class="nav-link separador">|</p>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown">Loja Online</a>
+						<div class="dropdown-menu text-center" aria-labelledby="navbarDropdownMenuLink">
+							<p class="dropdown-item">Em breve [x]</p>
+						</div>
+					</li>
+					<!-- <li class="nav-item"> -->
+						<!-- <a class="nav-link" href="#">Loja Online</a> -->
+					<!-- </li> -->
+					<li class="nav-item d-none d-md-block">
+						<p class="nav-link separador">|</p>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/forum">Fóruns</a>
+					</li>
+					<!--<li class="nav-item">
+						<a class="nav-link disabled" href="#">Disabled</a>
+					</li> -->
+				</ul>
+
+			</div>	
+			
+		</div>
+
+    </nav>
+    <div id="map" style="top: 121px;"></div>
   		
  
 
@@ -182,7 +280,7 @@
             map.on('click', 'cinthia', function (e) {
               var coordinates = e.features[0].geometry.coordinates.slice();
               
-              //A região da Cinthia está fixa em "Serra da Mantiqueira" pois não tem esse campo na tabela (corrigido)
+              //A região da Cinthia está fixa em "Serra da Mantiqueira" pois não tem esse campo na tabela
               var regiao = e.features[0].properties.Região;
               var prefixo = "rede_caipiratechlab_"
               
@@ -204,15 +302,16 @@
               var description = "";
               
               if(e.features[0].properties.Imagem == "embreve"){
-                description = '<img src="../media/images/embreve.jpg" style="width:100%">';
+                description = '<img src="../media/images/embreve.jpg" class="w-100">';
               }else{
-                description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a>';
+                description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a>';
                 
                 //teste para exibir lista de produtos como texto abaixo da imagem
-                <!-- description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a> <br /> Produtos:<br />' + e.features[0].properties.Produtos; -->
+                <!-- description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a> <br /> Produtos:<br />' + e.features[0].properties.Produtos; -->
                 
                 //teste para exibir Região como texto abaixo da imagem
-                <!-- description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a> <br /> Região:<br />' + regiao; -->
+                description += '<br /> Região:<br />' + regiao;
+                <!-- description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a> <br /> Região:<br />' + regiao; -->
                 
                 //teste para exibir lista de produtos em formato de lista abaixo da imagem
                 <!-- description += '<br /> Produtos:<br /> <ul>'; -->
@@ -226,10 +325,10 @@
               }
               
               //incluindo telefone como link do whatsapp
-              <!-- var whatsapp = e.features[0].properties.Whatsapp; -->
-              <!-- if (whatsapp != ""){ -->
-                <!-- description += '<br /> <a style="cursor: pointer;" href="http://wa.me/55' + whatsapp + '?text=Te%20encontrei%20no%20CaipiratechLAB%20e%20eu%20tenho%20interesse%20em%20comprar%20de%20você" target="_blank"> (ícone do whats) Compre aqui </a>'; -->
-              <!-- } -->
+              var whatsapp = e.features[0].properties.Whatsapp;
+              if (whatsapp != ""){
+                description += '<br /> <a class="link-whats" href="http://wa.me/55' + whatsapp + '?text=Te%20encontrei%20no%20CaipiratechLAB%20e%20eu%20tenho%20interesse%20em%20comprar%20de%20você" target="_blank"> <i class="fa fa-whatsapp" aria-hidden="true"></i> Compre pelo Whatsapp!</a>';
+              }
               
 
              
@@ -333,12 +432,13 @@
               var description = "";
               
               if(e.features[0].properties.Imagem == "embreve"){
-                description = '<img src="../media/images/embreve.jpg" style="width:100%">';
+                description = '<img src="../media/images/embreve.jpg" class="w-100">';
               }else{              
-               description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a>';
+               description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a>';
                
                //teste para exibir Região como texto abaixo da imagem
-                <!-- description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a> <br /> Região:<br />' + regiao; -->
+                description += '<br /> Região:<br />' + regiao;
+                <!-- description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a> <br /> Região:<br />' + regiao; -->
               }
               
                /*
@@ -442,12 +542,13 @@
               var description = "";
               
               if(e.features[0].properties.Imagem == "embreve"){
-                description = '<img src="../media/images/embreve.jpg" style="width:100%">';
+                description = '<img src="../media/images/embreve.jpg" class="w-100">';
               }else{              
-               description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a>';
+               description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a>';
                
                //teste para exibir Região como texto abaixo da imagem
-               <!-- description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a> <br /> Região:<br />' + regiao; --> 
+                description += '<br /> Região:<br />' + regiao;
+               <!-- description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a> <br /> Região:<br />' + regiao; --> 
               }
               
               
@@ -555,12 +656,12 @@
               var description = "";
               
               if(e.features[0].properties.Imagem == "embreve"){
-                description = '<img src="../media/images/embreve.jpg" style="width:100%">';
+                description = '<img src="../media/images/embreve.jpg" class="w-100">';
               }else{              
-               description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a>';
+               description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a>';
                
                //teste para exibir Região como texto abaixo da imagem
-               <!-- description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a> <br /> Região:<br />' + regiao; -->
+               description += '<br /> Região:<br />' + regiao;
               } 
               
               
@@ -607,20 +708,103 @@
       
     });
     
+    class FilterControl {
+      onAdd(map) {
+        this._map = map;
+        this._container = document.createElement('div');
+        this._container.className = 'mapboxgl-ctrl section1';
+        //this._container.setAttribute('style', 'line-height: 1; padding: 10px;');
+        this._container.id = 'filtros';
+         
+        const filterTitle = document.createElement('H6');
+        filterTitle.textContent = 'Filtro por Região:';
+        filterTitle.classList.add('filterTitle');
+        
+        
+        const filterForm = document.createElement('form');
+        filterForm.id = 'filterform';
+        <!-- filterForm.setAttribute('style', 'margin-top: 7px;'); -->
+        filterForm.classList.add('filterform');
+        
+        const regioes = ["Serra da Mantiqueira", "Vale do Rio Paraíba", "Serra do Mar", "Serra da Bocaina"];
+        
+        const formatcontainer = document.createElement('div');
+        
+        
+        
+        for (let i = 0; i < regioes.length; i++) {
+          const container = document.createElement('label');
+          //container.setAttribute('style', 'display: flex');
+          container.classList.add('label-checkbox');
 
-      // ZOOM
-      // map.addControl(new mapboxgl.NavigationControl(), 'top-left');      
-      // ZOOM
-     map.addControl(new mapboxgl.NavigationControl(), 'top-right'); // disable map zoom when using scroll
-      //map.scrollZoom.disable(); 
+          //container.classList.add('checkbox-container');
+
+          const input = document.createElement('input');        
+          //input.classList.add('px12', 'filter-option');
+          input.classList.add('filter-check');
+          input.setAttribute('type', 'checkbox');
+          <!-- input.setAttribute('id', regioes[i].replace(/\s/g, '_')); -->
+          input.setAttribute('id', regioes[i].normalize("NFD").replace(/[^a-zA-Z0-9s]/g, ""));
+          input.setAttribute('value', regioes[i]);
+          //input.setAttribute('style', 'margin-right: 5px;');
+          input.setAttribute('checked', '');
+          
+                           
+
+          //const checkboxDiv = document.createElement('div');
+          const inputValue = document.createElement('div');
+          inputValue.textContent = regioes[i];
+          //checkboxDiv.classList.add('checkbox', 'mr6');
+          
+
+          
+          container.appendChild(input);
+          //container.appendChild(checkboxDiv);
+          container.appendChild(inputValue);
+          
+          formatcontainer.appendChild(container);
+
+          filterForm.appendChild(formatcontainer);
+        }
+                
+        
+        
+        
+        this._container.appendChild(filterTitle);
+        //adiciona o form dentro da div dos filtros
+        this._container.appendChild(filterForm);
+        
+        
+        return this._container;
+      }
+       
+      onRemove() {
+        this._container.parentNode.removeChild(this._container);
+        this._map = undefined;
+      }
+    }
+    
+    
+
+
+    // Add filter div controls to the map.
+    map.addControl(new FilterControl(), 'top-left');  
+      
+      
+    // ZOOM
+    // map.addControl(new mapboxgl.NavigationControl(), 'top-left');      
+    // ZOOM
+    map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+    // disable map zoom when using scroll
+    //map.scrollZoom.disable(); 
+      
+      
+      
+    
       
   </script>
 
 
-
-  <script>
-    map.scrollZoom.disable();     
-  </script> 
 	
   
 <script>
@@ -636,6 +820,55 @@ function myFunction() {
   var popup = document.getElementById("myPopup");
   popup.classList.toggle("show");
 }
+
+
+
+
+
+  
+
+
+
+<!-- var checkboxes = document.querySelectorAll('input[type="checkbox"]'); -->
+document.getElementById('filterform').addEventListener('change', (e) => {
+
+  const checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');  
+  if(checkedBoxes.length != 0){
+    var filtercheckbox = ['in', 'Região'];
+    for (const checkedbox of checkedBoxes) {
+    
+      filtercheckbox.push(checkedbox.value);
+    }
+    
+    map.setFilter('cinthia', filtercheckbox); //comentado pq não tem região na tabela (corrigido)
+    map.setFilter('aline', filtercheckbox); //comentado pq está REGIÃO na tabela (corrigido)
+    map.setFilter('sidney', filtercheckbox);
+    map.setFilter('alketa', filtercheckbox);
+  } else { 
+    //alert(1);
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    for (var checkbox of checkboxes) {        
+        //document.getElementById(checkbox.id).setAttribute('checked', '');
+        checkbox.checked = true;
+        <!-- checkbox.setAttribute('checked', ''); -->
+    }
+    
+    map.setFilter('cinthia', null); //comentado pq não tem região na tabela
+    map.setFilter('aline', null); //comentado pq está REGIÃO na tabela
+    map.setFilter('sidney', null);
+    map.setFilter('alketa', null);
+  }
+  
+}); 
+
+ 
+
+
+<!-- document.getElementById('filterform').addEventListener('change', (e) => { -->
+<!-- map.setFilter('aline', ['==', ['get', 'REGIÃO'], 'Serra da Mantiqueira']); -->
+<!-- map.setFilter('sidney', ['==', ['get', 'Região'], 'Serra da Mantiqueira']); -->
+<!-- map.setFilter('alketa', ['==', ['get', 'Região'], 'Serra da Mantiqueira']); -->
+
 </script>
 
 <script>

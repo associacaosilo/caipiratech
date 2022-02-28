@@ -69,3 +69,68 @@ a.mapboxgl-ctrl-logo{
 .mapboxgl-ctrl-bottom-right{
   display: none !important;
 }
+
+input[type=checkbox] {
+    all: unset;
+    border: 1px solid #f57244;
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    /* color: #fff; */
+    margin-right: 5px;
+    background-color: #ffffff;
+}
+
+input[type=checkbox]:checked {
+    background-color: #f57244;
+    border: 1px solid #ffffff;
+}
+
+input[type='checkbox']:checked:after {
+    color: #ffffff;
+    content: '\2713';
+    position: absolute;
+    line-height: 8px;
+    padding-left: 1.5px;
+    padding-top: 2px;
+}
+
+.filterTitle {
+  font-size: 1.2rem;
+  font-family: 'BreeSerifSemiBold';
+}
+
+.label-checkbox{
+  display: flex;
+  margin-bottom: 2px;
+  font-family: BreeSerifLight;
+  font-size: 12.9px;
+}
+
+a.link-whats{
+  cursor: pointer;
+  color: #25d366;
+}
+
+a.link-whats:hover{
+  cursor: pointer;
+  color: #128c7e;
+  text-decoration: none;
+}
+
+.w-100{
+  width:100%;
+}
+div.mapboxgl-ctrl{
+  line-height: 1;
+  padding: 10px;  
+}
+
+.filterform{
+  margin-top: 7px;
+}
+
+input.filter-check{
+  margin-right: 5px;
+}
+
