@@ -118,6 +118,15 @@ a.link-whats:hover{
   text-decoration: none;
 }
 
+a.link-telegram{
+  cursor: pointer;
+}
+
+a.link-telegram:hover{
+  cursor: pointer;
+  text-decoration: none;
+}
+
 .w-100{
   width:100%;
 }

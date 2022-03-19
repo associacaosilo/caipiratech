@@ -213,7 +213,7 @@
         type: "GET",
         //YOUR TURN: Replace with csv export link
         //https://www.mapbox.com/impact-tools/sheet-mapper
-        url: 'https://docs.google.com/spreadsheets/d/14uzofB5ax8jGVoI6ox5y8JAk3e0t_HrwhfzlGcs8FBE/gviz/tq?tqx=out:csv&sheet=Cinthia',
+        url: 'https://docs.google.com/spreadsheets/d/1RGSKvjnDuwGyguyDOvvbxT_j9bVnV2p-Nkm-QikvsZA/gviz/tq?tqx=out:csv&sheet=Cinthia',
         dataType: "text",
         success: function (csvData) { makeGeoJSON(csvData); }
       });
@@ -222,7 +222,7 @@
         type: "GET",
         //YOUR TURN: Replace with csv export link
         //https://www.mapbox.com/impact-tools/sheet-mapper
-        url: 'https://docs.google.com/spreadsheets/d/14uzofB5ax8jGVoI6ox5y8JAk3e0t_HrwhfzlGcs8FBE/gviz/tq?tqx=out:csv&sheet=Aline',
+        url: 'https://docs.google.com/spreadsheets/d/1RGSKvjnDuwGyguyDOvvbxT_j9bVnV2p-Nkm-QikvsZA/gviz/tq?tqx=out:csv&sheet=Aline',
         dataType: "text",
         success: function (csvData) { makeGeoJSON2(csvData); }
       });
@@ -231,7 +231,7 @@
         type: "GET",
         //YOUR TURN: Replace with csv export link
         //https://www.mapbox.com/impact-tools/sheet-mapper
-        url: 'https://docs.google.com/spreadsheets/d/14uzofB5ax8jGVoI6ox5y8JAk3e0t_HrwhfzlGcs8FBE/gviz/tq?tqx=out:csv&sheet=Alketa',
+        url: 'https://docs.google.com/spreadsheets/d/1RGSKvjnDuwGyguyDOvvbxT_j9bVnV2p-Nkm-QikvsZA/gviz/tq?tqx=out:csv&sheet=Alketa',
         dataType: "text",
         success: function (csvData) { makeGeoJSON3(csvData); }
       });
@@ -240,7 +240,7 @@
         type: "GET",
         //YOUR TURN: Replace with csv export link
         //https://www.mapbox.com/impact-tools/sheet-mapper
-        url: 'https://docs.google.com/spreadsheets/d/14uzofB5ax8jGVoI6ox5y8JAk3e0t_HrwhfzlGcs8FBE/gviz/tq?tqx=out:csv&sheet=Sidney',
+        url: 'https://docs.google.com/spreadsheets/d/1RGSKvjnDuwGyguyDOvvbxT_j9bVnV2p-Nkm-QikvsZA/gviz/tq?tqx=out:csv&sheet=Sidney',
         dataType: "text",
         success: function (csvData) { makeGeoJSON4(csvData); }
       });
@@ -328,6 +328,11 @@
               var whatsapp = e.features[0].properties.Whatsapp;
               if (whatsapp != ""){
                 description += '<br /> <a class="link-whats" href="http://wa.me/55' + whatsapp + '?text=Te%20encontrei%20no%20CaipiratechLAB%20e%20eu%20tenho%20interesse%20em%20comprar%20de%20você" target="_blank"> <i class="fa fa-whatsapp" aria-hidden="true"></i> Compre pelo Whatsapp!</a>';
+              }
+              
+              var telegram = e.features[0].properties.Telegram;
+              if (telegram != ""){
+                description += '<br /> <a class="link-telegram" href="https://t.me/' + telegram + '" target="_blank"> <i class="fa fa-telegram" aria-hidden="true"></i> Compre pelo Telegram!</a>';
               }
               
 
