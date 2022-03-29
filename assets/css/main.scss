@@ -13,6 +13,7 @@ $bgSection3: #F24F15;
 $bgSection4: #F57244;
 $bgSection5: #A03804;
 $bgSection6: #ff4646;
+$bgSection7: #FF6B6B;   /*usada nas sections pares da página Boletins*/
 $bgFooter: #782A03;
 $bgButton: #B63B10;
 $bgMap: #edbe7a;
@@ -155,6 +156,10 @@ button.navbar-toggler {
 
 .section6 {
 	background-color: $bgSection6;
+}
+
+.section7 {
+	background-color: $bgSection7;
 }
 
 .section-footer {

@@ -1,7 +1,9 @@
+@charset "UTF-8";
 body { background: #ffffff; color: #000000; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
 
 /*mesma cor da Section2*/
 /*usada tb no bg do menu dropdown*/
+/*usada nas sections pares da página Boletins*/
 /*$bgGallery: #fddbba;*/
 @font-face { font-family: BreeSerifLight; src: url("fonts/BreeSerif-Light.otf"); }
 @font-face { font-family: BreeSerifSemiBold; src: url("fonts/BreeSerif-SemiBold.otf"); }
@@ -62,6 +64,8 @@ button.navbar-toggler { color: #f4d6a2; }
 .section5 { background-color: #A03804; }
 
 .section6 { background-color: #ff4646; }
+
+.section7 { background-color: #FF6B6B; }
 
 .section-footer { background-color: #782A03; }
 

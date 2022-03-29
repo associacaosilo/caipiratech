@@ -4,7 +4,7 @@ permalink: /forum/
 title: Fórum
 bgheader: 1
 bgimpar: 6
-bgpar: 3
+bgpar: 7
 imgheader: 9
 ---
 ## Fóruns
