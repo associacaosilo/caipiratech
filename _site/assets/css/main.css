@@ -9,6 +9,10 @@ body { background: #ffffff; color: #000000; font-family: -apple-system, BlinkMac
 @font-face { font-family: BreeSerifSemiBold; src: url("fonts/BreeSerif-SemiBold.otf"); }
 body { font-weight: normal; color: #f4d6a2; min-height: 100vh; background: #782A03; }
 
+a { color: #f4d6a2; }
+
+a:hover { color: #f4d6a2; /* font-weight: bold; */ }
+
 a.menu-item { color: #f4d6a2; }
 
 a.menu-item:hover { text-decoration: none; color: #2A4D3C; }
@@ -130,6 +134,8 @@ a.swipebox img:hover { transform: scale(1.025); }
 li a:hover { color: #f4d6a2; }
 
 li a { color: #f4d6a2; }
+
+li { font-family: BreeSerifLight; font-weight: normal; }
 
 summary { color: #f4d6a2; font-family: BreeSerifLight; font-weight: normal; font-size: 1.3rem; }
 

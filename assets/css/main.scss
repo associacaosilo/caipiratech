@@ -37,6 +37,15 @@ body {
   background: $bgFooter;
 }
 
+a {
+  color: $fontColor;
+}
+
+a:hover {
+  color: $fontColor;
+  /* font-weight: bold; */
+}
+
 a.menu-item {
     color: $fontColor;
 }
@@ -312,6 +321,11 @@ li a:hover {
 
 li a {
     color: $fontColor;
+}
+
+li {
+    font-family: BreeSerifLight;
+    font-weight: normal;
 }
 
 summary {
