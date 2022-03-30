@@ -87,6 +87,7 @@ a.footer-item:hover { text-decoration: none; }
 
 .img-logosilo { width: 40%; }
 
+@media (max-width: 767.98px) { .img-logosilo { width: 20%; } }
 .img-cenoura { max-width: 180%; margin-left: -80%; margin-top: -20%; margin-bottom: -20%; }
 
 .img-fruta-section4 { max-width: 100%; margin-top: -25%; }
