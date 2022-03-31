@@ -20,7 +20,7 @@ plugins:
 
 # Collections (Custom Posts)
 collections:
-  - foruns
+  - boletins
   - cursos
   
 # prose.io
@@ -42,7 +42,7 @@ prose:
     - media/swipebox
 
   metadata:
-    _foruns:
+    _boletins:
       - name: "published"
         field:
           element: "hidden"
@@ -50,19 +50,19 @@ prose:
       - name: "titulo"
         field:
           element: "text"
-          label: "Título do Fórum"
-          placeholder: "Colocar Aqui o Nome do Fórum"
+          label: "Título do Grupo de boletins"
+          placeholder: "Colocar aqui o nome do assunto que gerou os boletins"
       - name: "ordem"
         field:
           element: "number"
           label: "Ordem para aparecer"
-          placeholder: "Colocar Aqui um número para criar uma ordem dos fóruns"
+          placeholder: "Colocar Aqui um número para criar uma ordem dos assuntos dos boletins"
           help: "Quanto menor o número, mais acima ele aparece"  
       - name: "descricao"
         field:
           element: "textarea"
-          label: "Descrição do Fórum"
-          placeholder: "Escreva aqui a descrição deste fórum"
+          label: "Descrição do Assunto dos boletins"
+          placeholder: "Escreva aqui a descrição deste grupo de boletins"
     _cursos:
       - name: "published"
         field:

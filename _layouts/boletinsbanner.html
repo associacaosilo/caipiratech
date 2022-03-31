@@ -18,16 +18,16 @@
           {{ content }}
         </div>
         <div class="col-6 mr-auto text-center d-none d-md-block ">
-          <img alt="Frutos" src="/media/home/Ilustracao_{{ page.imgheader }}.png" class="w-75 img-forum">
+          <img alt="Frutos" src="/media/home/Ilustracao_{{ page.imgheader }}.png" class="w-75 img-boletins">
         </div>
       </div>
 		</div>
     
 		
-		{% for item in page.forum %}
+		{% for item in page.boletins %}
 		<div class="row {% cycle 'parouimpar': classimpar, classpar %} py-5 px-1 px-md-5">
       <div class="py-0 py-md-5 container mx-auto">
-      <!-- py a mais para compensar que só tem 1 item no fórum -->
+      <!-- py a mais para compensar quando só tem 1 item na página de Boletins -->
         <div class="col-12">          
           <!-- <ul> -->
 
