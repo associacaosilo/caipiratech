@@ -1,7 +1,7 @@
 ---
 layout: cursosbanner
 permalink: /cursosbanner/
-title: Cursos Caipiratech LAB
+title: Cursos CaipiratechLAB
 bgheader: 1
 bgimpar: 3
 bgpar: 4
@@ -34,6 +34,6 @@ cursos:
             arquivo: concentra.pdf
 ---
 
-## Curso livre Caipiratechlab 2021
+## Curso livre CaipiratechLAB 2021
 
 Escute e acesse os materiais de apoio aqui

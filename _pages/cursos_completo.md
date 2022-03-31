@@ -1,7 +1,7 @@
 ---
 layout: cursos
 permalink: /cursos_completo/
-title: Cursos Caipiratech LAB
+title: Cursos CaipiratechLAB
 bgheader: 1
 bgimpar: 3
 bgpar: 4
@@ -121,6 +121,6 @@ cursos:
             link:    
 ---
 
-## Curso livre Caipiratechlab 2021
+## Curso livre CaipiratechLAB 2021
 
 Escute e acesse os materiais de apoio aqui

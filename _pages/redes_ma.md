@@ -2,7 +2,7 @@
 layout: gallery
 permalink: /redes_ma/
 swipebox: rede_caipiratechlab
-title: Rede Caipiratech SERRA DA MANTIQUEIRA
+title: "Rede CaipiratechLAB - SERRA DA MANTIQUEIRA"
 bgheader: 1
 estado: ma
 ---

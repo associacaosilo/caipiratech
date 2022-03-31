@@ -1,6 +1,6 @@
 ---
 layout: home
-title: "caipiratech LAB"
+title: "CaipiratechLAB"
 section1:
   titulo1: de onde vem
   titulo2: o alimento
@@ -8,7 +8,7 @@ section1:
   titulo4: consome?
 section2:
   titulo: conheça o programa
-  texto: Caipiratech é um programa da Silo que tem por objetivo colaborar com o fortalecimento dos sistemas alimentares garantindo assim a perenidade da produção a da distribuição de alimentos saudáveis, justos e sustentáveis.
+  texto: CaipiratechLAB é um programa da Silo que tem por objetivo colaborar com o fortalecimento dos sistemas alimentares garantindo assim a perenidade da produção a da distribuição de alimentos saudáveis, justos e sustentáveis.
 section3:
   titulo: ajude a viabilizar a produção local
   texto1: busque conhecer produtoras e produtores de sua região
@@ -20,7 +20,7 @@ section4:
   botao: quero me cadastrar!
 section5:
   titulo1: ouça aqui
-  titulo2: os cursos caipiratechlab
+  titulo2: os cursos CaipiratechLAB
   botao: mais episódios
   cursos:
     titulo: MÓDULO 1 – Construção Social de Mercados

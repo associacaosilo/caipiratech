@@ -2,7 +2,7 @@
 layout: gallery
 permalink: /redes_sm/
 swipebox: rede_caipiratechlab
-title: Rede Caipiratech SERRA DO MAR
+title: "Rede CaipiratechLAB - SERRA DO MAR"
 bgheader: 1
 estado: sm
 ---

@@ -2,7 +2,7 @@
 layout: galleryget
 permalink: /redes/
 swipebox: rede_caipiratechlab
-title: Rede Caipiratech
+title: Rede CaipiratechLAB
 bgheader: 1
 estado: 
 ---

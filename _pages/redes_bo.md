@@ -2,7 +2,7 @@
 layout: gallery
 permalink: /redes_bo/
 swipebox: rede_caipiratechlab
-title: Rede Caipiratech SERRA DA BOCAINA
+title: "Rede CaipiratechLAB - SERRA DA BOCAINA"
 bgheader: 1
 estado: bo
 ---

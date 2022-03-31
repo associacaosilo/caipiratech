@@ -1,7 +1,7 @@
 ---
 layout: cursosantigo
 permalink: /cursos_antigo/
-title: Cursos Caipiratech LAB
+title: Cursos CaipiratechLAB
 titulo1: MÓDULO 1 – Construção Social de Mercados
 modulo1:
   - aula: Estratégias de escoamento de produtos agroecológicos
@@ -87,6 +87,6 @@ modulo4:
       - http://www.google.com
 ---
 
-## Curso livre Caipiratechlab 2021
+## Curso livre CaipiratechLAB 2021
 
 Escute e acesse os materiais de apoio aqui

@@ -2,7 +2,7 @@
 layout: gallery
 permalink: /redes_vp/
 swipebox: rede_caipiratechlab
-title: Rede Caipiratech VALE DO RIO PARAÍBA DO SUL
+title: "Rede CaipiratechLAB - VALE DO RIO PARAÍBA DO SUL"
 bgheader: 1
 estado: vp
 ---
