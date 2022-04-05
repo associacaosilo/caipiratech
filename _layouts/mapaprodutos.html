@@ -2,51 +2,7 @@
 <html lang="pt-br">
   <head>
     <base target="_parent">
-    
-
-
-	<!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	
-	<meta name="description" content="CaipiratechLAB - ">
-	<meta name="keywords" content="silo, arte, CaipiratechLAB, rural">
-	
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"
-        integrity="sha384-rY/jv8mMhqDabXSo+UCggqKtdmBfd3qC2/KvyTDNQ6PcUJXaxK1tMepoQda4g5vB"
-        crossorigin="anonymous"></script>
-	
-	<!-- CSS Font Awesome"> -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-    <title></title>
-	
-	<!-- <link rel="shortcut icon" type="image/x-icon" href="/media/favicons/favicon.ico"> -->
-	
-	
-	
-	<!-- CSS Customizado -->
-	<!-- <link rel="stylesheet" type="text/css" href="custom.css"> -->
-	<link rel="stylesheet" href="/assets/css/main.css">
-	
-	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->		
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-L448WRHQ0F"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-L448WRHQ0F');
-</script>
+    {% include head.html %}
     <meta charset="utf-8" />
     <title>CaipiratechLAB | Produtores da região</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -76,114 +32,12 @@
   <body>
 
 
-  
-		
-
-
-	<div class="header py-0 section-header">
-		<div class="container">
-			<div class="row">
-				<!-- <div class="col-6"> -->
-					
-				<!-- </div> -->
-				<div class="col-12 text-right">
-					<!-- <img alt="redes" src="img/redes_topo.png" class="redestopo"> -->
-					<div class="menu-section">  
-						<a class="menu-item" href="https://www.instagram.com/silo.arte.e.latitude.rural" target="_blank">
-						  <i class="fa fa-instagram fa-1_5x" aria-hidden="true"></i>
-						</a>	
-						<a class="menu-item" href="https://www.facebook.com/silo.arte.latitude.rural" target="_blank">
-						  <i class="fa fa-facebook fa-1_5x" aria-hidden="true"></i>
-						</a>
-						<a class="menu-item" href="https://twitter.com/SiloLatitude" target="_blank">
-						  <i class="fa fa-twitter fa-1_5x" aria-hidden="true"></i>
-						</a>
-						<a class="menu-item" href="https://www.youtube.com/channel/UCwB5vE50QX2eCVv-i795y6Q/" target="_blank">
-						  <i class="fa fa-youtube-play fa-1_5x" aria-hidden="true"></i>
-						</a>
-						<a class="menu-item" href="https://www.flickr.com/photos/silolatitude" target="_blank">
-						  <i class="fa fa-flickr fa-1_5x" aria-hidden="true"></i>
-						</a>
-						<a class="menu-item" href="https://github.com/associacaosilo" target="_blank">
-						  <i class="fa fa-github fa-1_5x" aria-hidden="true"></i>
-						</a>
-						<a class="menu-item" href="mailto:contato@silo.org.br" target="_blank">
-						  <i class="fa fa-envelope-o fa-1_5x" aria-hidden="true"></i>
-						</a>
-						<a class="menu-item" href="http://silo.org.br" target="_blank">
-						  <img alt="Logotipo Silo" src="/media/home/logo_barra_4.png" aria-hidden="true" class="logomenu">
-						</a>
-					
-
-					</div>
-				</div>
-			</div>
-			<!--/row-->
-		</div>
-		<!--container-->
-	</div>
-	<nav class="navbar navbar-expand-md sticky-top">
-		<div class="container">
-			<a class="navbar-brand mr-md-5" href="/">
-				<img alt="logo CaipiratechLAB" src="/media/home/logo_principal.png" height="70px">
-			</a>
-			<button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-				<!-- <span class="navbar-toggler-icon"></span> -->
-				<i title="" class="fa fa-bars"></i>
-			</button>
-			<div class="collapse navbar-collapse text-center" id="navbarCollapse">
-				<ul class="navbar-nav flex-md-row mx-auto flex-column ml-md-5">
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown">Mapeamento</a>
-						<div class="dropdown-menu text-center" aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item" href="/cartografia">Cartografia</a>
-              <div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="/redes">Redes</a>
-						</div>
-					</li>
-					<li class="nav-item d-none d-md-block">
-						<p class="nav-link separador">|</p>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/cursos">Cursos</a>
-					</li>
-					<li class="nav-item d-none d-md-block">
-						<p class="nav-link separador">|</p>
-					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown">Loja Online</a>
-						<div class="dropdown-menu text-center" aria-labelledby="navbarDropdownMenuLink">
-							<p class="dropdown-item">Em breve [x]</p>
-						</div>
-					</li>
-					<!-- <li class="nav-item"> -->
-						<!-- <a class="nav-link" href="#">Loja Online</a> -->
-					<!-- </li> -->
-					<li class="nav-item d-none d-md-block">
-						<p class="nav-link separador">|</p>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/boletins">Boletins</a>
-					</li>
-          <li class="nav-item d-none d-md-block">
-						<p class="nav-link separador">|</p>
-					</li>
-					</li>
-          <li class="nav-item">
-						<a class="nav-link" href="/sobre">Sobre</a>
-					</li>
-					<!--<li class="nav-item">
-						<a class="nav-link disabled" href="#">Disabled</a>
-					</li> -->
-				</ul>
-
-			</div>	
-			
-		</div>
-
-    </nav>
+  {% if page.embed == 0 %}
+		{% include menu.html %}
     <div id="map" style="top: 121px;"></div>
-  		
+  {% else %}
+    <div id="map"></div>  
+  {% endif %}		
  
 
   
@@ -284,10 +138,12 @@
               }
             });
             
+            
+            
             map.on('click', 'cinthia', function (e) {
               var coordinates = e.features[0].geometry.coordinates.slice();
               
-              //A região da Cinthia está fixa em "Serra da Mantiqueira" pois não tem esse campo na tabela (corrigido)
+              //A região da Cinthia está fixa em "Serra da Mantiqueira" pois não tem esse campo na tabela
               var regiao = e.features[0].properties.Região;
               var prefixo = "rede_caipiratechlab_"
               
@@ -309,15 +165,16 @@
               var description = "";
               
               if(e.features[0].properties.Imagem == "embreve"){
-                description = '<img src="../media/images/embreve.jpg" style="width:100%">';
+                description = '<img src="../media/images/embreve.jpg" class="w-100">';
               }else{
-                description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a>';
+                description = '<a href="{{ site.baseurl }}/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a>';
                 
                 //teste para exibir lista de produtos como texto abaixo da imagem
-                <!-- description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a> <br /> Produtos:<br />' + e.features[0].properties.Produtos; -->
+                <!-- description = '<a href="{{ site.baseurl }}/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a> <br /> Produtos:<br />' + e.features[0].properties.Produtos; -->
                 
                 //teste para exibir Região como texto abaixo da imagem
-                <!-- description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a> <br /> Região:<br />' + regiao; -->
+                description += '<br /> Região:<br />' + regiao;
+                <!-- description = '<a href="{{ site.baseurl }}/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a> <br /> Região:<br />' + regiao; -->
                 
                 //teste para exibir lista de produtos em formato de lista abaixo da imagem
                 <!-- description += '<br /> Produtos:<br /> <ul>'; -->
@@ -331,10 +188,15 @@
               }
               
               //incluindo telefone como link do whatsapp
-              <!-- var whatsapp = e.features[0].properties.Whatsapp; -->
-              <!-- if (whatsapp != ""){ -->
-                <!-- description += '<br /> <a style="cursor: pointer;" href="http://wa.me/55' + whatsapp + '?text=Te%20encontrei%20no%20CaipiratechLAB%20e%20eu%20tenho%20interesse%20em%20comprar%20de%20você" target="_blank"> (ícone do whats) Compre aqui </a>'; -->
-              <!-- } -->
+              var whatsapp = e.features[0].properties.Whatsapp;
+              if (whatsapp != ""){
+                description += '<br /> <a class="link-whats" href="http://wa.me/55' + whatsapp + '?text=Te%20encontrei%20no%20CaipiratechLAB%20e%20eu%20tenho%20interesse%20em%20comprar%20de%20você" target="_blank"> <i class="fa fa-whatsapp" aria-hidden="true"></i> Compre pelo Whatsapp!</a>';
+              }
+              
+              var telegram = e.features[0].properties.Telegram;
+              if (telegram != ""){
+                description += '<br /> <a class="link-telegram" href="https://t.me/' + telegram + '" target="_blank"> <i class="fa fa-telegram" aria-hidden="true"></i> Compre pelo Telegram!</a>';
+              }
               
 
              
@@ -438,12 +300,13 @@
               var description = "";
               
               if(e.features[0].properties.Imagem == "embreve"){
-                description = '<img src="../media/images/embreve.jpg" style="width:100%">';
+                description = '<img src="../media/images/embreve.jpg" class="w-100">';
               }else{              
-               description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a>';
+               description = '<a href="{{ site.baseurl }}/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a>';
                
                //teste para exibir Região como texto abaixo da imagem
-                <!-- description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a> <br /> Região:<br />' + regiao; -->
+                description += '<br /> Região:<br />' + regiao;
+                <!-- description = '<a href="{{ site.baseurl }}/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a> <br /> Região:<br />' + regiao; -->
               }
               
                /*
@@ -547,12 +410,13 @@
               var description = "";
               
               if(e.features[0].properties.Imagem == "embreve"){
-                description = '<img src="../media/images/embreve.jpg" style="width:100%">';
+                description = '<img src="../media/images/embreve.jpg" class="w-100">';
               }else{              
-               description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a>';
+               description = '<a href="{{ site.baseurl }}/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a>';
                
                //teste para exibir Região como texto abaixo da imagem
-               <!-- description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a> <br /> Região:<br />' + regiao; --> 
+                description += '<br /> Região:<br />' + regiao;
+               <!-- description = '<a href="{{ site.baseurl }}/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a> <br /> Região:<br />' + regiao; --> 
               }
               
               
@@ -627,7 +491,6 @@
               }
             });
 
-
             // When a click event occurs on a feature in the csvData layer, open a popup at the
             // location of the feature, with description HTML from its properties.
             
@@ -660,12 +523,12 @@
               var description = "";
               
               if(e.features[0].properties.Imagem == "embreve"){
-                description = '<img src="../media/images/embreve.jpg" style="width:100%">';
+                description = '<img src="../media/images/embreve.jpg" class="w-100">';
               }else{              
-               description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a>';
+               description = '<a href="{{ site.baseurl }}/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a>';
                
                //teste para exibir Região como texto abaixo da imagem
-               <!-- description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a> <br /> Região:<br />' + regiao; -->
+               description += '<br /> Região:<br />' + regiao;
               } 
               
               
@@ -712,17 +575,125 @@
       
     });
     
+    class FilterControl {
+      onAdd(map) {
+        this._map = map;
+        this._container = document.createElement('div');
+        this._container.className = 'mapboxgl-ctrl section1';
+        //this._container.setAttribute('style', 'line-height: 1; padding: 10px;');
+        this._container.id = 'filtros';
+         
+        const filterTitle = document.createElement('H6');
+        filterTitle.textContent = 'Filtro por Região:';
+        filterTitle.classList.add('filterTitle');
+        
+        
+        const filterForm = document.createElement('form');
+        filterForm.id = 'filterform';
+        <!-- filterForm.setAttribute('style', 'margin-top: 7px;'); -->
+        filterForm.classList.add('filterform');
+        
+        const regioes = ["Serra da Mantiqueira", "Vale do Rio Paraíba", "Serra do Mar", "Serra da Bocaina"];
+        
+        //const formatcontainer = document.createElement('div');
+        
+        
+        
+        for (let i = 0; i < regioes.length; i++) {
+          const container = document.createElement('label');
+          //container.setAttribute('style', 'display: flex');
+          container.classList.add('label-checkbox');
 
-      // ZOOM
-      // map.addControl(new mapboxgl.NavigationControl(), 'top-left');      
-      // ZOOM
-     map.addControl(new mapboxgl.NavigationControl(), 'top-right'); // disable map zoom when using scroll
-      //map.scrollZoom.disable(); 
+          //container.classList.add('checkbox-container');
+
+          const input = document.createElement('input');        
+          //input.classList.add('px12', 'filter-option');
+          input.classList.add('filter-check');
+          input.setAttribute('type', 'checkbox');
+          <!-- input.setAttribute('id', regioes[i].replace(/\s/g, '_')); -->
+          input.setAttribute('id', regioes[i].normalize("NFD").replace(/[^a-zA-Z0-9s]/g, ""));
+          input.setAttribute('value', regioes[i]);
+          //input.setAttribute('style', 'margin-right: 5px;');
+          input.setAttribute('checked', '');
+          
+                           
+
+          //const checkboxDiv = document.createElement('div');
+          const inputValue = document.createElement('div');
+          inputValue.textContent = regioes[i];
+          //checkboxDiv.classList.add('checkbox', 'mr6');
+          
+
+          
+          container.appendChild(input);
+          //container.appendChild(checkboxDiv);
+          container.appendChild(inputValue);
+          
+          //formatcontainer.appendChild(container);
+          //filterForm.appendChild(formatcontainer);
+          // incluir container direto no filterForm
+          filterForm.appendChild(container);
+        }
+        
+        //cria o input text de busca de produtos
+        const produtosTitle = document.createElement('H6');
+        produtosTitle.textContent = 'Filtro por produtos:';
+        produtosTitle.classList.add('filterTitle');
+        
+        //cria o input text de busca de produtos
+        const inputProdutos = document.createElement('input');        
+        inputProdutos.classList.add('produtos-input');
+        inputProdutos.setAttribute('type', 'text');
+        inputProdutos.setAttribute('id', 'inputprodutos');
+        //inputProdutos.id = 'inputprodutos';
+        
+        
+        //adiciona a busca por produtos 
+        filterForm.appendChild(document.createElement('br'));
+        filterForm.appendChild(produtosTitle);
+        filterForm.appendChild(inputProdutos);
+       
+        
+        this._container.appendChild(filterTitle);
+        //adiciona o form dentro da div dos filtros
+        this._container.appendChild(filterForm);
+        
+        
+        return this._container;
+      }
+       
+      onRemove() {
+        this._container.parentNode.removeChild(this._container);
+        this._map = undefined;
+      }
+    }
+    
+    
+
+
+    // Add filter div controls to the map.
+    map.addControl(new FilterControl(), 'top-left');  
+      
+      
+    // ZOOM
+    // map.addControl(new mapboxgl.NavigationControl(), 'top-left');      
+    // ZOOM
+    map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+    // disable map zoom when using scroll
+    //map.scrollZoom.disable(); 
+      
+      
+      
+    
       
   </script>
 
 
-	
+{% if page.embed == 1 %}
+  <script>
+    map.scrollZoom.disable();     
+  </script> 
+{% endif %}	
   
 <script>
 function w3_open() {
@@ -737,6 +708,235 @@ function myFunction() {
   var popup = document.getElementById("myPopup");
   popup.classList.toggle("show");
 }
+
+
+
+
+
+  
+
+
+
+<!-- var checkboxes = document.querySelectorAll('input[type="checkbox"]'); -->
+document.getElementById('filterform').addEventListener('change', (e) => {
+
+  <!-- //verifica se o campo de busca de produtos tem alguma coisa, se tiver, aplica o filtro -->
+  <!-- const filtroprodutos = document.getElementById("inputprodutos");   -->
+  <!-- if(filtroprodutos.value != ""){ -->
+    <!-- var filterproducts = ['in', ['get','Produtos'], filtroprodutos.value]; -->
+    <!-- //filterproducts.push(filtroprodutos.value); -->
+    <!-- alert(filterproducts); -->
+    <!-- console.log(filterproducts); -->
+    
+    
+    <!-- map.setFilter('cinthia', filterproducts); -->
+    <!-- map.setFilter('aline', filterproducts); -->
+    <!-- map.setFilter('sidney', filterproducts); -->
+    <!-- map.setFilter('alketa', filterproducts); -->
+    <!-- alert("PAUSA"); -->
+  <!-- } -->
+
+
+  const checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');  
+  if(checkedBoxes.length != 0){
+    var filtercheckbox = ['in', 'Região'];
+    for (const checkedbox of checkedBoxes) {
+    
+      filtercheckbox.push(checkedbox.value);
+      //console.log(filtercheckbox);
+      //alert(filtercheckbox);
+    }
+    
+    map.setFilter('cinthia', filtercheckbox); //comentado pq não tem região na tabela (corrigido)
+    map.setFilter('aline', filtercheckbox); //comentado pq está REGIÃO na tabela (corrigido)
+    map.setFilter('sidney', filtercheckbox);
+    map.setFilter('alketa', filtercheckbox);
+  } else { 
+    //alert(1);
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    for (var checkbox of checkboxes) {        
+        //document.getElementById(checkbox.id).setAttribute('checked', '');
+        checkbox.checked = true;
+        checkbox.setAttribute('checked', '');
+    }
+    
+    map.setFilter('cinthia', null); //comentado pq não tem região na tabela
+    map.setFilter('aline', null); //comentado pq está REGIÃO na tabela
+    map.setFilter('sidney', null);
+    map.setFilter('alketa', null);
+  }
+  
+  
+  
+}); 
+
+<!-- inputprodutos.addEventListener('keyup', (e) => { -->
+document.getElementById('inputprodutos').addEventListener('change', (e) => {
+  // If the input value matches a layerID set
+  // it's visibility to 'visible' or else hide it.
+  const value = e.target.value.trim().toLowerCase();
+  <!-- for (const layerID of layerIDs) { -->
+    <!-- map.setLayoutProperty( -->
+    <!-- layerID, -->
+    <!-- 'visibility', -->
+    <!-- layerID.includes(value) ? 'visible' : 'none' -->
+    <!-- ); -->
+  <!-- } -->
+  
+  <!-- let allFeatures = map.querySourceFeatures('cinthia'); -->
+  <!-- console.log(allFeatures.length); -->
+  <!-- console.dir(allFeatures); -->
+  //let dataCinthiageo = map.getSource('cinthia');
+  let dataCinthia = map.getSource('cinthia')._data;
+  console.dir(dataCinthia);
+  //alert(value);
+                              
+  <!-- for (let i = 0; i < allFeatures.length; i++) { -->
+    <!-- var produtos = allFeatures[i].properties.Produtos; -->
+    <!-- if (produtos.includes(value)) -->
+    <!-- { -->
+      <!-- console.log(produtos); -->
+    <!-- } -->
+  <!-- } -->
+  
+  const produtosCinthia = dataCinthia.features.map(feature => [feature.properties.Produtos, feature.properties.Nome]);
+  //const produtosCinthia = dataCinthia.features.map(feature => feature.properties.Produtos);
+  console.dir(produtosCinthia);
+  
+  //funcionando o filtro
+  <!-- for (let j = 0; j < produtosCinthia.length; j++) { -->
+    <!-- var produtos2 = produtosCinthia[j]; -->
+    <!-- if (produtos2.includes(value)) -->
+    <!-- { -->
+      <!-- console.log(produtos2); -->
+    <!-- } -->
+    <!-- else -->
+    <!-- { -->
+      <!-- delete produtosCinthia[j]; -->
+    <!-- } -->
+  <!-- } -->
+    <!-- console.dir(produtosCinthia); -->
+
+  <!-- const newGeoJSON = {...dataCinthia }; -->
+  <!-- console.dir(newGeoJSON); -->
+  <!-- console.dir(newGeoJSON.features); -->
+  //fim da parte do filtro novos testes abaixo
+  
+  <!-- const newGeoJSON = {...dataCinthia }; -->
+  <!-- console.dir(newGeoJSON); -->
+  <!-- console.dir(newGeoJSON.features); -->
+  let alerta = "Locais que possuem o texto '";
+  alerta += value;
+  alerta += "' dentro da lista de produtos: \n";
+  for (let j = 0; j < produtosCinthia.length; j++) {
+    var produtos2 = produtosCinthia[j][0];
+    if (produtos2.includes(value))
+    {
+      console.log(produtos2);
+      alerta += " - ";
+      alerta += produtosCinthia[j][1];
+      alerta += "\n";
+    }
+    else
+    {
+      delete produtosCinthia[j];
+    }
+  }
+  if(value != "")
+  {
+    alert(alerta);
+  }
+  <!-- console.dir(produtosCinthia); -->
+  <!-- console.dir(newGeoJSON); -->
+  <!-- console.dir(newGeoJSON.features); -->
+
+
+  
+
+  
+  <!-- for (let i = 0; i < produtosCinthia.length; i++) { -->
+    <!-- console.log(produtosCinthia[i][0]); -->
+    <!-- if (produtosCinthia[i].includes(value)) -->
+    <!-- {       -->
+      <!-- console.log(produtosCinthia[i]); -->
+      <!-- newGeoJSON.features[i] = ""; -->
+    <!-- } -->
+    <!-- else -->
+    <!-- { -->
+      <!-- console.log(produtosCinthia[i]); -->
+    <!-- } -->
+  <!-- } -->
+  <!-- console.dir(newGeoJSON); -->
+  
+  <!-- map.getSource('cinthia').setData(newGeoJSON); -->
+  
+  //const filterElem = document.getElementById('pubTypeFilter');
+  <!-- uniquePubTypes.forEach(pubType => { -->
+    <!-- const opt = document.createElement('option'); -->
+    <!-- opt.value = pubType; -->
+    <!-- opt.innerText = pubType;  -->
+    <!-- filterElem.appendChild(opt); -->
+  <!-- }); -->
+  
+  //const newGeoJSON = {...geojson };
+  
+  <!-- if (value) { -->
+    <!-- newGeoJSON.features = dataCinthia.features.filter(feature => feature.properties.PubType === pubType); -->
+  <!-- } else { -->
+    <!-- newGeoJSON.features = [...geojson.features]; -->
+  <!-- } -->
+  
+  
+  
+  //map.getSource('cinthia').setData(newGeoJSON);
+  
+  
+  
+  <!-- filterElem.onchange = () => { -->
+    <!-- const pubType = filterElem.value; -->
+    <!-- const newGeoJSON = {...geojson }; -->
+    <!-- if (pubType) { -->
+      <!-- newGeoJSON.features = geojson.features.filter(feature => feature.properties.PubType === pubType); -->
+    <!-- } else { -->
+      <!-- newGeoJSON.features = [...geojson.features]; -->
+    <!-- } -->
+    <!-- map.getSource('cinthia').setData(newGeoJSON); -->
+  <!-- }; -->
+
+  
+
+  
+  
+  
+  <!-- let dataCinthia = map.getSource('cinthia'); -->
+  <!-- console.dir(dataCinthia); -->
+  
+  <!-- for (let i = 0; i < dataCinthia.length; i++) { -->
+    <!-- var local = dataCinthia; -->
+    <!-- console.log(local); -->
+  <!-- } -->
+  
+  <!-- for (const local of dataCinthia) { -->
+    <!-- console.log(local.properties.Produtos); -->
+  <!-- } -->
+  
+  
+  //console.dir(allFeatures);
+  //console.dir(data);
+  
+  
+  
+  
+});
+
+ 
+
+
+<!-- document.getElementById('filterform').addEventListener('change', (e) => { -->
+<!-- map.setFilter('aline', ['==', ['get', 'REGIÃO'], 'Serra da Mantiqueira']); -->
+<!-- map.setFilter('sidney', ['==', ['get', 'Região'], 'Serra da Mantiqueira']); -->
+<!-- map.setFilter('alketa', ['==', ['get', 'Região'], 'Serra da Mantiqueira']); -->
+
 </script>
 
 <script>

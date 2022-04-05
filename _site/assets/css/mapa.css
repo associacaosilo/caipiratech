@@ -120,11 +120,13 @@ a.link-whats:hover{
 
 a.link-telegram{
   cursor: pointer;
+  color: #007bff;
 }
 
 a.link-telegram:hover{
   cursor: pointer;
   text-decoration: none;
+  color: #0056b3;
 }
 
 .w-100{
