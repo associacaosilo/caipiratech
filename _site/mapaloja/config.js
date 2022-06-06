@@ -12,9 +12,9 @@ const config = {
   geocoderzoom: 7.5,
   flyspeed: 0.3,
   flycurve: 1.3,
-  title: 'Busca:',
+  title: 'Filtros e Resultados',
   description:
-    'Utilize os filtros abaixo para realizar a busca. Clique no resultado para visualizar mais detalhes e centralizar no mapa.',
+    '',
   sideBarInfo: ['Nome', 'Produtos', 'Regiao', 'distance',],
   popupInfo: ['Nome',],
   filters: [

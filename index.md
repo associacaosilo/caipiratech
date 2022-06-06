@@ -8,7 +8,7 @@ section1:
   titulo4: consome?
 section2:
   titulo: conheça o programa
-  texto: CaipiratechLAB é um programa da Silo que tem por objetivo colaborar com o fortalecimento dos sistemas alimentares garantindo assim a perenidade da produção a da distribuição de alimentos saudáveis, justos e sustentáveis.
+  texto: CaipiratechLAB é um programa da Silo que tem por objetivo colaborar com o fortalecimento dos sistemas alimentares garantindo assim a perenidade da produção e da distribuição de alimentos saudáveis, justos e sustentáveis.
 section3:
   titulo: ajude a viabilizar a produção local
   texto1: busque conhecer produtoras e produtores de sua região
@@ -16,7 +16,7 @@ section3:
   botao: começar agora!
 section4:
   titulo: Encontre aqui produtoras/es de alimentos que estão próximas/os a você!
-  texto: Sou produtor/a de alimentos orgânicos e/ou provenientes de agricultura familiar da região da Serra da Mantiqueira, Serra da Bocaina, ou Serra do Mar!
+  texto: Sou produtor/a de alimentos orgânicos e/ou provenientes de agricultura familiar da região da Serra da Mantiqueira, Serra da Bocaina, Vale do Paraíba ou Serra do Mar!
   botao: quero me cadastrar!
 section5:
   titulo1: ouça aqui

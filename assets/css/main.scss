@@ -257,6 +257,11 @@ a.footer-item:hover {
   margin-bottom: -30%;
 }
 
+.img-sobre {
+  max-width: 75%;
+  margin-bottom: -5rem;
+}
+
 .logo-pequeno {
 	max-width: 40%;
 }
@@ -371,4 +376,8 @@ audio{
 div.mapboxgl-popup-content a{
   cursor: -webkit-zoom-in;
   cursor: zoom-in;
+}
+
+.small, small {
+    font-size: 90%;
 }

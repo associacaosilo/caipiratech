@@ -106,6 +106,8 @@ a.footer-item:hover { text-decoration: none; }
 
 .img-cursos { max-width: 75%; margin-bottom: -30%; }
 
+.img-sobre { max-width: 75%; margin-bottom: -5rem; }
+
 .logo-pequeno { max-width: 40%; }
 
 .logo-pequeno2 { max-width: 20%; }
@@ -149,3 +151,5 @@ audio::-webkit-media-controls-panel, video::-webkit-media-controls-panel { backg
 audio { background-color: #f4d6a2; opacity: 1; width: 80% !important; height: 50px !important; }
 
 div.mapboxgl-popup-content a { cursor: -webkit-zoom-in; cursor: zoom-in; }
+
+.small, small { font-size: 90%; }

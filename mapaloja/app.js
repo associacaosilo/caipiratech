@@ -56,7 +56,7 @@ function loadCard(currentFeature) {
   if(currentFeature.properties.Imagem == "embreve"){
     description = '<img src="../media/images/embreve.jpg" class="w-100">';
   }else{
-    description = '<a href="'+config.baseURL+'/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a>';
+    description = '<a href="'+config.baseURL+'redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a>';
     
     //teste para exibir lista de produtos como texto abaixo da imagem
     // description = '<a href="'+config.baseURL+'/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a> <br /> Produtos:<br />' + e.features[0].properties.Produtos; 
@@ -141,8 +141,17 @@ function buildLocationList(locationData) {
       else if(prop[columnHeaders[i]] != undefined)
       {
         div.innerHTML += "<strong>Distância aprox.: </strong>";
-        div.innerHTML += prop[columnHeaders[i]];
-        div.innerHTML += " m";
+        if(prop[columnHeaders[i]] < 20)
+        {
+          div.innerHTML += " menos de 20 metros";
+        }else if(prop[columnHeaders[i]] < 1000)
+        {
+          div.innerHTML += prop[columnHeaders[i]].toFixed(2);
+          div.innerHTML += " m";
+        }else{
+          div.innerHTML += ((prop[columnHeaders[i]])/1000).toFixed(2);
+          div.innerHTML += " km";
+        }
       }
       div.className;
       details.appendChild(div);
@@ -178,6 +187,8 @@ function buildLocationList(locationData) {
       }
     });
   });
+  
+
   
   var value = document.getElementById('produtos').value;
   markSearch(value);
@@ -293,7 +304,8 @@ function buildDropDownList(title, listItems) {
   const mainDiv = document.createElement('div');
   const filterTitle = document.createElement('h3');
   filterTitle.innerText = title;
-  filterTitle.classList.add('py12', 'txt-bold');
+  //filterTitle.classList.add('py12', 'txt-bold');
+  filterTitle.classList.add('pb6', 'txt-bold');
   mainDiv.appendChild(filterTitle);
 
   const selectContainer = document.createElement('div');
@@ -332,7 +344,8 @@ function buildCheckbox(title, listItems) {
   const mainDiv = document.createElement('div');
   const filterTitle = document.createElement('div');
   const formatcontainer = document.createElement('div');
-  filterTitle.classList.add('center', 'flex-parent', 'py12', 'txt-bold');
+  //filterTitle.classList.add('center', 'flex-parent', 'py12', 'txt-bold');
+  filterTitle.classList.add('center', 'flex-parent', 'pb6', 'txt-bold');
   formatcontainer.classList.add(
     'center',
     'flex-parent',
@@ -349,6 +362,7 @@ function buildCheckbox(title, listItems) {
     'flex-parent--space-between-main',
   );
   filterTitle.innerText = title;
+  mainDiv.classList.add('pb6');
   mainDiv.appendChild(filterTitle);
   mainDiv.appendChild(formatcontainer);
 
@@ -387,7 +401,8 @@ function buildTextInput(title, placeholder, id) {
   const mainDiv = document.createElement('div');
   const filterTitle = document.createElement('div');
   const formatcontainer = document.createElement('div');
-  filterTitle.classList.add('center', 'flex-parent', 'py12', 'txt-bold');
+  //filterTitle.classList.add('center', 'flex-parent', 'py12', 'txt-bold');
+  filterTitle.classList.add('center', 'flex-parent', 'pb6', 'txt-bold');
   formatcontainer.classList.add(
     'center',
     'flex-parent',
@@ -397,6 +412,7 @@ function buildTextInput(title, placeholder, id) {
   );
   
   filterTitle.innerText = title;
+  mainDiv.classList.add('pb6');
   mainDiv.appendChild(filterTitle);
   mainDiv.appendChild(formatcontainer);
 
@@ -597,6 +613,9 @@ function removeFilters() {
   selectOption.forEach((option) => {
     option.selectedIndex = 0;
   });
+  
+  var inputProdutos = document.getElementById('produtos');
+  inputProdutos.value = '';
 
   map.getSource('locationData').setData(geojsonData);
   buildLocationList(geojsonData);
@@ -629,6 +648,9 @@ const geocoder = new MapboxGeocoder({
   },
   placeholder: 'Busque sua localização',
 });
+
+
+
 
 function sortByDistance(selectedPoint) {
   const options = { units: 'meters' };
@@ -669,8 +691,14 @@ geocoder.on('result', (ev) => {
   sortByDistance(searchResult);
 });
 
+var navCtrl = new mapboxgl.NavigationControl({
+        showCompass: false,
+        showZoom: true
+      });
+
 map.on('load', () => {
   map.addControl(geocoder, 'top-right');
+  map.addControl(navCtrl, 'top-left');
 
   // csv2geojson - following the Sheet Mapper tutorial https://www.mapbox.com/impact-tools/sheet-mapper
   console.log('loaded');
@@ -712,21 +740,38 @@ map.on('load', () => {
           map.addImage('verde', image);
         });
         
+        // map.addLayer({
+          // id: 'locationData',
+          // type: 'circle',
+          // source: {
+            // type: 'geojson',
+            // data: geojsonData,
+          // },
+          // paint: {
+            // 'circle-radius': 5, // size of circles
+            // 'circle-color': '#386650', // color of circles
+            // 'circle-stroke-color': 'white',
+            // 'circle-stroke-width': 1,
+            // 'circle-opacity': 0.7,
+          // },
+        // });
+        
         map.addLayer({
-          id: 'locationData',
-          type: 'circle',
-          source: {
-            type: 'geojson',
-            data: geojsonData,
+          'id': 'locationData',
+          'type': 'symbol',
+          'source': {
+            'type': 'geojson',
+            'data': geojsonData,
           },
-          paint: {
-            'circle-radius': 5, // size of circles
-            'circle-color': '#386650', // color of circles
-            'circle-stroke-color': 'white',
-            'circle-stroke-width': 1,
-            'circle-opacity': 0.7,
-          },
+          'layout': {
+            'visibility': 'visible',
+            'icon-image': 'verde',
+            'icon-anchor': 'bottom',
+            "icon-allow-overlap": true,
+          }
         });
+        
+        
       },
     );
 
@@ -737,6 +782,8 @@ map.on('load', () => {
       const clickedPoint = features[0].geometry.coordinates;
       flyToLocation(clickedPoint);
       sortByDistance(clickedPoint);
+     
+      
       createPopup(features[0]);
     });
 
@@ -757,13 +804,23 @@ const exitButton = document.getElementById('exitButton');
 const modal = document.getElementById('modal');
 
 filterResults.addEventListener('click', () => {
-  modal.classList.remove('hide-visually');
-  modal.classList.add('z5');
+  modal.classList.toggle('hide-visually');
+  modal.classList.toggle('z5');
+  var x = document.querySelector("#filterResults>p");
+  if (x.innerHTML === "Mostrar Filtros") {
+    x.innerHTML = "Ocultar Filtros";
+  } else {
+    x.innerHTML = "Mostrar Filtros";
+  }
+  
 });
 
 exitButton.addEventListener('click', () => {
   modal.classList.add('hide-visually');
+  var x = document.querySelector("#filterResults>p");
+  x.innerHTML = "Mostrar Filtros";
 });
+
 
 const title = document.getElementById('title');
 title.innerText = config.title;
@@ -894,6 +951,9 @@ function markSearch(busca) {
     "separateWordSearch": false
   });
 }
+
+
+
 
 // filtroProdutos();
 //listando os produtos filtrados em um alerta

@@ -14,7 +14,7 @@ const config = {
   flycurve: 1.3,
   title: 'Busca:',
   description:
-    'Utilize os filtros abaixo para realizar a busca. Clique no resultado para vizualizar mais detalhes e centralizar no mapa.',
+    'Utilize os filtros abaixo para realizar a busca. Clique no resultado para visualizar mais detalhes e centralizar no mapa.',
   sideBarInfo: ['Nome', 'Produtos', 'Regiao', 'distance',],
   popupInfo: ['Nome',],
   filters: [
