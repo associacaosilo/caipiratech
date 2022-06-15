@@ -9,12 +9,39 @@ bgpar: 2
 imgheader: 8 
 ---
 
-Com o programa CaipiraTechLAB, a [Silo](https://silo.org.br/)  visa fortalecer os sistemas agroalimentares e inovar em relação a criação de uma plataforma multifuncional para uso de empreendedores do setor de produção de alimentos agroecológicos. A plataforma está baseada em princípios do cooperativismo, está integrada a diferentes aplicativos e ferramentas da internet (como telegram, google calendar e etc) e traz variadas funções que são úteis aos produtores, oferecendo suporte para cursos de formação; prestação de serviços; escoamento de produtos; cartografia e comunicação. Criando, desde o princípio, uma metodologia de desenvolvimento de tecnologias geradas de maneira não linear e horizontal, onde os inputs e outputs do processo se retroalimentam e onde os usuários colaboram com a criação em diferentes níveis, do início ao fim.
 
-A plataforma virtual será gratuita e replicável voltada para a cooperação entre produtores de alimentos, prestadores de serviço (dentro do mercado de infraestrutura, beneficiamento e escoamento de alimentos) e consumidores. Oferecerá cursos formativos (online e presencial); loja online; cartografia de produtores regionais (mapeamento e campanhas de difusão); grupos, chats e fóruns de comunicação onde os participantes poderão trocar conhecimento, informação, serviços, decidir sobre os cursos oferecidos, encontrar pessoas de outras áreas, vender e comprar produtos agroecológicos, gerar empreendimentos coletivos, se reconhecer dentro de um território de produção de alimentos interligado e interdependente e ainda influenciar os tomadores de decisão por meio de debates públicos e a divulgação de dados.
+## O que é?
 
-O programa se materializa por meio de três frentes:
-- Mapeamento e campanha de divulgação das/os produtoras/es rurais da região e de pequenos estabelecimentos de beneficiamento de produtos locais relacionados à agricultura de base familiar  e ecológica;
-- Formação livre a partir do compartilhamento de ferramentas (de gestão e de produção) e conhecimento (tecnológico, científico e popular) para profissionalizar ou agregar qualidade ao que já está sendo feito pelas/os produtoras/es para que estes possam perseverar no objetivo de produzir e escoar alimentos saudáveis e acessíveis, inclusive em momentos de crise sanitária e econômica.
-- Criação de uma plataforma multifuncional que venha a complementar práticas presenciais já estabelecidas para convergir produtoras/es, prestadoras/es de serviço, oferecendo comunicação, espaço seguro para venda/compra, comunicação, formação, assessoria e uma consciência de rede de corresponsabilidade.
+&nbsp;&nbsp;&nbsp;&nbsp;Este é um protótipo de uma plataforma gratuita e multifuncional para uso de empreendedoras e empreendedores do setor de produção de alimentos agroecológicos. A plataforma está baseada em princípios do cooperativismo, está integrada a diferentes aplicativos e ferramentas da internet (como telegram) e traz variadas funções que são úteis a quem produz alimentos, oferecendo suporte para cursos de formação; prestação de serviços; escoamento de produtos; mapeamento; divulgação de dados e comunicação. 
+<br><br><br>
 
+
+
+## Para quê e para quem?
+
+&nbsp;&nbsp;&nbsp;&nbsp;Esta plataforma tem como objetivo facilitar a cooperação entre produtores de alimentos, prestadores de serviço (dentro do mercado de infraestrutura, beneficiamento e escoamento de alimentos) e consumidores. 
+
+&nbsp;&nbsp;&nbsp;&nbsp;Atualmente, seu território de abrangência é Serra da Mantiqueira, Vale do Paraíba, Serra da Bocaina e Serra do Mar. 
+<br><br><br>
+
+
+
+## O que tem nela?
+
+&nbsp;&nbsp;&nbsp;&nbsp;Ela oferece cursos formativos (online e presencial); loja online; podcast; mapeamento e difusão de produtores regionais e dados relevantes ao sistema agroalimentar. 
+
+&nbsp;&nbsp;&nbsp;&nbsp;A plataforma conta com uma rede de usuários que operam e trocam dentro de grupos de Telegram mediados e moderados. Por meio de chats e boletins de comunicação, os participantes poderão trocar conhecimento, informação, serviços, decidir sobre os cursos oferecidos, encontrar pessoas de outras áreas, vender e comprar produtos agroecológicos, gerar empreendimentos coletivos, se reconhecer dentro de um território de produção de alimentos interligado e interdependente e ainda influenciar os tomadores de decisão por meio de debates públicos e a divulgação de dados.
+<br><br><br>
+
+
+
+## O programa CaipiratechLAB
+
+&nbsp;&nbsp;&nbsp;&nbsp;CaipiratechLAB é um programa da Silo Arte e Latitude Rural que colabora com o fortalecimento dos sistemas agroalimentares regionais e sua expressão cultural por meio de mapeamento, cursos e desenvolvimento de tecnologia que convergem na plataforma multifuncional. 
+<br><br><br>
+
+
+
+## A Silo
+
+&nbsp;&nbsp;&nbsp;&nbsp;**[Silo – Arte e Latitude Rural](https://silo.org.br/)** é uma organização da sociedade civil que cria, acolhe e difunde arte, ciência, tecnologia e agroecologia em zonas rurais, áreas periféricas e de preservação ambiental, estimulando o cruzamento entre técnicas intuitivas e saberes científicos. Na Silo acontecem experiências imersivas e práticas transdisciplinares como residências artísticas e laboratórios de experimentação e inovação. Atualmente, estamos situadas na área de Proteção Ambiental da Serrinha do Alambari, localizada na Serra da Mantiqueira na tríplice fronteira entre os estados de Rio de Janeiro, Minas Gerais e São Paulo e nossas atividades possuem abrangência nacional e internacional. Somos uma organização conduzida por uma equipe de mulheres e estamos comprometidas com a igualdade de raça e gênero.
