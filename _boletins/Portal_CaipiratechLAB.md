@@ -7,4 +7,8 @@ arquivos:
     arquivo: Boletim-Portal_CaipiratechLAB-01.pdf
   - titulo: "Boletim - Portal CaipiratechLAB - 02.pdf"
     arquivo: Boletim-Portal_CaipiratechLAB-02.pdf
+  - titulo: "Boletim - Portal CaipiratechLAB - 03.pdf"
+    arquivo: Boletim-Portal_CaipiratechLAB-03.pdf
+  - titulo: "Boletim - Portal CaipiratechLAB - 04.pdf"
+    arquivo: Boletim-Portal_CaipiratechLAB-04.pdf
 ---
