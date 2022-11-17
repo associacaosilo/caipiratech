@@ -12,7 +12,7 @@
   {% capture classheader %}section{{ page.bgheader }}{% endcapture %}
   {% capture classanos %}section{{ page.bganos }}{% endcapture %}
   
-  {% assign anos = site.cursos | group_by: "ano" %}
+  {% assign anos = site.cursos | sort: "ano" | group_by: "ano" %}
 
 	<div class="container-fluid">
 		<div class="row align-items-center {{ classheader }} cabecalho py-2">
