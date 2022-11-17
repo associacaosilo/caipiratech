@@ -4,6 +4,7 @@ body { background: #ffffff; color: #000000; font-family: -apple-system, BlinkMac
 /*mesma cor da Section2*/
 /*usada tb no bg do menu dropdown*/
 /*usada nas sections pares da página Boletins*/
+/*usada no background dos Anos na página Cursos*/
 /*$bgGallery: #fddbba;*/
 @font-face { font-family: BreeSerifLight; src: url("fonts/BreeSerif-Light.otf"); }
 @font-face { font-family: BreeSerifSemiBold; src: url("fonts/BreeSerif-SemiBold.otf"); }
@@ -71,6 +72,8 @@ button.navbar-toggler { color: #f4d6a2; }
 
 .section7 { background-color: #FF6B6B; }
 
+.sectionanos { background-color: #A32B00; padding-top: 96px !important; }
+
 .section-footer { background-color: #782A03; }
 
 a.footer-item { color: #f4d6a2; }
@@ -104,7 +107,7 @@ a.footer-item:hover { text-decoration: none; }
 
 .img-boletins { max-width: 75%; margin-bottom: -55%; }
 
-.img-cursos { max-width: 75%; margin-bottom: -30%; }
+.img-cursos { max-width: 75%; /* margin-bottom: -30%; */ margin-top: calc(-75% + 110px); }
 
 .img-sobre { max-width: 70%; margin-bottom: -2rem; }
 
@@ -141,6 +144,8 @@ li a { color: #f4d6a2; }
 li { font-family: BreeSerifLight; font-weight: normal; }
 
 summary { color: #f4d6a2; font-family: BreeSerifLight; font-weight: normal; font-size: 1.3rem; }
+
+.link-anos { /* color: $fontColor; */ /* font-family: BreeSerifLight; */ /* font-weight: normal; */ font-size: 1.5rem; }
 
 .bg-gallery { /* background-color: #E2845A; */ background-color: #2A4D3C; }
 

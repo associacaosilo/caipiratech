@@ -1,6 +1,7 @@
 ---
+ano: 2021
 titulo: MÓDULO 3 – Agroecologia e finanças
-ordem: 3
+modulo: 3
 aulas:
   - aula: "Laboratório de planejamento financeiro PARTE 1: cadernetas agroecológicas"
     prof: com Renata Souto e Vanessa Schottz (GT Mulheres da Articulação de Agroecologia do RJ)

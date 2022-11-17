@@ -1,6 +1,7 @@
 ---
+ano: 2021
 titulo: MÓDULO 2 – Agricultura e Mudanças Climáticas
-ordem: 2
+modulo: 2
 aulas:
   - aula: "Ameaças e eventos extremos: introdução e testemunhos"
     prof: com Marina Hirota (IpES/UFSC, SC), Pablo Borges (GIZ, Alemanha) e Alann Yu Iwama (Universidad de los Lagos, Chile)

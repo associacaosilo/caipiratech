@@ -1,7 +1,8 @@
 ---
 published: true
+ano: 2023
 titulo: MÓDULO 1 – Construção Social de Mercados
-ordem: 1
+modulo: 1
 aulas:
   - aula: Estratégias de escoamento de produtos agroecológicos
     prof: >-

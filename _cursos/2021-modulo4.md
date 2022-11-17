@@ -1,6 +1,7 @@
 ---
+ano: 2021
 titulo: MÓDULO 4 – Arte e Comunicação
-ordem: 4
+modulo: 4
 aulas:
   - aula: "O olhar que muda o fazer: repertórios estéticos"
     prof: com Andrés Sandoval (SP)

@@ -14,6 +14,7 @@ $bgSection4: #F57244;
 $bgSection5: #A03804;
 $bgSection6: #ff4646;
 $bgSection7: #FF6B6B;   /*usada nas sections pares da página Boletins*/
+$bgSectionanos: #A32B00;   /*usada no background dos Anos na página Cursos*/
 $bgFooter: #782A03;
 $bgButton: #B63B10;
 $bgMap: #edbe7a;
@@ -171,6 +172,11 @@ button.navbar-toggler {
 	background-color: $bgSection7;
 }
 
+.sectionanos {
+	background-color: $bgSectionanos;
+  padding-top: 96px !important;
+}
+
 .section-footer {
 	background-color: $bgFooter;
 }
@@ -254,7 +260,8 @@ a.footer-item:hover {
 
 .img-cursos {
   max-width: 75%;
-  margin-bottom: -30%;
+  /* margin-bottom: -30%; */
+  margin-top: calc(-75% + 110px);
 }
 
 .img-sobre {
@@ -346,6 +353,13 @@ summary {
     font-family: BreeSerifLight;
     font-weight: normal;
     font-size: 1.3rem;
+}
+
+.link-anos {
+    /* color: $fontColor; */
+    /* font-family: BreeSerifLight; */
+    /* font-weight: normal; */
+    font-size: 1.5rem;
 }
 
 .bg-gallery{
