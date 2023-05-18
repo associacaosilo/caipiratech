@@ -1,11 +1,15 @@
-<div class="swipebox-gallery row align-items-center py-3 mx-auto container">
-  {% for file in site.static_files %}{% if file.path contains include.prefix %}
+﻿<div class="swipebox-gallery row align-items-center py-3 mx-auto container">
+  {% for file in site.static_files %}
+  {% if file.path contains include.prefix %}
+    {% if file.path contains include.prefix %}
       <div class="col-md-6 col-lg-4 mx-auto text-center py-3">
-          <a rel="{{ include.prefix }}" href="{{ site.baseurl }}{{ file.path }}" class="swipebox"  title="{{ include.subtitle }}">
-            <img src="{{ site.baseurl }}{{ file.path }}" alt="{{ include.subtitle }}">
+          <a rel="{{ prefix }}" href="{{ site.baseurl }}{{ file.path }}" class="swipebox"  title="">
+            <img src="{{ site.baseurl }}{{ file.path }}" alt="">
           </a>
       </div>
-    {% endif %}{% endfor %}
+    {% endif %}
+  {% endif %}
+  {% endfor %}
 </div>
 
 <script type="text/javascript">

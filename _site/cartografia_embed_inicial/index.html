@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <base target="_parent">
+    
+
+
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<meta name="description" content="CaipiratechLAB - ">
+	<meta name="keywords" content="silo, arte, CaipiratechLAB, rural">
+	
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"
+        integrity="sha384-rY/jv8mMhqDabXSo+UCggqKtdmBfd3qC2/KvyTDNQ6PcUJXaxK1tMepoQda4g5vB"
+        crossorigin="anonymous"></script>
+	
+	<!-- CSS Font Awesome"> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	
+		<title>CaipiratechLAB</title>
+	
+	<!-- <link rel="shortcut icon" type="image/x-icon" href="/media/favicons/favicon.ico"> -->
+	
+	
+	
+	<!-- CSS Customizado -->
+	<!-- <link rel="stylesheet" type="text/css" href="custom.css"> -->
+	<link rel="stylesheet" href="/assets/css/main.css">
+	
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->		
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L448WRHQ0F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-L448WRHQ0F');
+  </script>
+    <meta charset="utf-8" />
+    <title>CaipiratechLAB | Produtores da região</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="../assets/css/mapa.css" rel="stylesheet" />
+    <!-- Google fonts-->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+    <!-- <link rel="shortcut icon" href="media/favicon.ico" /> -->
+   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    
+      <!-- import the webpage's stylesheet -->
+      <!-- <link rel="stylesheet" href="style.css"> -->
+      
+      <!-- import the webpage's javascript file -->
+      <!-- <script src="script.js"></script> -->
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://npmcdn.com/csv2geojson@latest/csv2geojson.js"></script>
+    <script src="https://npmcdn.com/@turf/turf/turf.min.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.0.0/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.0.0/mapbox-gl-geocoder.css" type="text/css" />
+  </head>
+  <body>
+
+
+  
+    <div id="map"></div>  
+  		
+ 
+
+  
+  <script>
+    var geocoder = new MapboxGeocoder({
+       accessToken: mapboxgl.accessToken,
+       mapboxgl: mapboxgl
+    });
+    
+    var transformRequest = (url, resourceType) => {
+      var isMapboxRequest =
+        url.slice(8, 22) === "api.mapbox.com" ||
+        url.slice(10, 26) === "tiles.mapbox.com";
+      return {
+        url: isMapboxRequest
+          ? url.replace("?", "?pluginName=sheetMapper&")
+          : url
+      };
+    };
+    //YOUR TURN: add your Mapbox token 
+    //mapboxgl.accessToken = 'pk.eyJ1IjoiY2FydG9ncmFmaWFkYXNtZW1vcmlhcyIsImEiOiJjazlxMDN1aG0wZnY4M2xvZHJjajdldnE3In0.qHPWWLN-r8EmzjGLm3afAA'; //Mapbox token 
+    mapboxgl.accessToken = 'pk.eyJ1Ijoic2FyYWxnYyIsImEiOiJja2NjbTAyczkwNXA3Mnlscm5nbjN5OHZiIn0.yNcJkPBSugRlIeGkXDRlZw'; //Mapbox token 
+    var map = new mapboxgl.Map({
+      container: 'map', // container id
+      //style: 'mapbox://styles/saralgc/ckckrwqbc4u951iqrpakwwu02',
+      style: 'mapbox://styles/saralgc/ckw22a9h70g4g14o4pum58wg3',
+      center: [-44.542976, -22.503782], // starting position
+      zoom: 7.5,// starting zoom
+      transformRequest: transformRequest
+    });
+
+    $(document).ready(function () {
+      $.ajax({
+        type: "GET",
+        //YOUR TURN: Replace with csv export link
+        //https://www.mapbox.com/impact-tools/sheet-mapper
+        url: 'https://docs.google.com/spreadsheets/d/1RGSKvjnDuwGyguyDOvvbxT_j9bVnV2p-Nkm-QikvsZA/gviz/tq?tqx=out:csv&sheet=Cinthia',
+        dataType: "text",
+        success: function (csvData) { makeGeoJSON(csvData); }
+      });
+      
+      $.ajax({
+        type: "GET",
+        //YOUR TURN: Replace with csv export link
+        //https://www.mapbox.com/impact-tools/sheet-mapper
+        url: 'https://docs.google.com/spreadsheets/d/1RGSKvjnDuwGyguyDOvvbxT_j9bVnV2p-Nkm-QikvsZA/gviz/tq?tqx=out:csv&sheet=Aline',
+        dataType: "text",
+        success: function (csvData) { makeGeoJSON2(csvData); }
+      });
+      
+      $.ajax({
+        type: "GET",
+        //YOUR TURN: Replace with csv export link
+        //https://www.mapbox.com/impact-tools/sheet-mapper
+        url: 'https://docs.google.com/spreadsheets/d/1RGSKvjnDuwGyguyDOvvbxT_j9bVnV2p-Nkm-QikvsZA/gviz/tq?tqx=out:csv&sheet=Alketa',
+        dataType: "text",
+        success: function (csvData) { makeGeoJSON3(csvData); }
+      });
+       
+      $.ajax({
+        type: "GET",
+        //YOUR TURN: Replace with csv export link
+        //https://www.mapbox.com/impact-tools/sheet-mapper
+        url: 'https://docs.google.com/spreadsheets/d/1RGSKvjnDuwGyguyDOvvbxT_j9bVnV2p-Nkm-QikvsZA/gviz/tq?tqx=out:csv&sheet=Sidney',
+        dataType: "text",
+        success: function (csvData) { makeGeoJSON4(csvData); }
+      });
+
+
+//// LAYER CINTHIA
+      
+      function makeGeoJSON(csvData) {
+        csv2geojson.csv2geojson(csvData, {
+          latfield: 'Latitude',
+          lonfield: 'Longitude',
+          delimiter: ','
+        }, function (err, data) {
+          
+          map.on('load', function () {
+             map.loadImage('../media/mapa/verde.png',
+              function(error, image) {
+              if (error) throw error;
+              map.addImage('verde', image);
+            });
+
+            map.addLayer({
+              'id': 'cinthia',
+              'type': 'symbol',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'layout': {
+                'visibility': 'visible',
+                'icon-image': 'verde',
+                'icon-anchor': 'bottom',
+                "icon-allow-overlap": true,
+              }
+            });
+            
+            map.on('click', 'cinthia', function (e) {
+              var coordinates = e.features[0].geometry.coordinates.slice();
+              
+              //A região da Cinthia está fixa em "Serra da Mantiqueira" pois não tem esse campo na tabela (corrigido)
+              var regiao = e.features[0].properties.Região;
+              var prefixo = "rede_caipiratechlab_"
+              
+              if(regiao == "Serra da Mantiqueira"){
+                prefixo += "ma_";
+              }else if(regiao == "Vale do Rio Paraíba"){
+                prefixo += "vp_";
+              }else if(regiao == "Serra do Mar"){
+                prefixo += "sm_";
+              }else if(regiao == "Serra da Bocaina"){
+                prefixo += "bo_";
+              }else{
+                prefixo = "";
+              }
+              
+                                                     
+              var imagem = prefixo +  e.features[0].properties.Imagem;
+              
+              var description = "";
+              
+              if(e.features[0].properties.Imagem == "embreve"){
+                description = '<img src="../media/images/embreve.jpg" style="width:100%">';
+              }else{
+                description = '<a href="/redes_inicial/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a>';
+                
+                //teste para exibir lista de produtos como texto abaixo da imagem
+                <!-- description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a> <br /> Produtos:<br />' + e.features[0].properties.Produtos; -->
+                
+                //teste para exibir Região como texto abaixo da imagem
+                <!-- description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a> <br /> Região:<br />' + regiao; -->
+                
+                //teste para exibir lista de produtos em formato de lista abaixo da imagem
+                <!-- description += '<br /> Produtos:<br /> <ul>'; -->
+                <!-- var produtos = e.features[0].properties.Produtos; -->
+                <!-- var arrayprodutos = produtos.split(','); -->
+                <!-- $.each(arrayprodutos, function(index, value) { -->
+                  <!-- description += "<li>" + value + "</li>"; -->
+                <!-- }); -->
+                <!-- description += '</ul>'; -->
+                
+              }
+              
+              //incluindo telefone como link do whatsapp
+              <!-- var whatsapp = e.features[0].properties.Whatsapp; -->
+              <!-- if (whatsapp != ""){ -->
+                <!-- description += '<br /> <a style="cursor: pointer;" href="http://wa.me/55' + whatsapp + '?text=Te%20encontrei%20no%20CaipiratechLAB%20e%20eu%20tenho%20interesse%20em%20comprar%20de%20você" target="_blank"> (ícone do whats) Compre aqui </a>'; -->
+              <!-- } -->
+              
+
+             
+              while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+              coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+              }
+
+              //add Popup to map
+
+              new mapboxgl.Popup()
+                .setLngLat(coordinates)
+                .setHTML(description)
+                .addTo(map);
+            });
+          
+
+            // Change the cursor to a pointer when the mouse is over the places layer.
+            map.on('mouseover', 'cinthia', function () {
+              map.getCanvas().style.cursor = 'pointer';
+            });
+            
+
+            // Change it back to a pointer when it leaves.
+            map.on('mouseleave', 'cinthia', function () {
+              map.getCanvas().style.cursor = '';
+            });
+              
+            /*map.setLayoutProperty('verde', 'icon-size', 
+            ['interpolate', ['linear'], ['zoom'], 0, 0.01, 6, 0.08, 15, 0.2, 24, 0.3]);*/
+            
+
+            //var bbox = turf.bbox(data);
+            //map.fitBounds(bbox, { padding: 50 });
+            
+          });
+
+        });
+      };
+//// FIM CINTHIA
+//// LAYER ALINE
+      
+      function makeGeoJSON2(csvData) {
+        csv2geojson.csv2geojson(csvData, {
+          latfield: 'Latitude',
+          lonfield: 'Longitude',
+          delimiter: ','
+        }, function (err, data) {
+          
+          map.on('load', function () {
+            map.loadImage('../media/mapa/verde.png',
+              function(error, image) {
+              if (error) throw error;
+              map.addImage('verde', image);
+            });
+
+            map.addLayer({
+              'id': 'aline',
+              'type': 'symbol',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'layout': {
+                'visibility': 'visible',
+                'icon-image': 'verde',
+                'icon-anchor': 'bottom',
+                "icon-allow-overlap": true,
+              }
+            });
+
+
+            // When a click event occurs on a feature in the csvData layer, open a popup at the
+            // location of the feature, with description HTML from its properties.
+            
+            map.on('click', 'aline', function (e) {
+              var coordinates = e.features[0].geometry.coordinates.slice();
+              
+              var regiao = e.features[0].properties.Região;
+              var prefixo = "rede_caipiratechlab_"
+              
+              if(regiao == "Serra da Mantiqueira"){
+                prefixo += "ma_";
+              }else if(regiao == "Vale do Rio Paraíba"){
+                prefixo += "vp_";
+              }else if(regiao == "Serra do Mar"){
+                prefixo += "sm_";
+              }else if(regiao == "Serra da Bocaina"){
+                prefixo += "bo_";
+              }else{
+                prefixo = "";
+              }
+              
+              /*if(e.features[0].properties.Imagem == "embreve"){
+                prefixo = "";
+              }*/
+              
+              var imagem = prefixo +  e.features[0].properties.Imagem;
+              
+              //var description = `<h3>` + `<b>` + e.features[0].properties.Nome + `</b>` +`</h3>` + `<br>` + `<h4>` + e.features[0].properties.Produtos + `</h4>`;
+              
+              var description = "";
+              
+              if(e.features[0].properties.Imagem == "embreve"){
+                description = '<img src="../media/images/embreve.jpg" style="width:100%">';
+              }else{              
+               description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a>';
+               
+               //teste para exibir Região como texto abaixo da imagem
+                <!-- description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a> <br /> Região:<br />' + regiao; -->
+              }
+              
+               /*
+              player html*/
+        
+              
+              // Ensure that if the map is zoomed out such that multiple
+              // copies of the feature are visible, the popup appears
+              // over the copy being pointed to.
+              while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+              coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+              }
+
+              //add Popup to map
+
+              new mapboxgl.Popup()
+                .setLngLat(coordinates)
+                .setHTML(description)
+                .addTo(map);
+            });
+          
+
+            // Change the cursor to a pointer when the mouse is over the places layer.
+            map.on('mouseover', 'aline', function () {
+              map.getCanvas().style.cursor = 'pointer';
+            });
+                        
+
+            // Change it back to a pointer when it leaves.
+            map.on('mouseleave', 'aline', function () {
+              map.getCanvas().style.cursor = '';
+            });
+        
+            
+          });
+
+        });
+      };
+//// FIM ALINE
+//// LAYER Alketa
+      
+      function makeGeoJSON3(csvData) {
+        csv2geojson.csv2geojson(csvData, {
+          latfield: 'Latitude',
+          lonfield: 'Longitude',
+          delimiter: ','
+        }, function (err, data) {
+          
+          map.on('load', function () {
+            map.loadImage('../media/mapa/verde.png',
+              function(error, image) {
+              if (error) throw error;
+              map.addImage('verde', image);
+            });
+
+            map.addLayer({
+              'id': 'alketa',
+              'type': 'symbol',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'layout': {
+                'visibility': 'visible',
+                'icon-image': 'verde',
+                'icon-anchor': 'bottom',
+                "icon-allow-overlap": true,
+              }
+            });
+
+
+            // When a click event occurs on a feature in the csvData layer, open a popup at the
+            // location of the feature, with description HTML from its properties.
+            
+            map.on('click', 'alketa', function (e) {
+              var coordinates = e.features[0].geometry.coordinates.slice();
+              
+              var regiao = e.features[0].properties.Região;
+              var prefixo = "rede_caipiratechlab_"
+              
+              if(regiao == "Serra da Mantiqueira"){
+                prefixo += "ma_";
+              }else if(regiao == "Vale do Rio Paraíba"){
+                prefixo += "vp_";
+              }else if(regiao == "Serra do Mar"){
+                prefixo += "sm_";
+              }else if(regiao == "Serra da Bocaina"){
+                prefixo += "bo_";
+              }else{
+                prefixo = "";
+              }
+              
+              /*if(e.features[0].properties.Imagem == "embreve"){
+                prefixo = "";
+              }*/
+              
+              var imagem = prefixo +  e.features[0].properties.Imagem;
+              
+              //var description = `<h3>` + `<b>` + e.features[0].properties.Nome + `</b>` +`</h3>` + `<br>` + `<h4>` + e.features[0].properties.Produtos + `</h4>`;
+              
+              var description = "";
+              
+              if(e.features[0].properties.Imagem == "embreve"){
+                description = '<img src="../media/images/embreve.jpg" style="width:100%">';
+              }else{              
+               description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a>';
+               
+               //teste para exibir Região como texto abaixo da imagem
+               <!-- description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a> <br /> Região:<br />' + regiao; --> 
+              }
+              
+              
+              
+              
+               /*
+              player html*/
+        
+              
+              // Ensure that if the map is zoomed out such that multiple
+              // copies of the feature are visible, the popup appears
+              // over the copy being pointed to.
+              while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+              coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+              }
+
+              //add Popup to map
+
+              new mapboxgl.Popup()
+                .setLngLat(coordinates)
+                .setHTML(description)
+                .addTo(map);
+            });
+          
+
+            // Change the cursor to a pointer when the mouse is over the places layer.
+            map.on('mouseover', 'alketa', function () {
+              map.getCanvas().style.cursor = 'pointer';
+            });            
+        
+
+            // Change it back to a pointer when it leaves.
+            map.on('mouseleave', 'alketa', function () {
+              map.getCanvas().style.cursor = '';
+            });
+        
+            
+          });
+
+        });
+      };
+//// FIM ALKETA
+//// LAYER SIDNEY
+      
+      function makeGeoJSON4(csvData) {
+        csv2geojson.csv2geojson(csvData, {
+          latfield: 'Latitude',
+          lonfield: 'Longitude',
+          delimiter: ','
+        }, function (err, data) {
+          
+          map.on('load', function () {
+            
+            map.loadImage('../media/mapa/verde.png',
+              function(error, image) {
+              if (error) throw error;
+              map.addImage('verde', image);
+            });
+              
+            map.addLayer({
+              'id': 'sidney',
+              'type': 'symbol',
+              'source': {
+                'type': 'geojson',
+                'data': data
+              },
+              'layout': {
+                'visibility': 'visible',
+                'icon-image': 'verde',
+                'icon-anchor': 'bottom',
+                "icon-allow-overlap": true,
+              }
+            });
+
+
+            // When a click event occurs on a feature in the csvData layer, open a popup at the
+            // location of the feature, with description HTML from its properties.
+            
+            map.on('click', 'sidney', function (e) {
+              var coordinates = e.features[0].geometry.coordinates.slice();
+              
+              var regiao = e.features[0].properties.Região;
+              var prefixo = "rede_caipiratechlab_"
+              
+              if(regiao == "Serra da Mantiqueira"){
+                prefixo += "ma_";
+              }else if(regiao == "Vale do Rio Paraíba"){
+                prefixo += "vp_";
+              }else if(regiao == "Serra do Mar"){
+                prefixo += "sm_";
+              }else if(regiao == "Serra da Bocaina"){
+                prefixo += "bo_";
+              }else{
+                prefixo = "";
+              }
+              
+              /*if(e.features[0].properties.Imagem == "embreve"){
+                prefixo = "";
+              }*/
+              
+              var imagem = prefixo +  e.features[0].properties.Imagem;
+              
+              //var description = `<h3>` + `<b>` + e.features[0].properties.Nome + `</b>` +`</h3>` + `<br>` + `<h4>` + e.features[0].properties.Produtos + `</h4>`;
+              
+              var description = "";
+              
+              if(e.features[0].properties.Imagem == "embreve"){
+                description = '<img src="../media/images/embreve.jpg" style="width:100%">';
+              }else{              
+               description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a>';
+               
+               //teste para exibir Região como texto abaixo da imagem
+               <!-- description = '<a href="/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" style="width:100%"> </a> <br /> Região:<br />' + regiao; -->
+              } 
+              
+              
+              
+              
+               /*
+              player html*/
+        
+              
+              // Ensure that if the map is zoomed out such that multiple
+              // copies of the feature are visible, the popup appears
+              // over the copy being pointed to.
+              while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+              coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+              }
+
+              //add Popup to map
+
+              new mapboxgl.Popup()
+                .setLngLat(coordinates)
+                .setHTML(description)
+                .addTo(map);
+            });
+          
+
+            // Change the cursor to a pointer when the mouse is over the places layer.
+            map.on('mouseover', 'sidney', function () {
+              map.getCanvas().style.cursor = 'pointer';
+            });
+
+            // Change it back to a pointer when it leaves.
+            map.on('mouseleave', 'sidney', function () {
+              map.getCanvas().style.cursor = '';
+            });
+        
+            
+          });
+
+        });
+      };
+//// FIM SIDNEY
+      
+      
+      
+    });
+    
+
+      // ZOOM
+      // map.addControl(new mapboxgl.NavigationControl(), 'top-left');      
+      // ZOOM
+     map.addControl(new mapboxgl.NavigationControl(), 'top-right'); // disable map zoom when using scroll
+      //map.scrollZoom.disable(); 
+      
+  </script>
+
+
+
+  <script>
+    map.scrollZoom.disable();     
+  </script> 
+	
+  
+<script>
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+  
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+</script>
+
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+	
+  </body>
+</html>

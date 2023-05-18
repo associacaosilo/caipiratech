@@ -1,10 +1,10 @@
 ---
-layout: gallery
+layout: galleryget
 permalink: /redes_ma/
-swipebox: rede_caipiratechlab
+swipebox: /cards
 title: "Rede CaipiratechLAB - SERRA DA MANTIQUEIRA"
 bgheader: 1
-estado: ma
+estado: ma/
 ---
 
 ## Esta é a nossa rede na Serra da Mantiqueira

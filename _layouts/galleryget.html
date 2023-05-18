@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="pt-br">
   <head>
     {% include head.html %}
@@ -23,16 +23,17 @@
 		  <br>
 		  <a href="{{ site.baseurl }}/redes_sm">Serra do Mar</a>
 		   <br> 
-		  <a href="{{ site.baseurl }}/redes_vp">Vale do Rio Paraíba do Sul</a>
+		  <a href="{{ site.baseurl }}/redes_vp">Vale do Paraíba</a>
 		  <br> 
-		  <a href="{{ site.baseurl }}/redes_bo">Serra da Bocaina</a></p>
+		  <a href="{{ site.baseurl }}/redes_bo">Serra da Bocaina</a>
+		  <br> 
+		  <a href="{{ site.baseurl }}/redes_vc">Vale do Café</a></p>
 		</div>
 	  </div>
 		{% if page.swipebox %}
-		  {% assign prefixo = page.swipebox | append: '_' | append: page.estado %}
-
-          {% include swipebox.html prefix=prefixo %}
-        {% endif %}		
+      {% assign prefixo = page.swipebox | append: '/' | append: page.estado %}
+		  {% include swipebox.html prefix = prefixo %}
+    {% endif %}		
     
     <script type="text/javascript">
       const params = new Proxy(new URLSearchParams(window.location.search), {
@@ -45,7 +46,7 @@
     
     ;( function( $ ) {
       if(imgopen!=""){
-        $('img[src="/media/images/'+imgopen+'"]').click ();;
+        $('img[src="/media/cards/'+imgopen+'"]').click ();;
       }
     } )( jQuery );
     </script>    

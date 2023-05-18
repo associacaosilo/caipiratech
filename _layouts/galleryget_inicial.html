@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    {% include head.html %}
+  </head>
+  <body>
+
+	{% include menu.html %}
+  
+  {% capture classheader %}section{{ page.bgheader }}{% endcapture %}
+	
+	<div class="container-fluid bg-gallery">
+	  <div class="row align-items-center {{ classheader }} cabecalho-redes py-3">
+		<div class="col-12 mx-auto text-center">
+		  {{ content }}
+		</div>
+	  </div>
+	  <div class="row align-items-center pt-4">
+		<div class="col-12 mx-auto text-center filtro-estados">
+		  <p class="mb-0"> <a href="{{ site.baseurl }}/redes_inicial">TODAS REGIÕES</a>
+		   <br><br>
+		  <a href="{{ site.baseurl }}/redes_ma_inicial">Serra da Mantiqueira</a>
+		  <br>
+		  <a href="{{ site.baseurl }}/redes_sm_inicial">Serra do Mar</a>
+		   <br> 
+		  <a href="{{ site.baseurl }}/redes_vp_inicial">Vale do Rio Paraíba do Sul</a>
+		  <br> 
+		  <a href="{{ site.baseurl }}/redes_bo_inicial">Serra da Bocaina</a></p>
+		</div>
+	  </div>
+		{% if page.swipebox %}
+		  {% assign prefixo = page.swipebox | append: '_' | append: page.estado %}
+
+          {% include swipebox.html prefix=prefixo %}
+        {% endif %}		
+    
+    <script type="text/javascript">
+      const params = new Proxy(new URLSearchParams(window.location.search), {
+        get: (searchParams, prop) => searchParams.get(prop),
+      });
+      // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
+      let imgopen = params.img; // "some_value"
+    
+    
+    
+    ;( function( $ ) {
+      if(imgopen!=""){
+        $('img[src="/media/images/'+imgopen+'"]').click ();;
+      }
+    } )( jQuery );
+    </script>    
+	</div>
+	{% include footer.html %}
+
+
+  </body>
+</html>

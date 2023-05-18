@@ -15,8 +15,8 @@ include: ['_pages']
 
 # Plugins
 repository: associacaosilo/caipiratech
-plugins:
-  - jekyll-feed
+#plugins:
+  #- jekyll-feed
 
 # Collections (Custom Posts)
 collections:

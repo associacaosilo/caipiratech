@@ -1,10 +1,10 @@
 ---
-layout: gallery
+layout: galleryget
 permalink: /redes_sm/
-swipebox: rede_caipiratechlab
+swipebox: /cards
 title: "Rede CaipiratechLAB - SERRA DO MAR"
 bgheader: 1
-estado: sm
+estado: sm/
 ---
 
 ## Esta é a nossa rede na Serra do Mar

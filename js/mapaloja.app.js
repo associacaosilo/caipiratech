@@ -35,11 +35,12 @@ function flyToLocation(currentFeature) {
 
 function loadCard(currentFeature) {
   var regiao = currentFeature.properties.Regiao;
-  var prefixo = "rede_caipiratechlab_"
+  var sigla = currentFeature.properties.Sigla;
+  var prefixo = sigla + "/";
   
-  if(regiao == "Serra da Mantiqueira"){
+ /*  if(regiao == "Serra da Mantiqueira"){
     prefixo += "ma_";
-  }else if(regiao == "Vale do Rio Paraíba"){
+  }else if(regiao == "Vale do Paraíba"){
     prefixo += "vp_";
   }else if(regiao == "Serra do Mar"){
     prefixo += "sm_";
@@ -47,16 +48,17 @@ function loadCard(currentFeature) {
     prefixo += "bo_";
   }else{
     prefixo = "";
-  }
+  } */
   
-  var imagem = prefixo +  currentFeature.properties.Imagem;
+  var imagem = currentFeature.properties.Imagem;
+  var linkImagem = prefixo +  imagem;
   
   var description = "";
   
-  if(currentFeature.properties.Imagem == "embreve"){
+  if(currentFeature.properties.Imagem == ""){
     description = '<img src="../media/images/embreve.jpg" class="w-100">';
   }else{
-    description = '<a href="'+config.baseURL+'redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a>';
+    description = '<a href="'+config.baseURL+'redes/?img='+linkImagem+'.jpg"> <img src="../media/cards/' + linkImagem + '.jpg" class="w-100"> </a>';
     
     //teste para exibir lista de produtos como texto abaixo da imagem
     // description = '<a href="'+config.baseURL+'/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a> <br /> Produtos:<br />' + e.features[0].properties.Produtos; 
@@ -701,9 +703,9 @@ map.on('load', () => {
   map.addControl(navCtrl, 'top-left');
 
   // csv2geojson - following the Sheet Mapper tutorial https://www.mapbox.com/impact-tools/sheet-mapper
-  console.log('loaded');
+  //console.log('loaded');
   $(document).ready(() => {
-    console.log('ready');
+    //console.log('ready');
     $.ajax({
       type: 'GET',
       url: config.CSV,
@@ -738,40 +740,40 @@ map.on('load', () => {
           function(error, image) {
           if (error) throw error;
           map.addImage('verde', image);
+          
+          
+          // map.addLayer({
+            // id: 'locationData',
+            // type: 'circle',
+            // source: {
+              // type: 'geojson',
+              // data: geojsonData,
+            // },
+            // paint: {
+              // 'circle-radius': 5, // size of circles
+              // 'circle-color': '#386650', // color of circles
+              // 'circle-stroke-color': 'white',
+              // 'circle-stroke-width': 1,
+              // 'circle-opacity': 0.7,
+            // },
+          // });
+          
+          map.addLayer({
+            'id': 'locationData',
+            'type': 'symbol',
+            'source': {
+              'type': 'geojson',
+              'data': geojsonData,
+            },
+            'layout': {
+              'visibility': 'visible',
+              'icon-image': 'verde',
+              'icon-anchor': 'bottom',
+              "icon-allow-overlap": true,
+            }
+          });
+        
         });
-        
-        // map.addLayer({
-          // id: 'locationData',
-          // type: 'circle',
-          // source: {
-            // type: 'geojson',
-            // data: geojsonData,
-          // },
-          // paint: {
-            // 'circle-radius': 5, // size of circles
-            // 'circle-color': '#386650', // color of circles
-            // 'circle-stroke-color': 'white',
-            // 'circle-stroke-width': 1,
-            // 'circle-opacity': 0.7,
-          // },
-        // });
-        
-        map.addLayer({
-          'id': 'locationData',
-          'type': 'symbol',
-          'source': {
-            'type': 'geojson',
-            'data': geojsonData,
-          },
-          'layout': {
-            'visibility': 'visible',
-            'icon-image': 'verde',
-            'icon-anchor': 'bottom',
-            "icon-allow-overlap": true,
-          }
-        });
-        
-        
       },
     );
 
