@@ -114,10 +114,14 @@ function createPopup(currentFeature) {
   if (popups[0]) popups[0].remove();
   let conteudoPopup = loadCard(currentFeature);
   let links = sellLinks(currentFeature);
-  new mapboxgl.Popup({ closeOnClick: true })
-    .setLngLat(currentFeature.geometry.coordinates)
-    .setHTML('<h3>' + currentFeature.properties[config.popupInfo] + '</h3> <br />' + conteudoPopup + links)
-    .addTo(map);
+  //Só carrega os cards se a coluna "Card" for igual a "Sim"
+  var cardsim = currentFeature.properties.Card;
+  if(cardsim == "Sim" || cardsim == "sim"){
+    new mapboxgl.Popup({ closeOnClick: true })
+      .setLngLat(currentFeature.geometry.coordinates)
+      .setHTML('<h3>' + currentFeature.properties[config.popupInfo] + '</h3> <br />' + conteudoPopup + links)
+      .addTo(map);
+  }
 }
 
 //cria a lista de resultados e adiciona os eventos de click
