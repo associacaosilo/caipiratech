@@ -8,7 +8,7 @@ section1:
   titulo4: consome?
 section2:
   titulo: conheça o programa
-  texto: CaipiratechLAB é um programa da Silo que tem por objetivo colaborar com o fortalecimento dos sistemas alimentares garantindo assim a perenidade da produção e da distribuição de alimentos saudáveis, justos e sustentáveis.
+  texto: "CaipiratechLAB é um programa <a href='https://silo.org.br/' target='_blank'>Silo - Arte e Latitude Rural</a> que colabora com o fortalecimento dos sistemas agroalimentares regionais e sua expressão cultural por meio de mapeamento, cursos formativos contínuos e desenvolvimento de tecnologia que converge nesta plataforma multifuncional, para formação, comunicação e venda, baseada em princípios do cooperativismo. O programa CaipiraTechLab cria e amplia as possibilidades para que jovens camponeses possam viver, trabalhar e se reconectar com o campo, atuando como agentes de mudança em suas comunidades."
 section3:
   titulo: ajude a viabilizar a produção local
   texto1: busque conhecer produtoras e produtores de sua região
@@ -29,5 +29,4 @@ section5:
         prof: com Giselda Beserra (Pólo da Borborema, PB) e Ana Litardo (Assoc. Agroecológica de Teresópolis, RJ)
         player: caipiratechlab-modulo-1/m1a1
 ---
-
 

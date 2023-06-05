@@ -12,36 +12,40 @@ imgheader: 8
 
 ## O que é?
 
-Este é um protótipo de uma plataforma gratuita e multifuncional para uso de empreendedoras e empreendedores do setor de produção de alimentos agroecológicos. A plataforma está baseada em princípios do cooperativismo, está integrada a diferentes aplicativos e ferramentas da internet (como telegram) e traz variadas funções que são úteis a quem produz alimentos, oferecendo suporte para cursos de formação; prestação de serviços; escoamento de produtos; mapeamento; divulgação de dados e comunicação. 
+Este é o protótipo de uma plataforma gratuita e multifuncional para formação, comunicação e venda, destinada ao uso de agricultoras/es e beneficiadoras/es do setor de produção de alimentos da agricultura familiar. 
+
+Baseada em princípios do cooperativismo, a plataforma se integra a diferentes aplicativos e ferramentas da internet (como whatsapp e telegram, por exemplo) e traz variadas funções úteis a quem produz alimentos, oferecendo cursos de formação; oportunidades; calendários; loja online; mapeamento; dados do sistema agroalimentar e comunicação.
 <br><br><br>
 
 
 
 ## Para quê e para quem?
 
-Esta plataforma tem como objetivo facilitar a cooperação entre produtores de alimentos, prestadores de serviço (dentro do mercado de infraestrutura, beneficiamento e escoamento de alimentos) e consumidores. 
+Esta plataforma tem como objetivo:
 
-Atualmente, seu território de abrangência é Serra da Mantiqueira, Vale do Paraíba, Serra da Bocaina e Serra do Mar. 
+- Facilitar a cooperação entre agricultoras/es, beneficiadoras/es de alimentos e prestadores de serviço (dentro do mercado de infraestrutura e beneficiamento).
+- Atuar como um elo de aproximação entre produtores de alimentos, consumidores, pesquisadores, gestores, articuladores da agroecologia, movimentos sociais e quem busca informações sobre produtos e serviços, cursos e eventos.
+- Gerar renda, alimentar a economia dos circuitos curtos de comercialização, oferecer oportunidades em escoamento e prestação de serviços, cursos em formato de podcast, mapa georreferenciado dos/das produtores/as mapeados/as, dados dos sistemas agroalimentares abrangidos pelo programa e calendário de eventos do setor.
+
+Atualmente, nosso território de abrangência inclui a Serra da Mantiqueira, o Vale do Paraíba, o Vale do Café, a Serra da Bocaina e a Serra do Mar. 
 <br><br><br>
 
 
 
-## O que tem nela?
+## O que tem na plataforma?
 
-Ela oferece cursos formativos (online e presencial); loja online; podcast; mapeamento e difusão de produtores regionais e dados relevantes ao sistema agroalimentar. 
+Ela oferece cursos formativos (online e presencial); loja online simplificada - unindo quem vende e quem consome; cursos em formato de podcast; mapeamento e difusão de produtores regionais e dados relevantes dos sistemas agroalimentares que a integram.
 
-A plataforma conta com uma rede de usuários que operam e trocam dentro de grupos de Telegram mediados e moderados. Por meio de chats e boletins de comunicação, os participantes poderão trocar conhecimento, informação, serviços, decidir sobre os cursos oferecidos, encontrar pessoas de outras áreas, vender e comprar produtos agroecológicos, gerar empreendimentos coletivos, se reconhecer dentro de um território de produção de alimentos interligado e interdependente e ainda influenciar os tomadores de decisão por meio de debates públicos e a divulgação de dados.
-<br><br><br>
+A plataforma conta com uma rede de usuários que operam e trocam dentro de grupos do Telegram e Whatsapp mediados e moderados. Por meio de conversas e boletins de comunicação, os/as participantes podem trocar conhecimento, informação, serviços, decidir sobre os cursos oferecidos, encontrar pessoas de outras áreas, vender e comprar produtos agroecológicos, gerar empreendimentos coletivos, reconhecer-se dentro de um território de produção de alimentos interligado e interdependente e ainda influenciar os tomadores de decisão por meio de debates públicos e a divulgação de dados.
 
+Este projeto está sendo realizado com o apoio do Instituto Ibirapitanga, Fundação Ford, Porticus e Cal, instituições filantrópicas.
 
-
-## O programa CaipiratechLAB
-
-CaipiratechLAB é um programa da Silo Arte e Latitude Rural que colabora com o fortalecimento dos sistemas agroalimentares regionais e sua expressão cultural por meio de mapeamento, cursos e desenvolvimento de tecnologia que convergem na plataforma multifuncional. 
 <br><br><br>
 
 
 
 ## A Silo
 
-**[Silo – Arte e Latitude Rural](https://silo.org.br/)** é uma organização da sociedade civil que cria, acolhe e difunde arte, ciência, tecnologia e agroecologia em zonas rurais, áreas periféricas e de preservação ambiental, estimulando o cruzamento entre técnicas intuitivas e saberes científicos. Na Silo acontecem experiências imersivas e práticas transdisciplinares como residências artísticas e laboratórios de experimentação e inovação. Atualmente, estamos situadas na área de Proteção Ambiental da Serrinha do Alambari, localizada na Serra da Mantiqueira na tríplice fronteira entre os estados de Rio de Janeiro, Minas Gerais e São Paulo e nossas atividades possuem abrangência nacional e internacional. Somos uma organização conduzida por uma equipe de mulheres e estamos comprometidas com a igualdade de raça e gênero.
+**[Silo – Arte e Latitude Rural](https://silo.org.br/)** é uma organização da sociedade civil fundada em 2017, conduzida por uma equipe de jovens mulheres, engajada em promover o diálogo entre o campo e a cidade, por meio da arte, ciência e tecnologia. Ela está localizada numa Área de Proteção Ambiental de Mata Atlântica na Serra da Mantiqueira, fronteira entre os estados de Rio de Janeiro, Minas Gerais e São Paulo.
+
+A organização tem uma linha de programas, desenvolvidos com metodologias próprias, que visam a estimular o cruzamento entre saberes populares e científicos. Por exemplo: o programa CaipiraTechLab cria e amplia as possibilidades para que jovens camponeses possam viver, trabalhar e se reconectar com o campo e serem agentes de mudança na sua comunidade. Já a Silo Escola é uma linha de ação transversal a todos os programas. Com ela queremos construir uma escola transdisciplinar, em contexto rural, inspirada na educação popular, projetada para buscar perguntas e respostas às complexas questões de nosso tempo. Com nossas metodologias, queremos fomentar a autonomia e a cooperação na zona rural e estimular o desenvolvimento social no campo. 
