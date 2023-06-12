@@ -157,6 +157,10 @@ a.link-telegram:hover{
   color: #0056b3;
 }
 
+p.link-inativo {
+    color: #fe4646;
+}
+
 input:checked+.checkbox {
     border: 2px solid transparent;
     background-color: #386650;

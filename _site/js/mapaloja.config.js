@@ -31,6 +31,12 @@ const config = {
       placeholder: 'Digite aqui',
       id: 'produtos',
     },
+    {
+      type: 'checkbox',
+      title: 'Apenas ativos: ',
+      columnHeader: 'AtivoTeste', // Case sensitive - must match spreadsheet entry
+      listItems: ['Sim'], // Case sensitive - must match spreadsheet entry; This will take up to six inputs but is best used with a maximum of three;
+    },
   ],
   baseURL: '../',
 };

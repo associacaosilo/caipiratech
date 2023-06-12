@@ -105,6 +105,11 @@ function sellLinks(currentFeature){
     retorno += '<br /> <a class="link-telegram" href="https://t.me/' + telegram + '" target="_blank"> <i class="fa fa-telegram" aria-hidden="true"></i> Compre pelo Telegram!</a>';
   }
   
+  var ativoteste = currentFeature.properties.AtivoTeste;
+  if (ativoteste != "Sim"){
+    retorno = '<br /> <p class="link-inativo"> <i class="fa fa-exclamation-circle" aria-hidden="true"></i> INATIVO</p>';
+  }
+
   return retorno;  
 }
 

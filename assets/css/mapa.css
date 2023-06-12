@@ -129,6 +129,10 @@ a.link-telegram:hover{
   color: #0056b3;
 }
 
+p.link-inativo {
+  color: #fe4646;
+}
+
 .w-100{
   width:100%;
 }

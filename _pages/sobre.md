@@ -1,5 +1,5 @@
 ---
-layout: sobre
+layout: paginadefault
 permalink: /sobre/
 title: Sobre o CaipiratechLAB
 description: "Conheça um pouco mais sobre a nossa plataforma"
@@ -8,6 +8,13 @@ bgimpar: 1
 bgpar: 2 
 imgheader: 8 
 ---
+
+
+## Conheça o programa
+
+CaipiratechLAB é um programa da [Silo – Arte e Latitude Rural](https://silo.org.br/) que colabora com o fortalecimento dos sistemas agroalimentares regionais e sua expressão cultural por meio de mapeamento, cursos formativos contínuos e desenvolvimento de tecnologia que converge nesta plataforma multifuncional, para formação, comunicação e venda, baseada em princípios do cooperativismo. O programa CaipiraTechLab cria e amplia as possibilidades para que jovens camponeses possam viver, trabalhar e se reconectar com o campo, atuando como agentes de mudança em suas comunidades.
+<br><br><br>
+
 
 
 ## O que é?
