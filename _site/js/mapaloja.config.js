@@ -10,9 +10,9 @@ const config = {
   zoom: 7.5,
   flyzoom: 7.5,
   geocoderzoom: 7.5,
-  flyspeed: 0.3,
+  flyspeed: 1,
   flycurve: 1.3,
-  title: 'Filtros e Resultados',
+  title: 'Busca',
   description:
     '',
   sideBarInfo: ['Nome', 'Produtos', 'Regiao', 'distance',],

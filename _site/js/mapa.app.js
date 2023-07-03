@@ -37,9 +37,10 @@ var navCtrl = new mapboxgl.NavigationControl({
 function flyToLocation(currentFeature) {
   map.flyTo({
     center: currentFeature,
-    zoom: config.flyzoom,
+    // zoom: config.flyzoom,
     speed: config.flyspeed,
     curve: config.flycurve,
+    padding: {bottom:300},
     easing(t) {
       return t;
     }
