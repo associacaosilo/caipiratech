@@ -137,12 +137,12 @@ button.mapboxgl-ctrl-geocoder--button {
 
 a.link-whats{
   cursor: pointer;
-  color: #25d366;
+  color: #128c7e;;
 }
 
 a.link-whats:hover{
   cursor: pointer;
-  color: #128c7e;
+  color: #2a4d3c;
   text-decoration: none;
 }
 
@@ -174,4 +174,14 @@ mark {
 
 .section2{
     background-color: #2A4D3C !important;
+}
+
+.img-inativo{
+    filter: grayscale(100%);
+}
+
+#filters > div:nth-child(1){
+    text-transform: uppercase;
+    text-decoration: underline;
+    padding-bottom: 12px !important;
 }

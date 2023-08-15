@@ -20,6 +20,12 @@ const config = {
   filters: [
     {
       type: 'checkbox',
+      title: 'Exibir apenas ativos? ',
+      columnHeader: 'AtivoTeste', // Case sensitive - must match spreadsheet entry
+      listItems: ['Sim'], // Case sensitive - must match spreadsheet entry; This will take up to six inputs but is best used with a maximum of three;
+    },
+    {
+      type: 'checkbox',
       title: 'Região: ',
       columnHeader: 'Regiao', // Case sensitive - must match spreadsheet entry
       listItems: ['Serra da Mantiqueira', 'Vale do Paraíba', 'Serra do Mar', 'Serra da Bocaina', 'Vale do Café'], // Case sensitive - must match spreadsheet entry; This will take up to six inputs but is best used with a maximum of three;
@@ -31,12 +37,7 @@ const config = {
       placeholder: 'Digite aqui',
       id: 'produtos',
     },
-    {
-      type: 'checkbox',
-      title: 'Apenas ativos: ',
-      columnHeader: 'AtivoTeste', // Case sensitive - must match spreadsheet entry
-      listItems: ['Sim'], // Case sensitive - must match spreadsheet entry; This will take up to six inputs but is best used with a maximum of three;
-    },
+    
   ],
   baseURL: '../',
 };

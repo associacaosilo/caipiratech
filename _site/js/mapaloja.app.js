@@ -55,28 +55,39 @@ function loadCard(currentFeature) {
   var linkImagem = prefixo +  imagem;
   
   var description = "";
+  var classCardInativo = "";
+
+  var ativoteste = currentFeature.properties.AtivoTeste;
+  // if (ativoteste != "Sim"){
+  //   classCardInativo = 'img-inativo';
+  // }
   
   if(currentFeature.properties.Imagem == ""){
     description = '<img src="../media/images/embreve.jpg" class="w-100">';
   }else{
-    description = '<a href="'+config.baseURL+'redes/?img='+linkImagem+'.jpg"> <img src="../media/cards/' + linkImagem + '.jpg" class="w-100"> </a>';
-    
-    //teste para exibir lista de produtos como texto abaixo da imagem
-    // description = '<a href="'+config.baseURL+'/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a> <br /> Produtos:<br />' + e.features[0].properties.Produtos; 
-    
-    //teste para exibir Região como texto abaixo da imagem
-    description += '<br /> Região:<br />' + regiao;
-       
-    //teste para exibir lista de produtos em formato de lista abaixo da imagem
-    // description += '<br /> Produtos:<br /> <ul>';
-    // var produtos = e.features[0].properties.Produtos;
-    // var arrayprodutos = produtos.split(',');
-    // $.each(arrayprodutos, function(index, value) {
-      // description += "<li>" + value + "</li>";
-    // });
-    // description += '</ul>';
-    
+    if (ativoteste != "Sim"){
+      description = '<img src="../media/cards/' + linkImagem + '.jpg" class="w-100 img-inativo">';
+    }else{
+      description = '<a href="'+config.baseURL+'redes/?img='+linkImagem+'.jpg"> <img src="../media/cards/' + linkImagem + '.jpg" class="w-100"> </a>';
+    }
+      //teste para exibir lista de produtos como texto abaixo da imagem
+      // description = '<a href="'+config.baseURL+'/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a> <br /> Produtos:<br />' + e.features[0].properties.Produtos; 
+      
+      //teste para exibir Região como texto abaixo da imagem
+      description += '<br /> Região:<br />' + regiao;
+         
+      //teste para exibir lista de produtos em formato de lista abaixo da imagem
+      // description += '<br /> Produtos:<br /> <ul>';
+      // var produtos = e.features[0].properties.Produtos;
+      // var arrayprodutos = produtos.split(',');
+      // $.each(arrayprodutos, function(index, value) {
+        // description += "<li>" + value + "</li>";
+      // });
+      // description += '</ul>';
+      
   }
+
+  
   
   return description;  
 }
@@ -741,29 +752,25 @@ map.on('load', () => {
         });
 
         geojsonData = data;
-        // Add the the layer to the map
-        map.loadImage('../media/mapa/verde.png',
-          function(error, image) {
-          if (error) throw error;
-          map.addImage('verde', image);
-          
-          
-          // map.addLayer({
-            // id: 'locationData',
-            // type: 'circle',
-            // source: {
-              // type: 'geojson',
-              // data: geojsonData,
-            // },
-            // paint: {
-              // 'circle-radius': 5, // size of circles
-              // 'circle-color': '#386650', // color of circles
-              // 'circle-stroke-color': 'white',
-              // 'circle-stroke-width': 1,
-              // 'circle-opacity': 0.7,
-            // },
-          // });
-          
+
+        // Load the images in parallel
+        Promise.all([
+          new Promise((resolve, reject) => {
+            map.loadImage('../media/mapa/verde.png', (error, image) => {
+              if (error) reject(error);
+              map.addImage('verde', image);
+              resolve();
+            });
+          }),
+          new Promise((resolve, reject) => {
+            map.loadImage('../media/mapa/vermelho.png', (error, image) => {
+              if (error) reject(error);
+              map.addImage('vermelho', image);
+              resolve();
+            });
+          })
+        ]).then(() => {
+          // Add the layer to the map
           map.addLayer({
             'id': 'locationData',
             'type': 'symbol',
@@ -773,36 +780,36 @@ map.on('load', () => {
             },
             'layout': {
               'visibility': 'visible',
-              'icon-image': 'verde',
+              'icon-image': ['match', ['get', 'AtivoTeste'], 'Sim', 'verde', 'vermelho'],
               'icon-anchor': 'bottom',
-              "icon-allow-overlap": true,
+              'icon-allow-overlap': true,
             }
           });
-        
+
+          map.on('click', 'locationData', (e) => {
+            const features = map.queryRenderedFeatures(e.point, {
+              layers: ['locationData'],
+            });
+            const clickedPoint = features[0].geometry.coordinates;
+            flyToLocation(clickedPoint);
+            sortByDistance(clickedPoint);
+            createPopup(features[0]);
+          });
+
+          map.on('mouseenter', 'locationData', () => {
+            map.getCanvas().style.cursor = 'pointer';
+          });
+
+          map.on('mouseleave', 'locationData', () => {
+            map.getCanvas().style.cursor = '';
+          });
+
+          buildLocationList(geojsonData);
+        }).catch((error) => {
+          console.error(error);
         });
       },
     );
-
-    map.on('click', 'locationData', (e) => {
-      const features = map.queryRenderedFeatures(e.point, {
-        layers: ['locationData'],
-      });
-      const clickedPoint = features[0].geometry.coordinates;
-      flyToLocation(clickedPoint);
-      sortByDistance(clickedPoint);
-     
-      
-      createPopup(features[0]);
-    });
-
-    map.on('mouseenter', 'locationData', () => {
-      map.getCanvas().style.cursor = 'pointer';
-    });
-
-    map.on('mouseleave', 'locationData', () => {
-      map.getCanvas().style.cursor = '';
-    });
-    buildLocationList(geojsonData);
   }
 });
 
