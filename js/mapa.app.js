@@ -72,7 +72,7 @@ function loadCard(currentFeature) {
   if(currentFeature.properties.Imagem == ""){
     description = '<img src="../media/images/embreve.jpg" class="w-100">';
   }else{
-    description = '<a href="'+config.baseURL+'redes/?img='+linkImagem+'.jpg"> <img src="../media/cards/' + linkImagem + '.jpg" class="w-100"> </a>';
+    description = '<a href="../media/cards/' + linkImagem + '.jpg" class="swipebox"  title="'+currentFeature.properties[config.popupInfo]+'"> <img src="../media/cards/' + linkImagem + '.jpg" class="w-100" alt=""> </a>';
     
     //teste para exibir lista de produtos como texto abaixo da imagem
     // description = '<a href="'+config.baseURL+'/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a> <br /> Produtos:<br />' + e.features[0].properties.Produtos; 

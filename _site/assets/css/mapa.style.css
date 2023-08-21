@@ -179,3 +179,7 @@ mark {
 .section2{
     background-color: #2A4D3C !important;
 }
+
+/* #swipebox-container {
+    touch-action: none;
+} */
