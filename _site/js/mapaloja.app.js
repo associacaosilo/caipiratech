@@ -216,9 +216,9 @@ function buildLocationList(locationData) {
 }
 
 function filtroProdutos(){
-    var filteredProductsGeojson = {
-    type: 'FeatureCollection',
-    features: [],
+  var filteredProductsGeojson = {
+  type: 'FeatureCollection',
+  features: [],
   };
   
   
@@ -301,11 +301,25 @@ function filtroProdutos(){
       });
     });
     
-    map.getSource('locationData').setData(filteredProductsGeojson);
-    buildLocationList(filteredProductsGeojson);
+    // original com erro de duplicidade por ignorar o filteredGeojson
+    // map.getSource('locationData').setData(filteredProductsGeojson);
+    // buildLocationList(filteredProductsGeojson);
     
-    console.log(filteredProductsGeojson);
-          
+    // console.log(filteredProductsGeojson);
+
+    // test1
+    // filteredGeojson = filteredProductsGeojson;
+    // map.getSource('locationData').setData(filteredGeojson);
+    // buildLocationList(filteredGeojson);
+    // console.log(filteredGeojson);
+
+
+
+    filteredGeojson.features = [];
+    filteredGeojson.features = filteredProductsGeojson.features;
+    map.getSource('locationData').setData(filteredGeojson);
+    buildLocationList(filteredGeojson);
+    console.log(filteredGeojson);
 
       
   }
@@ -338,6 +352,8 @@ function buildDropDownList(title, listItems) {
   selectArrow.classList.add('select-arrow');
 
   const firstOption = document.createElement('option');
+  firstOption.textContent = "Não"; // defaultValue de todos os dropdowns, usando apenas em "exibir apenas ativos?"
+
 
   dropDown.appendChild(firstOption);
   selectContainer.appendChild(dropDown);

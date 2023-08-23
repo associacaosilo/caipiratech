@@ -19,7 +19,7 @@ const config = {
   popupInfo: ['Nome',],
   filters: [
     {
-      type: 'checkbox',
+      type: 'dropdown',
       title: 'Exibir apenas ativos? ',
       columnHeader: 'AtivoTeste', // Case sensitive - must match spreadsheet entry
       listItems: ['Sim'], // Case sensitive - must match spreadsheet entry; This will take up to six inputs but is best used with a maximum of three;

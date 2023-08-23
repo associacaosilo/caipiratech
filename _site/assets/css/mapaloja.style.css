@@ -22,8 +22,11 @@
 }
 
 .select{
-    font-style: italic;
-    opacity: .7;
+    /* font-style: italic;
+    opacity: .7; */
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-weight: bold;
 }
 
 button.mapboxgl-ctrl-geocoder--button {
@@ -184,4 +187,31 @@ mark {
     text-transform: uppercase;
     text-decoration: underline;
     padding-bottom: 12px !important;
+}
+
+.select:focus {
+    box-shadow: inset 0 0 0 1px #f4d6a2;
+}
+
+.select-arrow {
+    border-top-color: #f4d6a2 !important;
+}
+
+.btn:focus {
+    box-shadow: 0 0 0 0.2rem rgb(244 214 162 / 25%);
+}
+
+select option:checked,
+select option:hover {
+  box-shadow: 0 0 10px 100px #2a4d3c inset;
+} 
+
+select:focus>option {    
+  background: #386650 !important;
+  color:#f4d6a2;
+}
+
+select:focus>option:checked {
+    font-weight:bold;
+    background: #2a4d3c !important;
 }
