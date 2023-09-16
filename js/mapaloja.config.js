@@ -15,7 +15,7 @@ const config = {
   title: 'Busca',
   description:
     '',
-  sideBarInfo: ['Nome', 'Produtos', 'Regiao', 'distance',],
+  sideBarInfo: ['Nome', 'Produtos', 'Regiao', 'distance', 'Contato', 'whats'],
   popupInfo: ['Nome',],
   filters: [
     {

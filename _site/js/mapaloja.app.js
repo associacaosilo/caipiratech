@@ -27,7 +27,7 @@ function flyToLocation(currentFeature) {
     // zoom: config.flyzoom,
     speed: config.flyspeed,
     curve: config.flycurve,
-    padding: {bottom:300},
+    padding: {top:100},
     easing(t) {
       return t;
     }
@@ -97,37 +97,41 @@ function sellLinks(currentFeature){
   let retorno = "";
   var whatsapp = currentFeature.properties.Whatsapp;
   if (whatsapp != ""){
-    retorno += '<br /> <a class="link-whats" href="http://wa.me/55' + whatsapp + '?text=Te%20encontrei%20no%20CaipiratechLAB%20e%20eu%20tenho%20interesse%20em%20comprar%20de%20você" target="_blank"> <i class="fa fa-whatsapp" aria-hidden="true"></i> Compre pelo Whatsapp!</a>';
+    retorno += '<a class="link-whats" href="http://wa.me/55' + whatsapp + '?text=Te%20encontrei%20no%20CaipiratechLAB%20e%20eu%20tenho%20interesse%20em%20comprar%20de%20você" target="_blank"> <i class="fa fa-whatsapp" aria-hidden="true"></i> Compre pelo Whatsapp!</a>';
   }
   
   var telegram = currentFeature.properties.Telegram;
   if (telegram != ""){
-    retorno += '<br /> <a class="link-telegram" href="https://t.me/' + telegram + '" target="_blank"> <i class="fa fa-telegram" aria-hidden="true"></i> Compre pelo Telegram!</a>';
+    if (whatsapp != ""){
+      retorno += '<br />';
+    }
+    retorno += '<a class="link-telegram" href="https://t.me/' + telegram + '" target="_blank"> <i class="fa fa-telegram" aria-hidden="true"></i> Compre pelo Telegram!</a>';
   }
   
   var ativoteste = currentFeature.properties.AtivoTeste;
   if (ativoteste != "Sim"){
-    retorno = '<br /> <p class="link-inativo"> <i class="fa fa-exclamation-circle" aria-hidden="true"></i> INATIVO</p>';
+    retorno = '<p class="link-inativo"> <i class="fa fa-exclamation-circle" aria-hidden="true"></i> INATIVO</p>';
   }
 
   return retorno;  
 }
 
 function createPopup(currentFeature) {
-  const popups = document.getElementsByClassName('mapboxgl-popup');
-  /** Check if there is already a popup on the map and if so, remove it */
-  if (popups[0]) popups[0].remove();
+  // const popups = document.getElementsByClassName('mapboxgl-popup');
+  // /** Check if there is already a popup on the map and if so, remove it */
+  // if (popups[0]) popups[0].remove();
+  removePopups();
   let conteudoPopup = loadCard(currentFeature);
   let links = sellLinks(currentFeature);
-  new mapboxgl.Popup({ closeOnClick: true })
+  new mapboxgl.Popup({ closeOnClick: true, autoPan: true, anchor: 'bottom' })
     .setLngLat(currentFeature.geometry.coordinates)
-    .setHTML('<h3>' + currentFeature.properties[config.popupInfo] + '</h3> <br />' + conteudoPopup + links)
+    .setHTML('<h3>' + currentFeature.properties[config.popupInfo] + '</h3> <br />' + conteudoPopup + '<br />' + links)
     .addTo(map);
 }
 
 function buildLocationList(locationData) {
   /* Add a new listing section to the sidebar. */
-
+  
   const listings = document.getElementById('listings');
   listings.innerHTML = '';
   locationData.features.forEach((location, i) => {
@@ -153,25 +157,39 @@ function buildLocationList(locationData) {
 
     for (let i = 1; i < columnHeaders.length; i++) {
       const div = document.createElement('div');
-      if(columnHeaders[i] != 'distance')
+      if(columnHeaders[i] == 'whats')
       {
+        let links = sellLinks(location);
+        div.innerHTML += '<strong>'+links+'</strong>';
+          
+      } 
+      else if(columnHeaders[i] == 'Contato')
+      {
+        let ativoteste = location.properties.AtivoTeste;
+        if (ativoteste == "Sim"){
+          div.innerHTML += "<strong>" + columnHeaders[i] + ": </strong>";
+          div.innerHTML += prop[columnHeaders[i]];
+        }
+      }      
+      else if(columnHeaders[i] == 'distance')
+      {
+        if(prop[columnHeaders[i]] != undefined){
+          div.innerHTML += "<strong>Distância aprox.: </strong>";
+          if(prop[columnHeaders[i]] < 20)
+          {
+            div.innerHTML += " menos de 20 metros";
+          }else if(prop[columnHeaders[i]] < 1000)
+          {
+            div.innerHTML += prop[columnHeaders[i]].toFixed(2);
+            div.innerHTML += " m";
+          }else{
+            div.innerHTML += ((prop[columnHeaders[i]])/1000).toFixed(2);
+            div.innerHTML += " km";
+          }
+        }
+      }else {
         div.innerHTML += "<strong>" + columnHeaders[i] + ": </strong>";
         div.innerHTML += prop[columnHeaders[i]];
-      }
-      else if(prop[columnHeaders[i]] != undefined)
-      {
-        div.innerHTML += "<strong>Distância aprox.: </strong>";
-        if(prop[columnHeaders[i]] < 20)
-        {
-          div.innerHTML += " menos de 20 metros";
-        }else if(prop[columnHeaders[i]] < 1000)
-        {
-          div.innerHTML += prop[columnHeaders[i]].toFixed(2);
-          div.innerHTML += " m";
-        }else{
-          div.innerHTML += ((prop[columnHeaders[i]])/1000).toFixed(2);
-          div.innerHTML += " km";
-        }
       }
       div.className;
       details.appendChild(div);
@@ -182,36 +200,41 @@ function buildLocationList(locationData) {
       const clickedListing = location.geometry.coordinates;
       flyToLocation(clickedListing);
       createPopup(location);
+      sortByDistance(clickedListing);
+      geocoder.clear();
 
-      const activeItem = document.getElementsByClassName('active');
-      if (activeItem[0]) {
-        activeItem[0].classList.remove('active');
-      }
-      this.parentNode.classList.add('active');
+      // const activeItem = document.getElementsByClassName('active');
+      // if (activeItem[0]) {
+      //   activeItem[0].classList.remove('active');
+      // }
+      // this.parentNode.classList.add('active');
 
-      const divList = document.querySelectorAll('.content');
-      const divCount = divList.length;
-      for (i = 0; i < divCount; i++) {
-        divList[i].style.maxHeight = null;
-      }
+      // const divList = document.querySelectorAll('.content');
+      // const divCount = divList.length;
+      // for (i = 0; i < divCount; i++) {
+      //   divList[i].style.maxHeight = null;
+      // }
 
-      for (let i = 0; i < geojsonData.features.length; i++) {
-        this.parentNode.classList.remove('active');
-        this.classList.toggle('active');
-        const content = this.nextElementSibling;
-        if (content.style.maxHeight) {
-          content.style.maxHeight = null;
-        } else {
-          content.style.maxHeight = content.scrollHeight + 'px';
-        }
-      }
+      // for (let i = 0; i < geojsonData.features.length; i++) {
+      //   this.parentNode.classList.remove('active');
+      //   this.classList.toggle('active');
+      //   const content = this.nextElementSibling;
+      //   if (content.style.maxHeight) {
+      //     content.style.maxHeight = null;
+      //   } else {
+      //     content.style.maxHeight = content.scrollHeight + 'px';
+      //   }
+      // }
     });
   });
   
-
-  
+    
   var value = document.getElementById('produtos').value;
-  markSearch(value);
+  if(value != "")
+  {
+    markSearch(value);
+  }
+  
   
 }
 
@@ -238,11 +261,11 @@ function filtroProdutos(){
     //const value = e.target.value.trim().toLowerCase();
     
     let dataCinthia = data;
-    console.log(dataCinthia);
+    //console.log(dataCinthia);
     
     const produtosCinthia = dataCinthia.features.map(feature => [feature.properties.Produtos, feature.properties.Nome, feature.properties.id]);
 
-    console.dir(produtosCinthia); 
+    //console.dir(produtosCinthia); 
     
      
     // Alerta com lista de locais que possuem o produto filtrado
@@ -313,13 +336,17 @@ function filtroProdutos(){
     // buildLocationList(filteredGeojson);
     // console.log(filteredGeojson);
 
-
-
     filteredGeojson.features = [];
     filteredGeojson.features = filteredProductsGeojson.features;
-    map.getSource('locationData').setData(filteredGeojson);
-    buildLocationList(filteredGeojson);
-    console.log(filteredGeojson);
+
+    atualizaMapaLista(filteredGeojson);
+    // ativosDepois(filteredGeojson);
+    // map.getSource('locationData').setData(filteredGeojson);
+    // ativosAntes(filteredGeojson);
+    // buildLocationList(filteredGeojson);
+    
+    
+    //console.log(filteredGeojson);
 
       
   }
@@ -503,7 +530,13 @@ function applyFilters() {
   const filterForm = document.getElementById('filters');
 
   // filterForm.addEventListener('change', function () {
-    filterForm.addEventListener('input', function () {
+  filterForm.addEventListener('input', function () {
+    // const popups = document.getElementsByClassName('mapboxgl-popup');
+    // /** Check if there is already a popup on the map and if so, remove it */
+    // if (popups[0]) popups[0].remove();
+
+    removePopups();
+    
     const filterOptionHTML = this.getElementsByClassName('filter-option');
     const filterOption = [].slice.call(filterOptionHTML);
 
@@ -611,16 +644,55 @@ function applyFilters() {
         }
       });
     }
-    console.log(filteredGeojson);
+    // console.log(filteredGeojson);
     
-    
-    map.getSource('locationData').setData(filteredGeojson);
-    buildLocationList(filteredGeojson);
+    // filteredGeojson.features.sort((a, b) => { 
+    //   if (a.properties.AtivoTeste === '' && b.properties.AtivoTeste === 'Sim') {
+    //     return 1;
+    //   }
+    //   if (a.properties.AtivoTeste === 'Sim' && b.properties.AtivoTeste === '') {
+    //     return -1;
+    //   }
+    //   return 0; // a must be equal to b
+    // });
+
+    atualizaMapaLista(filteredGeojson);
+    // ativosDepois(filteredGeojson);
+    // map.getSource('locationData').setData(filteredGeojson);
+    // ativosAntes(filteredGeojson);
+    // buildLocationList(filteredGeojson);
     
     filtroProdutos();
     
   });
 }
+
+function ativosAntes(locationGeojson){
+  locationGeojson.features.sort((a, b) => {            
+    if (a.properties.AtivoTeste === 'Sim' && b.properties.AtivoTeste === '') {
+      return -1;
+    }
+    return 0; // dois iguais
+  });
+}
+function ativosDepois(locationGeojson){
+  locationGeojson.features.sort((a, b) => {            
+    if (a.properties.AtivoTeste === '' && b.properties.AtivoTeste === 'Sim') {
+      return -1;
+    }
+    return 0; // dois iguais
+  });
+}
+
+//função que garante que os ícones ativos sejam renderizados por último no mapa e em primeiro na lista
+function atualizaMapaLista(locationGeojson){
+  ativosDepois(locationGeojson);
+    
+  map.getSource('locationData').setData(locationGeojson);
+  ativosAntes(locationGeojson);
+  buildLocationList(locationGeojson);
+}
+
 
 function filters(filterSettings) {
   filterSettings.forEach((filter) => {
@@ -653,15 +725,23 @@ function removeFilters() {
   var inputProdutos = document.getElementById('produtos');
   inputProdutos.value = '';
 
-  map.getSource('locationData').setData(geojsonData);
-  buildLocationList(geojsonData);
+  atualizaMapaLista(geojsonData);
+  // map.getSource('locationData').setData(geojsonData);
+  // buildLocationList(geojsonData);
 }
 
 function removeFiltersButton() {
   const removeFilter = document.getElementById('removeFilters');
   removeFilter.addEventListener('click', () => {
     removeFilters();
+    removePopups();
   });
+}
+
+function removePopups() {
+  const popups = document.getElementsByClassName('mapboxgl-popup');
+  /** Check if there is already a popup on the map and if so, remove it */
+  if (popups[0]) popups[0].remove();
 }
 
 createFilterObject(config.filters);
@@ -705,6 +785,9 @@ function sortByDistance(selectedPoint) {
     });
   });
 
+  // console.log(data);
+  // console.log(selectedPoint);
+
   data.features.sort((a, b) => {
     if (a.properties.distance > b.properties.distance) {
       return 1;
@@ -714,6 +797,8 @@ function sortByDistance(selectedPoint) {
     }
     return 0; // a must be equal to b
   });
+
+
   const listings = document.getElementById('listings');
   while (listings.firstChild) {
     listings.removeChild(listings.firstChild);
@@ -724,6 +809,7 @@ function sortByDistance(selectedPoint) {
 geocoder.on('result', (ev) => {
   const searchResult = ev.result.geometry;
   //console.log(searchResult);
+  removePopups();
   sortByDistance(searchResult);
 });
 
@@ -769,6 +855,7 @@ map.on('load', () => {
         });
 
         geojsonData = data;
+        
 
         // Load the images in parallel
         Promise.all([
@@ -787,6 +874,15 @@ map.on('load', () => {
             });
           })
         ]).then(() => {
+
+          ativosDepois(geojsonData);
+          // geojsonData.features.sort((a, b) => {            
+          //   if (a.properties.AtivoTeste === '' && b.properties.AtivoTeste === 'Sim') {
+          //     return -1;
+          //   }
+          //   return 0; // dois iguais
+          // });
+
           // Add the layer to the map
           map.addLayer({
             'id': 'locationData',
@@ -800,17 +896,21 @@ map.on('load', () => {
               'icon-image': ['match', ['get', 'AtivoTeste'], 'Sim', 'verde', 'vermelho'],
               'icon-anchor': 'bottom',
               'icon-allow-overlap': true,
-            }
-          });
+              'symbol-sort-key': ['match', ['get', 'AtivoTeste'], 'Sim', 1, 0],
+            },
+          });          
 
           map.on('click', 'locationData', (e) => {
             const features = map.queryRenderedFeatures(e.point, {
               layers: ['locationData'],
+              limit: 1
             });
+            
             const clickedPoint = features[0].geometry.coordinates;
             flyToLocation(clickedPoint);
             sortByDistance(clickedPoint);
             createPopup(features[0]);
+            geocoder.clear();
           });
 
           map.on('mouseenter', 'locationData', () => {
@@ -820,6 +920,14 @@ map.on('load', () => {
           map.on('mouseleave', 'locationData', () => {
             map.getCanvas().style.cursor = '';
           });
+          
+          ativosAntes(geojsonData);
+          // geojsonData.features.sort((a, b) => {            
+          //   if (a.properties.AtivoTeste === 'Sim' && b.properties.AtivoTeste === '') {
+          //     return -1;
+          //   }
+          //   return 0; // dois iguais
+          // });
 
           buildLocationList(geojsonData);
         }).catch((error) => {
