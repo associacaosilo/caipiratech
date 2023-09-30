@@ -97,7 +97,8 @@ function sellLinks(currentFeature){
   let retorno = "";
   var whatsapp = currentFeature.properties.Whatsapp;
   if (whatsapp != ""){
-    retorno += '<a class="link-whats" href="http://wa.me/55' + whatsapp + '?text=Te%20encontrei%20no%20CaipiratechLAB%20e%20eu%20tenho%20interesse%20em%20comprar%20de%20você" target="_blank"> <i class="fa fa-whatsapp" aria-hidden="true"></i> Compre pelo Whatsapp!</a>';
+    retorno += '<a class="link-whats" href="https://wa.me/55' + whatsapp + '?text=Te%20encontrei%20no%20CaipiratechLAB%20e%20eu%20tenho%20interesse%20em%20comprar%20de%20voc%C3%AA" target="_blank"> <i class="fa fa-whatsapp" aria-hidden="true"></i> Compre pelo WhatsApp</a>';
+    retorno += '<a class="link-whats" href="https://api.whatsapp.com/send/?phone=55' + whatsapp + '&text=Te%20encontrei%20no%20CaipiratechLAB%20e%20eu%20tenho%20interesse%20em%20comprar%20de%20voc%C3%AA&app_absent=1" target="_blank"> (Web)</a>';
   }
   
   var telegram = currentFeature.properties.Telegram;
