@@ -66,10 +66,9 @@ function loadCard(currentFeature) {
     description = '<img src="../media/images/embreve.jpg" class="w-100">';
   }else{
     if (ativoteste != "Sim"){
-      description = '<img src="../media/cards/' + linkImagem + '.jpg" class="w-100 img-inativo">';
+      description = '<img src="../media/cards/thumbs/' + imagem + '.jpg" class="w-100 img-inativo">';
     }else{
-      // description = '<a href="'+config.baseURL+'redes/?img='+linkImagem+'.jpg"> <img src="../media/cards/' + linkImagem + '.jpg" class="w-100"> </a>';
-      description = '<a href="../media/cards/' + linkImagem + '.jpg" class="swipebox"  title="'+currentFeature.properties[config.popupInfo]+'"> <img src="../media/cards/' + linkImagem + '.jpg" class="w-100" alt=""> </a>';
+      description = '<a rel="mobile" href="../media/cards/mobile/' + imagem + '.jpg" class="swipebox none-mm" title="'+currentFeature.properties[config.popupInfo]+'"><img src="../media/cards/thumbs/' + imagem + '.jpg" class="w-100" alt=""></a><a rel="desktop" href="../media/cards/' + imagem + '.jpg" class="swipebox none block-mm" title="'+currentFeature.properties[config.popupInfo]+'"><img src="../media/cards/thumbs/' + imagem + '.jpg" class="w-100" alt=""></a>';
     }
       //teste para exibir lista de produtos como texto abaixo da imagem
       // description = '<a href="'+config.baseURL+'/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a> <br /> Produtos:<br />' + e.features[0].properties.Produtos; 
@@ -135,6 +134,12 @@ function buildLocationList(locationData) {
   
   const listings = document.getElementById('listings');
   listings.innerHTML = '';
+  //debug
+  //console.log(locationData.features);
+  //debug
+  if(locationData.features.length == 0){
+    listings.innerHTML = '<p class="txt-bold">Nenhum resultado encontrado.</p>';
+  }
   locationData.features.forEach((location, i) => {
     const prop = location.properties;
 
@@ -202,30 +207,34 @@ function buildLocationList(locationData) {
       flyToLocation(clickedListing);
       createPopup(location);
       sortByDistance(clickedListing);
+      // const geocoderInput = document.getElementsByClassName('mapboxgl-ctrl-geocoder--input');
+      // geocoderInput[0].value = ''; 
+      // geocoder._clear();
       geocoder.clear();
+      document.getElementsByClassName('mapboxgl-ctrl-geocoder--input')[0].blur();
 
-      // const activeItem = document.getElementsByClassName('active');
-      // if (activeItem[0]) {
-      //   activeItem[0].classList.remove('active');
-      // }
-      // this.parentNode.classList.add('active');
+      const activeItem = document.getElementsByClassName('active');
+      if (activeItem[0]) {
+        activeItem[0].classList.remove('active');
+      }
+      this.parentNode.classList.add('active');
 
-      // const divList = document.querySelectorAll('.content');
-      // const divCount = divList.length;
-      // for (i = 0; i < divCount; i++) {
-      //   divList[i].style.maxHeight = null;
-      // }
+      const divList = document.querySelectorAll('.content');
+      const divCount = divList.length;
+      for (i = 0; i < divCount; i++) {
+        divList[i].style.maxHeight = null;
+      }
 
-      // for (let i = 0; i < geojsonData.features.length; i++) {
-      //   this.parentNode.classList.remove('active');
-      //   this.classList.toggle('active');
-      //   const content = this.nextElementSibling;
-      //   if (content.style.maxHeight) {
-      //     content.style.maxHeight = null;
-      //   } else {
-      //     content.style.maxHeight = content.scrollHeight + 'px';
-      //   }
-      // }
+      for (let i = 0; i < geojsonData.features.length; i++) {
+        this.parentNode.classList.remove('active');
+        this.classList.toggle('active');
+        const content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + 'px';
+        }
+      }
     });
   });
   
@@ -694,6 +703,17 @@ function atualizaMapaLista(locationGeojson){
   buildLocationList(locationGeojson);
 }
 
+// função que remove o spinner após o carregamento de todos os ícones, é chamada no final de "map.on('load'..."
+function removeSpinner() {
+  //debug
+  //console.log('removeSpinner()');
+  //debug
+  const spinnerEl = document.getElementById('spinner');
+  const backgroundEl = document.getElementById('loading-background');
+  spinnerEl.classList.remove('loading');
+  backgroundEl.classList.remove('absolute');
+  backgroundEl.classList.add('none');
+}
 
 function filters(filterSettings) {
   filterSettings.forEach((filter) => {
@@ -763,7 +783,7 @@ const geocoder = new MapboxGeocoder({
       return t;
     }
   },
-  placeholder: 'Busque sua localização',
+  placeholder: 'Busca por localização',
 });
 
 
@@ -911,7 +931,11 @@ map.on('load', () => {
             flyToLocation(clickedPoint);
             sortByDistance(clickedPoint);
             createPopup(features[0]);
+            //const geocoderInput = document.getElementsByClassName('mapboxgl-ctrl-geocoder--input');
+            //geocoderInput[0].value = '';
+            // geocoder._clear();
             geocoder.clear();
+            document.getElementsByClassName('mapboxgl-ctrl-geocoder--input')[0].blur();
           });
 
           map.on('mouseenter', 'locationData', () => {
@@ -931,6 +955,7 @@ map.on('load', () => {
           // });
 
           buildLocationList(geojsonData);
+          removeSpinner();
         }).catch((error) => {
           console.error(error);
         });

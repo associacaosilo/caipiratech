@@ -32,7 +32,7 @@ const config = {
     },
     {
       type: 'text',
-      title: 'Produtos: ',
+      title: 'Produtos/Produtor: ',
       columnHeader: 'Produtos',
       placeholder: 'Digite aqui',
       id: 'produtos',
