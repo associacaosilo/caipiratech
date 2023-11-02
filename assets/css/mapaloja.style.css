@@ -215,3 +215,15 @@ select:focus>option:checked {
     font-weight:bold;
     background: #2a4d3c !important;
 }
+
+.mapamenu {
+    /* Este estilo será aplicado quando a largura da tela for menor que 640px */
+    @media (max-width: 639px) {
+      height: calc(calc(200vh / 3) - 121px) !important;
+    }
+  
+    /* Este estilo será aplicado quando a largura da tela for maior ou igual a 640px */
+    @media (min-width: 640px) {
+      height: calc(100vh - 121px) !important;
+    }
+  }
