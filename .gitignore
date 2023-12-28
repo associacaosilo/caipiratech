@@ -1,4 +1,9 @@
-
-media/.DS_Store
 .DS_Store
-_site/feed.xml
+Thumbs.db
+*.log
+public/
+.deploy*/
+_site/
+.sass-cache/
+.jekyll-cache/
+Gemfile.lock
