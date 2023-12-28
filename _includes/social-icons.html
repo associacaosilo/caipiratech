@@ -1,0 +1,9 @@
+{% for social in site.social %}
+	{% unless social[1] == "" %}
+		<a class="menu-item" href="{{ social[1] }}" target="_blank">
+		<i class="fa fa-{{ social[0] }} fa-1_5x" aria-hidden="true"></i>
+		</a>
+	{% endunless %}
+{% endfor %}
+
+
