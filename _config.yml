@@ -23,20 +23,9 @@ collections:
   - boletins
   - cursos
   
-# Data
-social:
-  instagram: "https://www.instagram.com/silo.arte.e.latitude.rural"
-  facebook: "https://www.facebook.com/silo.arte.latitude.rural"
-  twitter: "https://twitter.com/SiloLatitude"
-  flickr: ""
-  youtube-play: "https://www.youtube.com/channel/UCwB5vE50QX2eCVv-i795y6Q"
-  github: "https://github.com/associacaosilo/caipiratech"
-  vimeo: ""
-  soundcloud: ""
-  tumblr: ""
-  pinterest: ""
-  envelope-o: ""
-twitter_user: "SiloLatitude"
+# Data (twitter_user não utilizado no momento. Descomentar quando tiver o "_includes/meta.html")
+  # "social:" foi movido para _data/social.yml. Utilizar variável "site.data.social" em vez de "site.social"
+# twitter_user: "SiloLatitude"
 
 # prose.io
 prose:
