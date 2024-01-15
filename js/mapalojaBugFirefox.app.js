@@ -74,7 +74,7 @@ function loadCard(currentFeature) {
       // description = '<a href="'+config.baseURL+'/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a> <br /> Produtos:<br />' + e.features[0].properties.Produtos; 
       
       //teste para exibir Região como texto abaixo da imagem
-      description += 'Região:<br />' + regiao;
+      description += '<br /> Região:<br />' + regiao;
          
       //teste para exibir lista de produtos em formato de lista abaixo da imagem
       // description += '<br /> Produtos:<br /> <ul>';
@@ -125,7 +125,7 @@ function createPopup(currentFeature) {
   let links = sellLinks(currentFeature);
   new mapboxgl.Popup({ closeOnClick: true, autoPan: true, anchor: 'bottom' })
     .setLngLat(currentFeature.geometry.coordinates)
-    .setHTML('<h3>' + currentFeature.properties[config.popupInfo] + '</h3>' + conteudoPopup + '<br />' + links)
+    .setHTML('<h3>' + currentFeature.properties[config.popupInfo] + '</h3> <br />' + conteudoPopup + '<br />' + links)
     .addTo(map);
 }
 
@@ -135,7 +135,7 @@ function buildLocationList(locationData) {
   const listings = document.getElementById('listings');
   listings.innerHTML = '';
   //debug
-  // console.log(locationData.features);
+  //console.log(locationData.features);
   //debug
   if(locationData.features.length == 0){
     listings.innerHTML = '<p class="txt-bold">Nenhum resultado encontrado.</p>';
@@ -271,11 +271,11 @@ function filtroProdutos(){
     //const value = e.target.value.trim().toLowerCase();
     
     let dataCinthia = data;
-    // console.log(dataCinthia);
+    //console.log(dataCinthia);
     
     const produtosCinthia = dataCinthia.features.map(feature => [feature.properties.Produtos, feature.properties.Nome, feature.properties.id]);
 
-    console.dir(produtosCinthia); 
+    //console.dir(produtosCinthia); 
     
      
     // Alerta com lista de locais que possuem o produto filtrado
@@ -348,16 +348,15 @@ function filtroProdutos(){
 
     filteredGeojson.features = [];
     filteredGeojson.features = filteredProductsGeojson.features;
-    // console.log("antes do atualizaMapaLista do filtroProdutos");
 
     atualizaMapaLista(filteredGeojson);
     // ativosDepois(filteredGeojson);
     // map.getSource('locationData').setData(filteredGeojson);
     // ativosAntes(filteredGeojson);
     // buildLocationList(filteredGeojson);
-    // console.log("depois do atualizaMapaLista do filtroProdutos");
     
-    // console.log(filteredGeojson);
+    
+    //console.log(filteredGeojson);
 
       
   }
@@ -377,8 +376,7 @@ function buildDropDownList(title, listItems) {
   const filterTitle = document.createElement('h3');
   filterTitle.innerText = title;
   //filterTitle.classList.add('py12', 'txt-bold');
-  // filterTitle.classList.add('pb6', 'txt-bold');
-  filterTitle.classList.add('pb6');
+  filterTitle.classList.add('pb6', 'txt-bold');
   mainDiv.appendChild(filterTitle);
 
   const selectContainer = document.createElement('div');
@@ -667,75 +665,48 @@ function applyFilters() {
     //   }
     //   return 0; // a must be equal to b
     // });
-    // console.log("antes do atualizaMapaLista do applyFilters");
 
     atualizaMapaLista(filteredGeojson);
     // ativosDepois(filteredGeojson);
     // map.getSource('locationData').setData(filteredGeojson);
     // ativosAntes(filteredGeojson);
     // buildLocationList(filteredGeojson);
-    // console.log("depois do atualizaMapaLista do applyFilters");
+    
     filtroProdutos();
     
   });
 }
 
 function ativosAntes(locationGeojson){
-  // console.log("ativosAntes");
   locationGeojson.features.sort((a, b) => {            
-    if (a.properties.AtivoTeste === 'Sim' && b.properties.AtivoTeste !== 'Sim') {
+    if (a.properties.AtivoTeste === 'Sim' && b.properties.AtivoTeste === '') {
       return -1;
-    } else if (a.properties.AtivoTeste !== 'Sim' && b.properties.AtivoTeste === 'Sim') {
-      return 1;
-    } else {
-      return 0; // dois iguais
     }
+    return 0; // dois iguais
   });
-  // // exibe a posição i no array properties[i] dos ativos no console
-  // for (let i = 0; i < locationGeojson.features.length; i++) {
-  //   if (locationGeojson.features[i].properties.AtivoTeste === 'Sim') {
-  //     console.log(i);
-  //   }
-  // } 
 }
-
 function ativosDepois(locationGeojson){
-  // console.log("ativosDepois");
   locationGeojson.features.sort((a, b) => {            
-    if (a.properties.AtivoTeste !== 'Sim' && b.properties.AtivoTeste === 'Sim') {
+    if (a.properties.AtivoTeste === '' && b.properties.AtivoTeste === 'Sim') {
       return -1;
-    } else if (a.properties.AtivoTeste === 'Sim' && b.properties.AtivoTeste !== 'Sim') {
-      return 1;
-    } else {
-      return 0; // dois iguais
     }
+    return 0; // dois iguais
   });
-  // // exibe a posição i no array properties[i] dos ativos no console
-  // for (let i = 0; i < locationGeojson.features.length; i++) {
-  //   if (locationGeojson.features[i].properties.AtivoTeste === 'Sim') {
-  //     console.log(i);
-  //   }
-  // }
-   
 }
 
 //função que garante que os ícones ativos sejam renderizados por último no mapa e em primeiro na lista
 function atualizaMapaLista(locationGeojson){
-  // console.log("atualizaMapaLista inicio");
-  // console.log(locationGeojson);  
   ativosDepois(locationGeojson);
     
   map.getSource('locationData').setData(locationGeojson);
-  // console.log("atualizaMapaLista depois do map.setdata");
   ativosAntes(locationGeojson);
   buildLocationList(locationGeojson);
-  // console.log("atualizaMapaLista fim - após buildLocationList");
 }
 
 // função que remove o spinner após o carregamento de todos os ícones, é chamada no final de "map.on('load'..."
 function removeSpinner() {
   //debug
-  // console.log('removeSpinner()');
+  //console.log('removeSpinner()');
   //debug
   const spinnerEl = document.getElementById('spinner');
   const backgroundEl = document.getElementById('loading-background');
@@ -774,12 +745,10 @@ function removeFilters() {
   
   var inputProdutos = document.getElementById('produtos');
   inputProdutos.value = '';
-  // console.log("antes do atualizaMapaLista do removeFilters");
 
   atualizaMapaLista(geojsonData);
   // map.getSource('locationData').setData(geojsonData);
   // buildLocationList(geojsonData);
-  // console.log("depois do atualizaMapaLista do removeFilters");
 }
 
 function removeFiltersButton() {
@@ -860,7 +829,7 @@ function sortByDistance(selectedPoint) {
 
 geocoder.on('result', (ev) => {
   const searchResult = ev.result.geometry;
-  // console.log(searchResult);
+  //console.log(searchResult);
   removePopups();
   sortByDistance(searchResult);
 });
@@ -875,9 +844,9 @@ map.on('load', () => {
   map.addControl(navCtrl, 'top-left');
 
   // csv2geojson - following the Sheet Mapper tutorial https://www.mapbox.com/impact-tools/sheet-mapper
-  // console.log('loaded');
+  //console.log('loaded');
   $(document).ready(() => {
-    // console.log('ready');
+    //console.log('ready');
     $.ajax({
       type: 'GET',
       url: config.CSV,
