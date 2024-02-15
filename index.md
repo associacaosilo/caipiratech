@@ -15,7 +15,7 @@ section3:
   texto2: Apoie o sistema alimentar local!
   botao: comece agora!
 section4:
-  titulo: Você conhece agricultoras/es da sua região? Acesse o nosso mapa!
+  titulo: Você conhece agricultoras/es da sua região? Acesse o nosso <a href='/lojaonline'>mapa</a>!
   texto: É produtor/a de alimentos e/ou provenientes de agricultura familiar da região da Serra da Mantiqueira, Serra da Bocaina, Vale do Paraíba ou Serra do Mar? 
   botao: cadastre-se aqui!
 section5:
