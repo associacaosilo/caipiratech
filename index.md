@@ -8,7 +8,7 @@ section1:
   titulo4: consome?
 section2:
   titulo: conheça o programa
-  texto: "CaipiratechLAB é um programa <a href='https://silo.org.br/' target='_blank'>Silo - Arte e Latitude Rural</a> que colabora com o fortalecimento dos sistemas agroalimentares regionais e sua expressão cultural por meio de mapeamento, cursos formativos contínuos e desenvolvimento de tecnologia que converge nesta plataforma multifuncional, para formação, comunicação e venda, baseada em princípios do cooperativismo. O programa CaipiraTechLab cria e amplia as possibilidades para que jovens camponeses possam viver, trabalhar e se reconectar com o campo, atuando como agentes de mudança em suas comunidades."
+  texto: "CaipiratechLAB é um programa da <a href='https://silo.org.br/' target='_blank'>Silo - Arte e Latitude Rural</a> que colabora com o fortalecimento dos sistemas agroalimentares regionais e sua expressão cultural por meio de mapeamento, cursos formativos contínuos e desenvolvimento de tecnologia que converge nesta plataforma multifuncional, para formação, comunicação e venda, baseada em princípios do cooperativismo. O programa CaipiratechLAB cria e amplia as possibilidades para que jovens camponeses possam viver, trabalhar e se reconectar com o campo, atuando como agentes de mudança em suas comunidades."
 section3:
   titulo: ajude a viabilizar a produção local
   texto1: De onde vem o alimento que você consome?
