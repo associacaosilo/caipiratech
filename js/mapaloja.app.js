@@ -27,7 +27,7 @@ function flyToLocation(currentFeature) {
     // zoom: config.flyzoom,
     speed: config.flyspeed,
     curve: config.flycurve,
-    padding: {top:100},
+    padding: {top:385, bottom:60}, // O espaço em pixels ao redor do destino da vista especificada.
     easing(t) {
       return t;
     }
@@ -36,28 +36,30 @@ function flyToLocation(currentFeature) {
 
 function loadCard(currentFeature) {
   var regiao = currentFeature.properties.Regiao;
-  var sigla = currentFeature.properties.Sigla;
-  var prefixo = sigla + "/";
-  
- /*  if(regiao == "Serra da Mantiqueira"){
-    prefixo += "ma_";
-  }else if(regiao == "Vale do Paraíba"){
-    prefixo += "vp_";
-  }else if(regiao == "Serra do Mar"){
-    prefixo += "sm_";
-  }else if(regiao == "Serra da Bocaina"){
-    prefixo += "bo_";
-  }else{
-    prefixo = "";
-  } */
-  
   var imagem = currentFeature.properties.Imagem;
-  var linkImagem = prefixo +  imagem;
-  
-  var description = "";
-  var classCardInativo = "";
-
   var ativoteste = currentFeature.properties.AtivoTeste;
+  var description = "";
+
+  // método antigo para prefixar as imagens com a sigla da região
+  // if(regiao == "Serra da Mantiqueira"){
+  //   prefixo += "ma_";
+  // }else if(regiao == "Vale do Paraíba"){
+  //   prefixo += "vp_";
+  // }else if(regiao == "Serra do Mar"){
+  //   prefixo += "sm_";
+  // }else if(regiao == "Serra da Bocaina"){
+  //   prefixo += "bo_";
+  // }else{
+  //   prefixo = "";
+  // }
+  
+  //link para as imagens antigas, que separava os cards em pastas por região
+  //var sigla = currentFeature.properties.Sigla;
+  //var prefixo = sigla + "/";
+  //var linkImagem = prefixo +  imagem;
+  
+  //Era utilizado para exibir cards inativos com uma classe de css diferente antes de impletemtar o swipebox
+  //var classCardInativo = "";
   // if (ativoteste != "Sim"){
   //   classCardInativo = 'img-inativo';
   // }
@@ -69,185 +71,243 @@ function loadCard(currentFeature) {
       description = '<img src="../media/cards/thumbs/' + imagem + '.jpg" class="w-100 img-inativo">';
     }else{
       description = '<a rel="mobile" href="../media/cards/mobile/' + imagem + '.jpg" class="swipebox none-mm" title="'+currentFeature.properties[config.popupInfo]+'"><img src="../media/cards/thumbs/' + imagem + '.jpg" class="w-100" alt=""></a><a rel="desktop" href="../media/cards/' + imagem + '.jpg" class="swipebox none block-mm" title="'+currentFeature.properties[config.popupInfo]+'"><img src="../media/cards/thumbs/' + imagem + '.jpg" class="w-100" alt=""></a>';
-    }
-      //teste para exibir lista de produtos como texto abaixo da imagem
-      // description = '<a href="'+config.baseURL+'/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a> <br /> Produtos:<br />' + e.features[0].properties.Produtos; 
-      
-      //teste para exibir Região como texto abaixo da imagem
-      description += 'Região:<br />' + regiao;
-         
-      //teste para exibir lista de produtos em formato de lista abaixo da imagem
-      // description += '<br /> Produtos:<br /> <ul>';
-      // var produtos = e.features[0].properties.Produtos;
-      // var arrayprodutos = produtos.split(',');
-      // $.each(arrayprodutos, function(index, value) {
-        // description += "<li>" + value + "</li>";
-      // });
-      // description += '</ul>';
+    }  
+    
+    //teste para exibir lista de produtos como texto abaixo da imagem
+    // description = '<a href="'+config.baseURL+'/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a> <br /> Produtos:<br />' + e.features[0].properties.Produtos; 
+           
+    //teste para exibir lista de produtos em formato de lista abaixo da imagem
+    // description += '<br /> Produtos:<br /> <ul>';
+    // var produtos = e.features[0].properties.Produtos;
+    // var arrayprodutos = produtos.split(',');
+    // $.each(arrayprodutos, function(index, value) {
+      // description += "<li>" + value + "</li>";
+    // });
+    // description += '</ul>';
       
   }
-
-  
+  //Exibe Região como texto abaixo da imagem
+  description += 'Região:<br />' + regiao;    
   
   return description;  
 }
 
+//Função que retorna os ícones e links de contato para o estabelecimento do parâmetro (currentFeature), pegando os textos padrões do arquivo mapaloja.config.js
 function sellLinks(currentFeature){
-  let retorno = "";
+  let retorno = ""; //retorno da função começa vazio
   var whatsapp = currentFeature.properties.Whatsapp;
-  if (whatsapp != ""){
-    retorno += '<a class="link-whats" href="https://wa.me/55' + whatsapp + '?text=Te%20encontrei%20no%20CaipiratechLAB%20e%20eu%20tenho%20interesse%20em%20comprar%20de%20voc%C3%AA" target="_blank"> <i class="fa fa-whatsapp" aria-hidden="true"></i> Compre pelo WhatsApp</a>';
-    retorno += '<a class="link-whats" href="https://api.whatsapp.com/send/?phone=55' + whatsapp + '&text=Te%20encontrei%20no%20CaipiratechLAB%20e%20eu%20tenho%20interesse%20em%20comprar%20de%20voc%C3%AA&app_absent=1" target="_blank"> (Web)</a>';
-  }
-  
   var telegram = currentFeature.properties.Telegram;
+  var ativoteste = currentFeature.properties.AtivoTeste;
+
+  //caso o estabelecimento tenha whatsapp cadastrado no google sheets, inclui o ícone e link para o whatsapp no retorno
+  if (whatsapp != ""){
+    retorno += '<a class="link-whats" href="https://wa.me/55' + whatsapp + '?text='+ encodeURIComponent(config.popupTxt.msgWhats)+'" target="_blank"> <i class="fa fa-whatsapp" aria-hidden="true"></i> '+ config.popupTxt.linkWhatsapp +'</a>'; //link padrão que abre o whatsapp no celular e em alguns navegadores
+    retorno += '<a class="link-whats" href="https://api.whatsapp.com/send/?phone=55' + whatsapp + '&text='+ encodeURIComponent(config.popupTxt.msgWhats)+'&app_absent=1" target="_blank"> (Web)</a>'; //link que abre o whatsapp web em navegadores que não suportam o link padrão
+  }  
+  
+  //caso o estabelecimento tenha telegram cadastrado no google sheets, inclui o ícone e link para o telegram no retorno
   if (telegram != ""){
     if (whatsapp != ""){
-      retorno += '<br />';
+      retorno += '<br />'; //caso tenha whatsapp e telegram, quebra a linha antes de incluir o link do telegram
     }
-    retorno += '<a class="link-telegram" href="https://t.me/' + telegram + '" target="_blank"> <i class="fa fa-telegram" aria-hidden="true"></i> Compre pelo Telegram!</a>';
+    retorno += '<a class="link-telegram" href="https://t.me/' + telegram + '" target="_blank"> <i class="fa fa-telegram" aria-hidden="true"></i> '+ config.popupTxt.linkTelegram +'</a>';
   }
   
-  var ativoteste = currentFeature.properties.AtivoTeste;
+  //caso o estabelecimento esteja inativo, não exibe os links de contato e inclui um alerta de estabelecimento inativo no retorno
   if (ativoteste != "Sim"){
-    retorno = '<p class="link-inativo"> <i class="fa fa-exclamation-circle" aria-hidden="true"></i> INATIVO</p>';
+    retorno = '<p class="link-inativo"> <i class="fa fa-exclamation-circle" aria-hidden="true"></i> '+ config.popupTxt.inativo +'</p>';
   }
 
   return retorno;  
 }
 
+// Check if there is already a popup on the map and if so, remove it
+function removePopups() {
+  const popups = document.getElementsByClassName('mapboxgl-popup');
+  if (popups[0]) popups[0].remove();
+}
+
+// Função que cria o popup com as informações do estabelecimento e adiciona ao mapa
 function createPopup(currentFeature) {
-  // const popups = document.getElementsByClassName('mapboxgl-popup');
-  // /** Check if there is already a popup on the map and if so, remove it */
-  // if (popups[0]) popups[0].remove();
   removePopups();
   let conteudoPopup = loadCard(currentFeature);
   let links = sellLinks(currentFeature);
-  new mapboxgl.Popup({ closeOnClick: true, autoPan: true, anchor: 'bottom' })
+  
+  // outros parâmetros possíveis para mapboxgl.Popup: ({anchor: 'top', padding: {top: 350, bottom: 70, left: 120, right: 120}})
+  // autoPan só funciona se não setar o 'anchor'.
+  // no offset, o primeiro valor é para o eixo x e o segundo para o eixo y. Positivo para direita e para baixo, negativo para esquerda e para cima.
+
+  new mapboxgl.Popup({ closeOnClick: true, autoPan: true, offset:{'bottom': [0, -10], 'top': [0, -5]}})
     .setLngLat(currentFeature.geometry.coordinates)
     .setHTML('<h3>' + currentFeature.properties[config.popupInfo] + '</h3>' + conteudoPopup + '<br />' + links)
     .addTo(map);
 }
 
+// Add a new listing section to the sidebar.
 function buildLocationList(locationData) {
-  /* Add a new listing section to the sidebar. */
   
   const listings = document.getElementById('listings');
   listings.innerHTML = '';
-  //debug
-  // console.log(locationData.features);
-  //debug
+
+  // se não houver resultados, exibe a mensagem informando que nenhum resultado foi encontrado. A mensagem está no arquivo mapaloja.config.js
   if(locationData.features.length == 0){
-    listings.innerHTML = '<p class="txt-bold">Nenhum resultado encontrado.</p>';
-  }
-  locationData.features.forEach((location, i) => {
-    const prop = location.properties;
+    listings.innerHTML = '<p class="txt-bold">'+config.searchBarTxT.notFound+'</p>';
+  }else{ // só se houver resultados, exibe a lista de resultados e destaca os textos de acordo com o filtro de produtos
+    locationData.features.forEach((location, i) => {
+      const prop = location.properties;
 
-    const listing = listings.appendChild(document.createElement('div'));
-    /* Assign a unique `id` to the listing. */
-    listing.id = 'listing-' + prop.id;
+      const listing = listings.appendChild(document.createElement('div'));
+      /* Assign a unique `id` to the listing. */
+      listing.id = 'listing-' + prop.id;
 
-    /* Assign the `item` class to each listing for styling. */
-    listing.className = 'item';
+      /* Assign the `item` class to each listing for styling. */
+      listing.className = 'item';
 
-    /* Add the link to the individual listing created above. */
-    const link = listing.appendChild(document.createElement('button'));
-    link.className = 'title';
-    link.id = 'link-' + prop.id;
-    link.innerHTML =
-      '<p style="line-height: 1.25">' + prop[columnHeaders[0]] + '</p>';
+      /* Add the link to the individual listing created above. */
+      const link = listing.appendChild(document.createElement('button'));
+      link.className = 'title';
+      link.id = 'link-' + prop.id;
+      link.innerHTML =
+        '<p style="line-height: 1.25">' + prop[columnHeaders[0]] + '</p>';
 
-    /* Add details to the individual listing. */
-    const details = listing.appendChild(document.createElement('div'));
-    details.className = 'content';
+      /* Add details to the individual listing. */
+      const details = listing.appendChild(document.createElement('div'));
+      details.className = 'content';
 
-    for (let i = 1; i < columnHeaders.length; i++) {
-      const div = document.createElement('div');
-      if(columnHeaders[i] == 'whats')
-      {
-        let links = sellLinks(location);
-        div.innerHTML += '<strong>'+links+'</strong>';
-          
-      } 
-      else if(columnHeaders[i] == 'Contato')
-      {
-        let ativoteste = location.properties.AtivoTeste;
-        if (ativoteste == "Sim"){
+      for (let i = 1; i < columnHeaders.length; i++) {
+        const div = document.createElement('div');
+        if(columnHeaders[i] == 'whats')
+        {
+          let links = sellLinks(location);
+          div.innerHTML += '<strong>'+links+'</strong>';
+            
+        } 
+        else if(columnHeaders[i] == 'Contato')
+        {
+          let ativoteste = location.properties.AtivoTeste;
+          if (ativoteste == "Sim"){
+            div.innerHTML += "<strong>" + columnHeaders[i] + ": </strong>";
+            div.innerHTML += prop[columnHeaders[i]];
+          }
+        }      
+        else if(columnHeaders[i] == 'distance')
+        {
+          if(prop[columnHeaders[i]] != undefined){
+            div.innerHTML += "<strong>"+config.searchBarTxT.distance+": </strong>";
+            if(prop[columnHeaders[i]] < 20)
+            {
+              div.innerHTML += config.searchBarTxT.distanceLess20;
+            }else if(prop[columnHeaders[i]] < 1000)
+            {
+              div.innerHTML += prop[columnHeaders[i]].toFixed(2);
+              div.innerHTML += " m";
+            }else{
+              div.innerHTML += ((prop[columnHeaders[i]])/1000).toFixed(2);
+              div.innerHTML += " km";
+            }
+          }
+        }else {
           div.innerHTML += "<strong>" + columnHeaders[i] + ": </strong>";
           div.innerHTML += prop[columnHeaders[i]];
         }
-      }      
-      else if(columnHeaders[i] == 'distance')
-      {
-        if(prop[columnHeaders[i]] != undefined){
-          div.innerHTML += "<strong>Distância aprox.: </strong>";
-          if(prop[columnHeaders[i]] < 20)
-          {
-            div.innerHTML += " menos de 20 metros";
-          }else if(prop[columnHeaders[i]] < 1000)
-          {
-            div.innerHTML += prop[columnHeaders[i]].toFixed(2);
-            div.innerHTML += " m";
-          }else{
-            div.innerHTML += ((prop[columnHeaders[i]])/1000).toFixed(2);
-            div.innerHTML += " km";
+        div.className;
+        details.appendChild(div);        
+      }
+
+      link.addEventListener('click', function () {
+        const clickedListing = location.geometry.coordinates;
+        flyToLocation(clickedListing);
+        createPopup(location);
+        sortByDistance(clickedListing);
+        // const geocoderInput = document.getElementsByClassName('mapboxgl-ctrl-geocoder--input');
+        // geocoderInput[0].value = ''; 
+        // geocoder._clear();
+        geocoder.clear();
+        document.getElementsByClassName('mapboxgl-ctrl-geocoder--input')[0].blur();
+
+        const activeItem = document.getElementsByClassName('active');
+        if (activeItem[0]) {
+          activeItem[0].classList.remove('active');
+        }
+        this.parentNode.classList.add('active');
+
+        const divList = document.querySelectorAll('.content');
+        const divCount = divList.length;
+        for (i = 0; i < divCount; i++) {
+          divList[i].style.maxHeight = null;
+        }
+
+        for (let i = 0; i < geojsonData.features.length; i++) {
+          this.parentNode.classList.remove('active');
+          this.classList.toggle('active');
+          const content = this.nextElementSibling;
+          if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+          } else {
+            content.style.maxHeight = content.scrollHeight + 'px';
           }
         }
-      }else {
-        div.innerHTML += "<strong>" + columnHeaders[i] + ": </strong>";
-        div.innerHTML += prop[columnHeaders[i]];
-      }
-      div.className;
-      details.appendChild(div);
+      });
+    });    
       
+    var value = document.getElementById('produtos').value;
+    if(value != "")
+    {
+      markSearch(value);
     }
-
-    link.addEventListener('click', function () {
-      const clickedListing = location.geometry.coordinates;
-      flyToLocation(clickedListing);
-      createPopup(location);
-      sortByDistance(clickedListing);
-      // const geocoderInput = document.getElementsByClassName('mapboxgl-ctrl-geocoder--input');
-      // geocoderInput[0].value = ''; 
-      // geocoder._clear();
-      geocoder.clear();
-      document.getElementsByClassName('mapboxgl-ctrl-geocoder--input')[0].blur();
-
-      const activeItem = document.getElementsByClassName('active');
-      if (activeItem[0]) {
-        activeItem[0].classList.remove('active');
-      }
-      this.parentNode.classList.add('active');
-
-      const divList = document.querySelectorAll('.content');
-      const divCount = divList.length;
-      for (i = 0; i < divCount; i++) {
-        divList[i].style.maxHeight = null;
-      }
-
-      for (let i = 0; i < geojsonData.features.length; i++) {
-        this.parentNode.classList.remove('active');
-        this.classList.toggle('active');
-        const content = this.nextElementSibling;
-        if (content.style.maxHeight) {
-          content.style.maxHeight = null;
-        } else {
-          content.style.maxHeight = content.scrollHeight + 'px';
-        }
-      }
-    });
-  });
-  
-    
-  var value = document.getElementById('produtos').value;
-  if(value != "")
-  {
-    markSearch(value);
-  }
-  
-  
+  }  
 }
 
+function ativosAntes(locationGeojson){
+  // // debug start
+  // console.log("ativosAntes");
+  // // debug end
+  locationGeojson.features.sort((a, b) => {            
+    if (a.properties.AtivoTeste === 'Sim' && b.properties.AtivoTeste !== 'Sim') {
+      return -1;
+    } else if (a.properties.AtivoTeste !== 'Sim' && b.properties.AtivoTeste === 'Sim') {
+      return 1;
+    } else {
+      return 0; // dois iguais
+    }
+  });
+  // // debug start
+  // // exibe a posição i no array properties[i] dos ativos no console
+  // for (let i = 0; i < locationGeojson.features.length; i++) {
+  //   if (locationGeojson.features[i].properties.AtivoTeste === 'Sim') {
+  //     console.log(i);
+  //   }
+  // }
+  // // debug end
+}
+
+function ativosDepois(locationGeojson){
+  locationGeojson.features.sort((a, b) => {            
+    if (a.properties.AtivoTeste !== 'Sim' && b.properties.AtivoTeste === 'Sim') {
+      return -1;
+    } else if (a.properties.AtivoTeste === 'Sim' && b.properties.AtivoTeste !== 'Sim') {
+      return 1;
+    } else {
+      return 0; // dois iguais
+    }
+  });  
+}
+
+//função que garante que os ícones ativos sejam renderizados por último no mapa e em primeiro na lista
+function atualizaMapaLista(locationGeojson){
+  // // debug start
+  // console.log("atualizaMapaLista inicio");
+  // console.log(locationGeojson);
+  // // debug end
+  ativosDepois(locationGeojson);    
+  map.getSource('locationData').setData(locationGeojson);
+
+  ativosAntes(locationGeojson);
+  buildLocationList(locationGeojson);
+}
+
+// Função que filtra os resultados da lista de acordo com o texto digitado no campo de busca "Produtos/Produtor"
+// TO DO: verificar se é possível usar direto o filteredGeojson sem precisar criar um novo objeto (filteredProductsGeojson)
 function filtroProdutos(){
   var filteredProductsGeojson = {
   type: 'FeatureCollection',
@@ -267,36 +327,33 @@ function filtroProdutos(){
     } else {
       data = geojsonData;
     }
-    
-    //const value = e.target.value.trim().toLowerCase();
-    
-    let dataCinthia = data;
-    // console.log(dataCinthia);
-    
-    const produtosCinthia = dataCinthia.features.map(feature => [feature.properties.Produtos, feature.properties.Nome, feature.properties.id]);
+       
+    const produtosArray = data.features.map(feature => [feature.properties.Produtos, feature.properties.Nome, feature.properties.id]); //array apenas com a 'lista de produtos', 'Nome' e 'id' dos estabelecimentos que já estão aparecendo no mapa.
 
-    console.dir(produtosCinthia); 
+    // // debug start
+    // console.log(produtosArray);
+    // // debug end
     
-     
+    // Lógica inicial para exibir um alerta com a lista de estabelecimentos que possuem o produto filtrado 
     // Alerta com lista de locais que possuem o produto filtrado
     // let alerta = "Locais que possuem o texto '";
     // alerta += value;
     // alerta += "' dentro da lista de produtos: \n";
-    // for (let j = 0; j < produtosCinthia.length; j++) {
-      // //var produtos2 = produtosCinthia[j][0];
-      // var produtos2 = produtosCinthia[j][0].trim().toLowerCase();
-      // produtos2 = cleanString(produtos2);
+    // for (let j = 0; j < produtosArray.length; j++) {
+      // //var produtosIndividual = produtosArray[j][0];
+      // var produtosIndividual = produtosArray[j][0].trim().toLowerCase();
+      // produtosIndividual = cleanString(produtosIndividual);
       
-      // if (produtos2.includes(value))
+      // if (produtosIndividual.includes(value))
       // {
-        // console.log(produtos2);
+        // console.log(produtosIndividual);
         // alerta += " - ";
-        // alerta += produtosCinthia[j][1];
+        // alerta += produtosArray[j][1];
         // alerta += "\n";
       // }
       // else
       // {
-        // delete produtosCinthia[j];
+        // delete produtosArray[j];
       // }
     // }
     // if(value != "")
@@ -304,24 +361,22 @@ function filtroProdutos(){
       // alert(alerta);
     // }
     
-    for (let j = 0; j < produtosCinthia.length; j++) {
-      //var produtos2 = produtosCinthia[j][0];
-      var produtos2 = produtosCinthia[j][0].trim().toLowerCase();
-      produtos2 = cleanString(produtos2);
+    for (let j = 0; j < produtosArray.length; j++) {
+      var produtosIndividual = produtosArray[j][0].trim().toLowerCase();
+      produtosIndividual = cleanString(produtosIndividual);
       
-      if (!produtos2.includes(value))
+      if (!produtosIndividual.includes(value))
       {
-        delete produtosCinthia[j];
+        delete produtosArray[j];
       }      
     }
-    
-  
-    
+    // // debug start
+    // console.dir(produtosArray); //array já filtrado pelos produtos, apenas com a 'lista de produtos', 'Nome' e 'id' dos estabelecimentos que já estão aparecendo no mapa.
+    // // debug end
    
-    
-    
-    produtosCinthia.forEach((filter) => {
-      dataCinthia.features.forEach((feature) => {      
+    //TO DO: melhorar este filtro abaixo, talvez usando map em vez de forEach
+    produtosArray.forEach((filter) => {
+      data.features.forEach((feature) => {      
         if (feature.properties.id == filter[2]) {
           if (
             filteredProductsGeojson.features.filter(
@@ -333,37 +388,16 @@ function filtroProdutos(){
         }
       });
     });
-    
-    // original com erro de duplicidade por ignorar o filteredGeojson
-    // map.getSource('locationData').setData(filteredProductsGeojson);
-    // buildLocationList(filteredProductsGeojson);
-    
-    // console.log(filteredProductsGeojson);
-
-    // test1
-    // filteredGeojson = filteredProductsGeojson;
-    // map.getSource('locationData').setData(filteredGeojson);
-    // buildLocationList(filteredGeojson);
-    // console.log(filteredGeojson);
 
     filteredGeojson.features = [];
     filteredGeojson.features = filteredProductsGeojson.features;
-    // console.log("antes do atualizaMapaLista do filtroProdutos");
 
-    atualizaMapaLista(filteredGeojson);
-    // ativosDepois(filteredGeojson);
-    // map.getSource('locationData').setData(filteredGeojson);
-    // ativosAntes(filteredGeojson);
-    // buildLocationList(filteredGeojson);
-    // console.log("depois do atualizaMapaLista do filtroProdutos");
-    
-    // console.log(filteredGeojson);
-
-      
-  }
-
-  
+    atualizaMapaLista(filteredGeojson);      
+  }  
 }
+
+
+// TO DO: continuar limpeza e documentação do código a partir daqui, feito tudo até aqui
 
 
 // Build dropdown list function
@@ -581,6 +615,7 @@ function applyFilters() {
           });
         });
       }
+      // // NÃO DELETAR: parte padrão para usar os campos de texto integrado com os outros filtros. Desativado e substituído pela função filtroProdutos()
       // if (filter.type === 'text' && filter.value) {
         // textFilters.forEach((objs) => {
           // Object.entries(objs).forEach(([, value]) => {
@@ -656,87 +691,18 @@ function applyFilters() {
         }
       });
     }
-    // console.log(filteredGeojson);
-    
-    // filteredGeojson.features.sort((a, b) => { 
-    //   if (a.properties.AtivoTeste === '' && b.properties.AtivoTeste === 'Sim') {
-    //     return 1;
-    //   }
-    //   if (a.properties.AtivoTeste === 'Sim' && b.properties.AtivoTeste === '') {
-    //     return -1;
-    //   }
-    //   return 0; // a must be equal to b
-    // });
-    // console.log("antes do atualizaMapaLista do applyFilters");
 
     atualizaMapaLista(filteredGeojson);
-    // ativosDepois(filteredGeojson);
-    // map.getSource('locationData').setData(filteredGeojson);
-    // ativosAntes(filteredGeojson);
-    // buildLocationList(filteredGeojson);
-    // console.log("depois do atualizaMapaLista do applyFilters");
-    filtroProdutos();
-    
-  });
-}
 
-function ativosAntes(locationGeojson){
-  // console.log("ativosAntes");
-  locationGeojson.features.sort((a, b) => {            
-    if (a.properties.AtivoTeste === 'Sim' && b.properties.AtivoTeste !== 'Sim') {
-      return -1;
-    } else if (a.properties.AtivoTeste !== 'Sim' && b.properties.AtivoTeste === 'Sim') {
-      return 1;
-    } else {
-      return 0; // dois iguais
-    }
+    filtroProdutos();    
   });
-  // // exibe a posição i no array properties[i] dos ativos no console
-  // for (let i = 0; i < locationGeojson.features.length; i++) {
-  //   if (locationGeojson.features[i].properties.AtivoTeste === 'Sim') {
-  //     console.log(i);
-  //   }
-  // } 
-}
-
-function ativosDepois(locationGeojson){
-  // console.log("ativosDepois");
-  locationGeojson.features.sort((a, b) => {            
-    if (a.properties.AtivoTeste !== 'Sim' && b.properties.AtivoTeste === 'Sim') {
-      return -1;
-    } else if (a.properties.AtivoTeste === 'Sim' && b.properties.AtivoTeste !== 'Sim') {
-      return 1;
-    } else {
-      return 0; // dois iguais
-    }
-  });
-  // // exibe a posição i no array properties[i] dos ativos no console
-  // for (let i = 0; i < locationGeojson.features.length; i++) {
-  //   if (locationGeojson.features[i].properties.AtivoTeste === 'Sim') {
-  //     console.log(i);
-  //   }
-  // }
-   
-}
-
-//função que garante que os ícones ativos sejam renderizados por último no mapa e em primeiro na lista
-function atualizaMapaLista(locationGeojson){
-  // console.log("atualizaMapaLista inicio");
-  // console.log(locationGeojson);  
-  ativosDepois(locationGeojson);
-    
-  map.getSource('locationData').setData(locationGeojson);
-  // console.log("atualizaMapaLista depois do map.setdata");
-  ativosAntes(locationGeojson);
-  buildLocationList(locationGeojson);
-  // console.log("atualizaMapaLista fim - após buildLocationList");
 }
 
 // função que remove o spinner após o carregamento de todos os ícones, é chamada no final de "map.on('load'..."
 function removeSpinner() {
-  //debug
+  // // debug start
   // console.log('removeSpinner()');
-  //debug
+  // // debug end
   const spinnerEl = document.getElementById('spinner');
   const backgroundEl = document.getElementById('loading-background');
   spinnerEl.classList.remove('loading');
@@ -774,12 +740,16 @@ function removeFilters() {
   
   var inputProdutos = document.getElementById('produtos');
   inputProdutos.value = '';
+  // // debug start
   // console.log("antes do atualizaMapaLista do removeFilters");
+  // // debug end
 
   atualizaMapaLista(geojsonData);
+  // // debug start
   // map.getSource('locationData').setData(geojsonData);
   // buildLocationList(geojsonData);
   // console.log("depois do atualizaMapaLista do removeFilters");
+  // // debug end
 }
 
 function removeFiltersButton() {
@@ -788,12 +758,6 @@ function removeFiltersButton() {
     removeFilters();
     removePopups();
   });
-}
-
-function removePopups() {
-  const popups = document.getElementsByClassName('mapboxgl-popup');
-  /** Check if there is already a popup on the map and if so, remove it */
-  if (popups[0]) popups[0].remove();
 }
 
 createFilterObject(config.filters);
@@ -814,10 +778,8 @@ const geocoder = new MapboxGeocoder({
       return t;
     }
   },
-  placeholder: 'Busca por localização',
+  placeholder: config.searchBarTxT.geocoderPlaceholder,
 });
-
-
 
 
 function sortByDistance(selectedPoint) {
@@ -837,8 +799,10 @@ function sortByDistance(selectedPoint) {
     });
   });
 
+  // // debug start
   // console.log(data);
   // console.log(selectedPoint);
+  // // debug end
 
   data.features.sort((a, b) => {
     if (a.properties.distance > b.properties.distance) {
@@ -860,7 +824,9 @@ function sortByDistance(selectedPoint) {
 
 geocoder.on('result', (ev) => {
   const searchResult = ev.result.geometry;
+  // // debug start
   // console.log(searchResult);
+  // // debug end
   removePopups();
   sortByDistance(searchResult);
 });
@@ -875,9 +841,14 @@ map.on('load', () => {
   map.addControl(navCtrl, 'top-left');
 
   // csv2geojson - following the Sheet Mapper tutorial https://www.mapbox.com/impact-tools/sheet-mapper
+  
+  // // debug start
   // console.log('loaded');
+  // // debug end
   $(document).ready(() => {
+    // // debug start
     // console.log('ready');
+    // // debug end
     $.ajax({
       type: 'GET',
       url: config.CSV,
@@ -928,12 +899,6 @@ map.on('load', () => {
         ]).then(() => {
 
           ativosDepois(geojsonData);
-          // geojsonData.features.sort((a, b) => {            
-          //   if (a.properties.AtivoTeste === '' && b.properties.AtivoTeste === 'Sim') {
-          //     return -1;
-          //   }
-          //   return 0; // dois iguais
-          // });
 
           // Add the layer to the map
           map.addLayer({
@@ -962,9 +927,7 @@ map.on('load', () => {
             flyToLocation(clickedPoint);
             sortByDistance(clickedPoint);
             createPopup(features[0]);
-            //const geocoderInput = document.getElementsByClassName('mapboxgl-ctrl-geocoder--input');
-            //geocoderInput[0].value = '';
-            // geocoder._clear();
+
             geocoder.clear();
             document.getElementsByClassName('mapboxgl-ctrl-geocoder--input')[0].blur();
           });
@@ -978,12 +941,6 @@ map.on('load', () => {
           });
           
           ativosAntes(geojsonData);
-          // geojsonData.features.sort((a, b) => {            
-          //   if (a.properties.AtivoTeste === 'Sim' && b.properties.AtivoTeste === '') {
-          //     return -1;
-          //   }
-          //   return 0; // dois iguais
-          // });
 
           buildLocationList(geojsonData);
           removeSpinner();
@@ -1004,10 +961,10 @@ filterResults.addEventListener('click', () => {
   modal.classList.toggle('hide-visually');
   modal.classList.toggle('z5');
   var x = document.querySelector("#filterResults>p");
-  if (x.innerHTML === "Mostrar Filtros") {
-    x.innerHTML = "Ocultar Filtros";
+  if (x.innerHTML === config.searchBarTxT.showFilters) {
+    x.innerHTML = config.searchBarTxT.hideFilters;
   } else {
-    x.innerHTML = "Mostrar Filtros";
+    x.innerHTML = config.searchBarTxT.showFilters;
   }
   
 });
@@ -1015,7 +972,7 @@ filterResults.addEventListener('click', () => {
 exitButton.addEventListener('click', () => {
   modal.classList.add('hide-visually');
   var x = document.querySelector("#filterResults>p");
-  x.innerHTML = "Mostrar Filtros";
+  x.innerHTML = config.searchBarTxT.showFilters;
 });
 
 
@@ -1148,82 +1105,3 @@ function markSearch(busca) {
     "separateWordSearch": false
   });
 }
-
-
-
-
-// filtroProdutos();
-//listando os produtos filtrados em um alerta
-
-// var filteredProductsGeojson = {
-  // type: 'FeatureCollection',
-  // features: [],
-// };
-
-// document.getElementById('produtos').addEventListener('change', (e) => {
-  // let data;
-  // if (filteredGeojson.features.length > 0) {
-    // data = filteredGeojson;
-  // } else {
-    // data = geojsonData;
-  // }
-  
-  // const value = e.target.value.trim().toLowerCase();
-  
-  // let dataCinthia = data;
-  // console.log(dataCinthia);
-  
-  // const produtosCinthia = dataCinthia.features.map(feature => [feature.properties.Produtos, feature.properties.Nome, feature.properties.id]);
-
-  // console.dir(produtosCinthia); 
-  
-   
-  
-  // let alerta = "Locais que possuem o texto '";
-  // alerta += value;
-  // alerta += "' dentro da lista de produtos: \n";
-  // for (let j = 0; j < produtosCinthia.length; j++) {
-    // var produtos2 = produtosCinthia[j][0];
-    // if (produtos2.includes(value))
-    // {
-      // console.log(produtos2);
-      // alerta += " - ";
-      // alerta += produtosCinthia[j][1];
-      // alerta += "\n";
-    // }
-    // else
-    // {
-      // delete produtosCinthia[j];
-    // }
-  // }
-  // if(value != "")
-  // {
-    // alert(alerta);
-  // }
-  
- 
-  
-  
-  // produtosCinthia.forEach((filter) => {
-    // dataCinthia.features.forEach((feature) => {      
-      // if (feature.properties.id == filter[2]) {
-        // if (
-          // filteredProductsGeojson.features.filter(
-            // (f) => f.properties.id === feature.properties.id,
-          // ).length === 0
-        // ) {
-          // filteredProductsGeojson.features.push(feature);
-        // }
-      // }
-    // });
-  // });
-  
-  // // map.getSource('locationData').setData(filteredProductsGeojson);
-  // // buildLocationList(filteredProductsGeojson);
-  
-  // console.log(filteredProductsGeojson);
-        
-
-    
-// });
-

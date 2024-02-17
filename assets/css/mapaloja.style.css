@@ -219,3 +219,13 @@ select:focus>option:checked {
     font-weight:bold;
     background: #2a4d3c !important;
 }
+
+.map-menu{
+    height: calc(calc(200vh / 3) - 121px) !important;
+}
+
+@media screen and (min-width: 640px) {
+    .map-menu{
+        height: calc(100vh - 121px) !important;
+    }
+  }

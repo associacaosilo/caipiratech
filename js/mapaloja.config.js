@@ -17,6 +17,22 @@ const config = {
     '',
   sideBarInfo: ['Nome', 'Produtos', 'Regiao', 'distance', 'Contato', 'whats'],
   popupInfo: ['Nome',],
+  popupTxt:{
+    linkTelegram: 'Compre pelo Telegram!',
+    linkWhatsapp: 'Compre pelo Whatsapp',
+    msgWhats: 'Te encontrei no CaipiratechLAB e eu tenho interesse em comprar de você',
+    inativo: 'INATIVO',
+    //msgWhatsFormated: 'Te%20encontrei%20no%20CaipiratechLAB%20e%20eu%20tenho%20interesse%20em%20comprar%20de%20voc%C3%AA',
+  },
+  searchBarTxT:{
+    notFound: 'Nenhum resultado encontrado.',
+    distance: 'Distância aprox.',
+    distanceLess20: ' menos de 20 metros',
+    geocoderPlaceholder: 'Busca por localização',
+    showFilters: "Mostrar Filtros", //igual está no layout lojaonline.html
+    hideFilters: "Ocultar Filtros", //igual está no layout lojaonline.html
+
+  },
   filters: [
     {
       type: 'dropdown',
