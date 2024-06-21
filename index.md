@@ -2,7 +2,7 @@
 layout: home
 title: "CaipiratechLAB"
 section1:
-  titulo1: <a href="/lojaonline">
+  titulo1: <a href="lojaonline">
           Conheça as
           <br>
           cozinhas comunitárias
