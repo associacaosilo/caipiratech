@@ -3,8 +3,8 @@ title: MapaCozinhas
 subtitle: 
 
 # URL
-url: https://mapa-cozinhas.github.io
-baseurl: ''
+url: https://institutoasw.github.io/mapa-cozinhas/
+baseurl: '/mapa-cozinhas/'
 permalink: :title/
 include: ['_pages']
 
@@ -14,7 +14,7 @@ include: ['_pages']
 #future: false
 
 # Plugins
-repository: institutoasw/mapa-cozinhas
+repository: institutoasw/mapa-cozinhas/
 #plugins:
   #- jekyll-feed
 
