@@ -1,9 +1,9 @@
 # Site
-title: CaipiratechLAB
+title: MapaCozinhas
 subtitle: 
 
 # URL
-url: https://caipiratechlab.silo.org.br
+url: https://mapa-cozinhas.github.io
 baseurl: ''
 permalink: :title/
 include: ['_pages']
@@ -14,7 +14,7 @@ include: ['_pages']
 #future: false
 
 # Plugins
-repository: associacaosilo/caipiratech
+repository: institutoasw/mapa-cozinhas
 #plugins:
   #- jekyll-feed
 
