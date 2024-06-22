@@ -2,9 +2,9 @@
 
 // eslint-disable-next-line no-unused-vars
 const config = {
-  style: 'mapbox://styles/saralgc/ckw22a9h70g4g14o4pum58wg3',
+  style: 'mapbox://styles/lucaslago/clxqgg73103bw01qjf4dyfucw',
   accessToken:
-    'pk.eyJ1Ijoic2FyYWxnYyIsImEiOiJja2NjbTAyczkwNXA3Mnlscm5nbjN5OHZiIn0.yNcJkPBSugRlIeGkXDRlZw',
+    'pk.eyJ1IjoibHVjYXNsYWdvIiwiYSI6ImNseHFmMW92eDBhbHcya29qZTdnY2NjOXEifQ.kubyan0dGC6Gpff6NrhS1g',
   CSV: '../mapaloja/TesteConsolidada.csv',
   center: [-50.6243406053739, -30.7589831083562],
   zoom: 6.5,
