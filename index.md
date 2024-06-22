@@ -1,6 +1,6 @@
 ---
 layout: home
-title: "CaipiratechLAB"
+title: "Mapa das cozinhas"
 section1:
   titulo1: <a href="lojaonline">
           Conheça as
