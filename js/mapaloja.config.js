@@ -5,9 +5,9 @@ const config = {
   style: 'mapbox://styles/saralgc/ckw22a9h70g4g14o4pum58wg3',
   accessToken:
     'pk.eyJ1Ijoic2FyYWxnYyIsImEiOiJja2NjbTAyczkwNXA3Mnlscm5nbjN5OHZiIn0.yNcJkPBSugRlIeGkXDRlZw',
-  CSV: '../mapa/TesteConsolidada.csv',
-  center: [-44.542976, -22.503782],
-  zoom: 7.5,
+  CSV: '../mapaloja/TesteConsolidada.csv',
+  center: [-50.6243406053739, -30.7589831083562],
+  zoom: 6.5,
   flyzoom: 7.5,
   geocoderzoom: 7.5,
   flyspeed: 1,
