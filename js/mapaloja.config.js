@@ -2,10 +2,11 @@
 
 // eslint-disable-next-line no-unused-vars
 const config = {
-  style: 'mapbox://styles/mapbox/streets-v12',
-  // style: 'mapbox://styles/lucaslago/clxqgg73103bw01qjf4dyfucw',
+  // style: 'mapbox://styles/mapbox/streets-v12',
+  style: 'mapbox://styles/lucaslago/clxqgg73103bw01qjf4dyfucw',
   accessToken:
-    'pk.eyJ1IjoibHVjYXNsYWdvIiwiYSI6ImNseHFmMW92eDBhbHcya29qZTdnY2NjOXEifQ.kubyan0dGC6Gpff6NrhS1g',
+    // 'pk.eyJ1IjoibHVjYXNsYWdvIiwiYSI6ImNseHFmMW92eDBhbHcya29qZTdnY2NjOXEifQ.kubyan0dGC6Gpff6NrhS1g',
+    'pk.eyJ1IjoibHVjYXNsYWdvIiwiYSI6ImNseHFqNnFnOTExbXIyaW9lbmg3MWh5MjEifQ.l_XtqDSjPt-9fN43MkqAbA',
   CSV: '../mapaloja/TesteConsolidada.csv',
   center: [-50.6243406053739, -30.7589831083562],
   zoom: 6.5,
