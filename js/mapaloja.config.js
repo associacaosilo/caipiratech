@@ -56,4 +56,5 @@ const config = {
     
   ],
   baseURL: '../',
+  habilitarTesteDeAtivos: false,
 };

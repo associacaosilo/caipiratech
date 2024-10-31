@@ -67,15 +67,15 @@ function loadCard(currentFeature) {
   if(currentFeature.properties.Imagem == ""){
     description = '<img src="../media/images/embreve.jpg" class="w-100">';
   }else{
-    if (ativoteste != "Sim"){
+    if (config.habilitarTesteDeAtivos && ativoteste != "Sim"){
       description = '<img src="../media/cards/thumbs/' + imagem + '.jpg" class="w-100 img-inativo">';
     }else{
       description = '<a rel="mobile" href="../media/cards/mobile/' + imagem + '.jpg" class="swipebox none-mm" title="'+currentFeature.properties[config.popupInfo]+'"><img src="../media/cards/thumbs/' + imagem + '.jpg" class="w-100" alt=""></a><a rel="desktop" href="../media/cards/' + imagem + '.jpg" class="swipebox none block-mm" title="'+currentFeature.properties[config.popupInfo]+'"><img src="../media/cards/thumbs/' + imagem + '.jpg" class="w-100" alt=""></a>';
     }  
-    
+
     //teste para exibir lista de produtos como texto abaixo da imagem
     // description = '<a href="'+config.baseURL+'/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a> <br /> Produtos:<br />' + e.features[0].properties.Produtos; 
-           
+
     //teste para exibir lista de produtos em formato de lista abaixo da imagem
     // description += '<br /> Produtos:<br /> <ul>';
     // var produtos = e.features[0].properties.Produtos;
@@ -114,7 +114,7 @@ function sellLinks(currentFeature){
   }
   
   //caso o estabelecimento esteja inativo, não exibe os links de contato e inclui um alerta de estabelecimento inativo no retorno
-  if (ativoteste != "Sim"){
+  if (config.habilitarTesteDeAtivos && ativoteste != "Sim"){
     retorno = '<p class="link-inativo"> <i class="fa fa-exclamation-circle" aria-hidden="true"></i> '+ config.popupTxt.inativo +'</p>';
   }
 
@@ -180,16 +180,15 @@ function buildLocationList(locationData) {
         {
           let links = sellLinks(location);
           div.innerHTML += '<strong>'+links+'</strong>';
-            
         } 
         else if(columnHeaders[i] == 'Contato')
         {
           let ativoteste = location.properties.AtivoTeste;
-          if (ativoteste == "Sim"){
+          if (ativoteste == "Sim" || !config.habilitarTesteDeAtivos){
             div.innerHTML += "<strong>" + columnHeaders[i] + ": </strong>";
             div.innerHTML += prop[columnHeaders[i]];
           }
-        }      
+        }
         else if(columnHeaders[i] == 'distance')
         {
           if(prop[columnHeaders[i]] != undefined){
@@ -262,10 +261,10 @@ function ativosAntes(locationGeojson){
   // // debug start
   // console.log("ativosAntes");
   // // debug end
-  locationGeojson.features.sort((a, b) => {            
-    if (a.properties.AtivoTeste === 'Sim' && b.properties.AtivoTeste !== 'Sim') {
+  locationGeojson.features.sort((a, b) => {
+    if (config.habilitarTesteDeAtivos && a.properties.AtivoTeste === 'Sim' && b.properties.AtivoTeste !== 'Sim') {
       return -1;
-    } else if (a.properties.AtivoTeste !== 'Sim' && b.properties.AtivoTeste === 'Sim') {
+    } else if (config.habilitarTesteDeAtivos && a.properties.AtivoTeste !== 'Sim' && b.properties.AtivoTeste === 'Sim') {
       return 1;
     } else {
       return 0; // dois iguais
@@ -282,10 +281,10 @@ function ativosAntes(locationGeojson){
 }
 
 function ativosDepois(locationGeojson){
-  locationGeojson.features.sort((a, b) => {            
-    if (a.properties.AtivoTeste !== 'Sim' && b.properties.AtivoTeste === 'Sim') {
+  locationGeojson.features.sort((a, b) => {
+    if (config.habilitarTesteDeAtivos && a.properties.AtivoTeste !== 'Sim' && b.properties.AtivoTeste === 'Sim') {
       return -1;
-    } else if (a.properties.AtivoTeste === 'Sim' && b.properties.AtivoTeste !== 'Sim') {
+    } else if (config.habilitarTesteDeAtivos && a.properties.AtivoTeste === 'Sim' && b.properties.AtivoTeste !== 'Sim') {
       return 1;
     } else {
       return 0; // dois iguais
@@ -910,19 +909,27 @@ map.on('load', () => {
             },
             'layout': {
               'visibility': 'visible',
-              'icon-image': ['match', ['get', 'AtivoTeste'], 'Sim', 'verde', 'vermelho'],
+              'icon-image': ['case',
+                ['==', config.habilitarTesteDeAtivos, false], 'verde',
+                ['==', ['get', 'AtivoTeste'], 'Sim'], 'verde',
+                'vermelho'
+              ],
               'icon-anchor': 'bottom',
               'icon-allow-overlap': true,
-              'symbol-sort-key': ['match', ['get', 'AtivoTeste'], 'Sim', 1, 0],
+              'symbol-sort-key': ['case',
+                ['==', config.habilitarTesteDeAtivos, false], 1,
+                ['==', ['get', 'AtivoTeste'], 'Sim'], 1,
+                0
+              ],
             },
-          });          
+          });
 
           map.on('click', 'locationData', (e) => {
             const features = map.queryRenderedFeatures(e.point, {
               layers: ['locationData'],
               limit: 1
             });
-            
+
             const clickedPoint = features[0].geometry.coordinates;
             flyToLocation(clickedPoint);
             sortByDistance(clickedPoint);
