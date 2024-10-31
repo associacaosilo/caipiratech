@@ -53,7 +53,6 @@ const config = {
       placeholder: 'Digite aqui',
       id: 'produtos',
     },
-    
   ],
   baseURL: '../',
   habilitarTesteDeAtivos: false,

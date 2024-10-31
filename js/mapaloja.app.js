@@ -52,18 +52,18 @@ function loadCard(currentFeature) {
   // }else{
   //   prefixo = "";
   // }
-  
+
   //link para as imagens antigas, que separava os cards em pastas por região
   //var sigla = currentFeature.properties.Sigla;
   //var prefixo = sigla + "/";
   //var linkImagem = prefixo +  imagem;
-  
+
   //Era utilizado para exibir cards inativos com uma classe de css diferente antes de impletemtar o swipebox
   //var classCardInativo = "";
   // if (ativoteste != "Sim"){
   //   classCardInativo = 'img-inativo';
   // }
-  
+
   if(currentFeature.properties.Imagem == ""){
     description = '<img src="../media/images/embreve.jpg" class="w-100">';
   }else{
@@ -71,10 +71,10 @@ function loadCard(currentFeature) {
       description = '<img src="../media/cards/thumbs/' + imagem + '.jpg" class="w-100 img-inativo">';
     }else{
       description = '<a rel="mobile" href="../media/cards/mobile/' + imagem + '.jpg" class="swipebox none-mm" title="'+currentFeature.properties[config.popupInfo]+'"><img src="../media/cards/thumbs/' + imagem + '.jpg" class="w-100" alt=""></a><a rel="desktop" href="../media/cards/' + imagem + '.jpg" class="swipebox none block-mm" title="'+currentFeature.properties[config.popupInfo]+'"><img src="../media/cards/thumbs/' + imagem + '.jpg" class="w-100" alt=""></a>';
-    }  
+    }
 
     //teste para exibir lista de produtos como texto abaixo da imagem
-    // description = '<a href="'+config.baseURL+'/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a> <br /> Produtos:<br />' + e.features[0].properties.Produtos; 
+    // description = '<a href="'+config.baseURL+'/redes/?img='+imagem+'.jpg"> <img src="../media/images/' + imagem + '.jpg" class="w-100"> </a> <br /> Produtos:<br />' + e.features[0].properties.Produtos;
 
     //teste para exibir lista de produtos em formato de lista abaixo da imagem
     // description += '<br /> Produtos:<br /> <ul>';
@@ -84,12 +84,12 @@ function loadCard(currentFeature) {
       // description += "<li>" + value + "</li>";
     // });
     // description += '</ul>';
-      
   }
+
   //Exibe Região como texto abaixo da imagem
-  description += 'Região:<br />' + regiao;    
-  
-  return description;  
+  description += 'Região:<br />' + regiao;
+
+  return description;
 }
 
 //Função que retorna os ícones e links de contato para o estabelecimento do parâmetro (currentFeature), pegando os textos padrões do arquivo mapaloja.config.js
@@ -103,8 +103,8 @@ function sellLinks(currentFeature){
   if (whatsapp != ""){
     retorno += '<a class="link-whats" href="https://wa.me/55' + whatsapp + '?text='+ encodeURIComponent(config.popupTxt.msgWhats)+'" target="_blank"> <i class="fa fa-whatsapp" aria-hidden="true"></i> '+ config.popupTxt.linkWhatsapp +'</a>'; //link padrão que abre o whatsapp no celular e em alguns navegadores
     retorno += '<a class="link-whats" href="https://api.whatsapp.com/send/?phone=55' + whatsapp + '&text='+ encodeURIComponent(config.popupTxt.msgWhats)+'&app_absent=1" target="_blank"> (Web)</a>'; //link que abre o whatsapp web em navegadores que não suportam o link padrão
-  }  
-  
+  }
+
   //caso o estabelecimento tenha telegram cadastrado no google sheets, inclui o ícone e link para o telegram no retorno
   if (telegram != ""){
     if (whatsapp != ""){
@@ -112,13 +112,13 @@ function sellLinks(currentFeature){
     }
     retorno += '<a class="link-telegram" href="https://t.me/' + telegram + '" target="_blank"> <i class="fa fa-telegram" aria-hidden="true"></i> '+ config.popupTxt.linkTelegram +'</a>';
   }
-  
+
   //caso o estabelecimento esteja inativo, não exibe os links de contato e inclui um alerta de estabelecimento inativo no retorno
   if (config.habilitarTesteDeAtivos && ativoteste != "Sim"){
     retorno = '<p class="link-inativo"> <i class="fa fa-exclamation-circle" aria-hidden="true"></i> '+ config.popupTxt.inativo +'</p>';
   }
 
-  return retorno;  
+  return retorno;
 }
 
 // Check if there is already a popup on the map and if so, remove it
@@ -132,7 +132,7 @@ function createPopup(currentFeature) {
   removePopups();
   let conteudoPopup = loadCard(currentFeature);
   let links = sellLinks(currentFeature);
-  
+
   // outros parâmetros possíveis para mapboxgl.Popup: ({anchor: 'top', padding: {top: 350, bottom: 70, left: 120, right: 120}})
   // autoPan só funciona se não setar o 'anchor'.
   // no offset, o primeiro valor é para o eixo x e o segundo para o eixo y. Positivo para direita e para baixo, negativo para esquerda e para cima.
@@ -145,7 +145,6 @@ function createPopup(currentFeature) {
 
 // Add a new listing section to the sidebar.
 function buildLocationList(locationData) {
-  
   const listings = document.getElementById('listings');
   listings.innerHTML = '';
 
@@ -176,50 +175,43 @@ function buildLocationList(locationData) {
 
       for (let i = 1; i < columnHeaders.length; i++) {
         const div = document.createElement('div');
-        if(columnHeaders[i] == 'whats')
-        {
+        if(columnHeaders[i] == 'whats') {
           let links = sellLinks(location);
           div.innerHTML += '<strong>'+links+'</strong>';
-        } 
-        else if(columnHeaders[i] == 'Contato')
-        {
+        } else if(columnHeaders[i] == 'Contato') {
           let ativoteste = location.properties.AtivoTeste;
           if (ativoteste == "Sim" || !config.habilitarTesteDeAtivos){
             div.innerHTML += "<strong>" + columnHeaders[i] + ": </strong>";
             div.innerHTML += prop[columnHeaders[i]];
           }
-        }
-        else if(columnHeaders[i] == 'distance')
-        {
-          if(prop[columnHeaders[i]] != undefined){
+        } else if(columnHeaders[i] == 'distance') {
+          if(prop[columnHeaders[i]] != undefined) {
             div.innerHTML += "<strong>"+config.searchBarTxT.distance+": </strong>";
-            if(prop[columnHeaders[i]] < 20)
-            {
+            if(prop[columnHeaders[i]] < 20) {
               div.innerHTML += config.searchBarTxT.distanceLess20;
-            }else if(prop[columnHeaders[i]] < 1000)
-            {
+            } else if(prop[columnHeaders[i]] < 1000) {
               div.innerHTML += prop[columnHeaders[i]].toFixed(2);
               div.innerHTML += " m";
-            }else{
+            } else {
               div.innerHTML += ((prop[columnHeaders[i]])/1000).toFixed(2);
               div.innerHTML += " km";
             }
           }
-        }else {
+        } else {
           div.innerHTML += "<strong>" + columnHeaders[i] + ": </strong>";
           div.innerHTML += prop[columnHeaders[i]];
         }
         div.className;
-        details.appendChild(div);        
+        details.appendChild(div);
       }
 
-      link.addEventListener('click', function () {
+      link.addEventListener('click', function() {
         const clickedListing = location.geometry.coordinates;
         flyToLocation(clickedListing);
         createPopup(location);
         sortByDistance(clickedListing);
         // const geocoderInput = document.getElementsByClassName('mapboxgl-ctrl-geocoder--input');
-        // geocoderInput[0].value = ''; 
+        // geocoderInput[0].value = '';
         // geocoder._clear();
         geocoder.clear();
         document.getElementsByClassName('mapboxgl-ctrl-geocoder--input')[0].blur();
@@ -247,14 +239,14 @@ function buildLocationList(locationData) {
           }
         }
       });
-    });    
-      
+    });
+
     var value = document.getElementById('produtos').value;
     if(value != "")
     {
       markSearch(value);
     }
-  }  
+  }
 }
 
 function ativosAntes(locationGeojson){
@@ -289,7 +281,7 @@ function ativosDepois(locationGeojson){
     } else {
       return 0; // dois iguais
     }
-  });  
+  });
 }
 
 //função que garante que os ícones ativos sejam renderizados por último no mapa e em primeiro na lista
@@ -298,7 +290,7 @@ function atualizaMapaLista(locationGeojson){
   // console.log("atualizaMapaLista inicio");
   // console.log(locationGeojson);
   // // debug end
-  ativosDepois(locationGeojson);    
+  ativosDepois(locationGeojson);
   map.getSource('locationData').setData(locationGeojson);
 
   ativosAntes(locationGeojson);
@@ -312,28 +304,25 @@ function filtroProdutos(){
   type: 'FeatureCollection',
   features: [],
   };
-  
-  
+
   var value = document.getElementById('produtos').value.trim().toLowerCase();
   value = cleanString(value);
-  
-  
-  if(value.length){    
-    
+
+  if(value.length) {
     let data;
     if (filteredGeojson.features.length > 0) {
       data = filteredGeojson;
     } else {
       data = geojsonData;
     }
-       
+
     const produtosArray = data.features.map(feature => [feature.properties.Produtos, feature.properties.Nome, feature.properties.id]); //array apenas com a 'lista de produtos', 'Nome' e 'id' dos estabelecimentos que já estão aparecendo no mapa.
 
     // // debug start
     // console.log(produtosArray);
     // // debug end
-    
-    // Lógica inicial para exibir um alerta com a lista de estabelecimentos que possuem o produto filtrado 
+
+    // Lógica inicial para exibir um alerta com a lista de estabelecimentos que possuem o produto filtrado
     // Alerta com lista de locais que possuem o produto filtrado
     // let alerta = "Locais que possuem o texto '";
     // alerta += value;
@@ -342,7 +331,7 @@ function filtroProdutos(){
       // //var produtosIndividual = produtosArray[j][0];
       // var produtosIndividual = produtosArray[j][0].trim().toLowerCase();
       // produtosIndividual = cleanString(produtosIndividual);
-      
+
       // if (produtosIndividual.includes(value))
       // {
         // console.log(produtosIndividual);
@@ -359,23 +348,22 @@ function filtroProdutos(){
     // {
       // alert(alerta);
     // }
-    
+
     for (let j = 0; j < produtosArray.length; j++) {
       var produtosIndividual = produtosArray[j][0].trim().toLowerCase();
       produtosIndividual = cleanString(produtosIndividual);
-      
-      if (!produtosIndividual.includes(value))
-      {
+
+      if (!produtosIndividual.includes(value)) {
         delete produtosArray[j];
-      }      
+      }
     }
     // // debug start
     // console.dir(produtosArray); //array já filtrado pelos produtos, apenas com a 'lista de produtos', 'Nome' e 'id' dos estabelecimentos que já estão aparecendo no mapa.
     // // debug end
-   
+
     //TO DO: melhorar este filtro abaixo, talvez usando map em vez de forEach
     produtosArray.forEach((filter) => {
-      data.features.forEach((feature) => {      
+      data.features.forEach((feature) => {
         if (feature.properties.id == filter[2]) {
           if (
             filteredProductsGeojson.features.filter(
@@ -391,8 +379,8 @@ function filtroProdutos(){
     filteredGeojson.features = [];
     filteredGeojson.features = filteredProductsGeojson.features;
 
-    atualizaMapaLista(filteredGeojson);      
-  }  
+    atualizaMapaLista(filteredGeojson);
+  }
 }
 
 
@@ -518,7 +506,7 @@ function buildTextInput(title, placeholder, id) {
     'px3',
     'flex-parent--space-between-main',
   );
-  
+
   filterTitle.innerText = title;
   mainDiv.classList.add('pb6');
   mainDiv.appendChild(filterTitle);
@@ -581,7 +569,7 @@ function applyFilters() {
     // if (popups[0]) popups[0].remove();
 
     removePopups();
-    
+
     const filterOptionHTML = this.getElementsByClassName('filter-option');
     const filterOption = [].slice.call(filterOptionHTML);
 
@@ -693,7 +681,7 @@ function applyFilters() {
 
     atualizaMapaLista(filteredGeojson);
 
-    filtroProdutos();    
+    filtroProdutos();
   });
 }
 
@@ -736,7 +724,7 @@ function removeFilters() {
   selectOption.forEach((option) => {
     option.selectedIndex = 0;
   });
-  
+
   var inputProdutos = document.getElementById('produtos');
   inputProdutos.value = '';
   // // debug start
@@ -840,7 +828,7 @@ map.on('load', () => {
   map.addControl(navCtrl, 'top-left');
 
   // csv2geojson - following the Sheet Mapper tutorial https://www.mapbox.com/impact-tools/sheet-mapper
-  
+
   // // debug start
   // console.log('loaded');
   // // debug end
@@ -877,7 +865,6 @@ map.on('load', () => {
         });
 
         geojsonData = data;
-        
 
         // Load the images in parallel
         Promise.all([
@@ -946,7 +933,7 @@ map.on('load', () => {
           map.on('mouseleave', 'locationData', () => {
             map.getCanvas().style.cursor = '';
           });
-          
+
           ativosAntes(geojsonData);
 
           buildLocationList(geojsonData);
@@ -973,7 +960,6 @@ filterResults.addEventListener('click', () => {
   } else {
     x.innerHTML = config.searchBarTxT.showFilters;
   }
-  
 });
 
 exitButton.addEventListener('click', () => {
@@ -1089,22 +1075,19 @@ function createDiacriticsMap(){
   ];
 
   var diacriticsMap = {};
-  for (var i=0; i < defaultDiacriticsRemovalMap .length; i++){
+  for (var i=0; i < defaultDiacriticsRemovalMap .length; i++) {
     var letters = defaultDiacriticsRemovalMap [i].letters;
     for (var j=0; j < letters.length ; j++){
       diacriticsMap[letters[j]] = defaultDiacriticsRemovalMap [i].base;
     }
   }
-  
   return diacriticsMap;
-  
 }
 
 function cleanString(str) {
-  
-  return str.replace(/[^\u0000-\u007E]/g, function(a){ 
-           return diacriticsMap[a] || a; 
-        });
+  return str.replace(/[^\u0000-\u007E]/g, function (a) {
+    return diacriticsMap[a] || a;
+  });
 }
 
 function markSearch(busca) {
