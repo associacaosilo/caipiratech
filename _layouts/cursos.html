@@ -70,10 +70,15 @@
                 
                 <!-- Em vez de usar o link direto como estava antes, passamos a usar este modelo: https://archive.org/download/caipiratechlab-modulo-1/m1a1.mp3 -->
                   
-                <audio controls>
-                <!-- <source src="https://ia801401.us.archive.org/8/items/{{ aula.player }}.mp3" type="audio/mpeg"> -->
-                <source src="https://archive.org/download/{{ aula.player }}.mp3" type="audio/mpeg">
-                </audio>
+                {% if aula.youtube %}
+                  <p><a href="{{ aula.youtube }}" target="_blank">Assistir no YouTube</a></p>
+                {% endif %}
+                {% if aula.player %}
+                  <audio controls>
+                    <!-- <source src="https://ia801401.us.archive.org/8/items/{{ aula.player }}.mp3" type="audio/mpeg"> -->
+                    <source src="https://archive.org/download/{{ aula.player }}.mp3" type="audio/mpeg">
+                  </audio>
+                {% endif %}
                 {% if aula.arquivos or aula.links%}
                   <ul>
                     <p> MATERIAL COMPLEMENTAR:</p>
