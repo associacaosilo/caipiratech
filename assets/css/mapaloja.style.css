@@ -84,7 +84,7 @@ button.mapboxgl-ctrl-geocoder--button {
     width: 100%;
     color: #386650;
     font-weight: 800;
-    margin-top: 5px;
+    padding-top: 12px;
     text-decoration: none;
 }
 
@@ -116,6 +116,10 @@ button.mapboxgl-ctrl-geocoder--button {
     height: 0;
     clear: both;
     visibility: hidden;
+}
+
+.content {
+    padding-bottom: 12px;
 }
 
 .mapboxgl-popup-content {
