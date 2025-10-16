@@ -147,6 +147,7 @@ function createPopup(currentFeature) {
 function buildLocationList(locationData) {
   const listings = document.getElementById('listings');
   listings.innerHTML = '';
+  ordenarAlfabeticamente(locationData);
 
   // se não houver resultados, exibe a mensagem informando que nenhum resultado foi encontrado. A mensagem está no arquivo mapaloja.config.js
   if(locationData.features.length == 0){
@@ -281,6 +282,13 @@ function ativosDepois(locationGeojson){
     } else {
       return 0; // dois iguais
     }
+  });
+}
+
+function ordenarAlfabeticamente(locationGeojson){
+  locationGeojson.features.sort((a, b) => {
+    return a.properties.Nome.toLowerCase()
+      .localeCompare(b.properties.Nome.toLowerCase());
   });
 }
 
